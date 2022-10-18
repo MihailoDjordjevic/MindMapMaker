@@ -15,39 +15,25 @@ import javax.swing.*;
 @Setter
 @NoArgsConstructor
 public class MainFrame extends JFrame {
+
     private static MainFrame instance = null;
     private Menu menu;
     private ActionManager actionManager;
+
+    private JPanel mainPanel;
+    private JPanel workspacePanel;
+    private JScrollPane treeHolderScrollPane;
+    private JSplitPane treeWorkspaceSplitPane;
+
     private void initialise() {
-        JPanel jPanel = new JPanel();
-        actionManager = new ActionManager();
-        Toolkit kit = Toolkit.getDefaultToolkit();
-        Dimension screenSize = kit.getScreenSize();
-        int screenHeight = screenSize.height;
-        int screenWidth = screenSize.width;
 
-        setSize(screenWidth / 2, screenHeight / 2);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("GeRuMap");
+        initialiseFrameComponents();  //calls new for every component
 
-        jPanel.setLayout(new BorderLayout());
-        jPanel.add(new Menu(), BorderLayout.NORTH);
-        JScrollPane jScrollPane = new JScrollPane(new JTree());
-        jScrollPane.setAutoscrolls(true);
-        jPanel.add(jScrollPane, BorderLayout.WEST);
-        JPanel leftPanel = new JPanel();
-        JPanel rightPanel = new JPanel();
+        initialiseMainFrameProperties();
 
-        Dimension minimumSize = new Dimension(100, 50);
-        leftPanel.setMinimumSize(minimumSize);
-        leftPanel.setPreferredSize(new Dimension(400, 400));
-        rightPanel.setMinimumSize(minimumSize);
-        rightPanel.setPreferredSize(new Dimension(400, 400));
-        JSplitPane jSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, rightPanel);
-        jSplitPane.setOneTouchExpandable(true);
-        jPanel.add(jSplitPane, BorderLayout.EAST);
+        initialiseComponentsProperties();
 
-        add(jPanel);
+        addComponentsToMainFrame();
 
     }
     public static MainFrame getInstance() {
@@ -56,5 +42,45 @@ public class MainFrame extends JFrame {
             instance.initialise();
         }
         return instance;
+    }
+
+    private void initialiseFrameComponents(){
+        mainPanel = new JPanel();
+        actionManager = new ActionManager();
+        menu = new Menu();
+        treeHolderScrollPane = new JScrollPane(new JTree());
+        workspacePanel = new JPanel();
+        treeWorkspaceSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treeHolderScrollPane, workspacePanel);
+    }
+
+    private void addComponentsToMainFrame(){
+        setJMenuBar(menu);
+        mainPanel.add(treeWorkspaceSplitPane, BorderLayout.CENTER);
+        add(mainPanel);
+    }
+
+    private void initialiseMainFrameProperties(){
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = kit.getScreenSize();
+        int screenHeight = screenSize.height;
+        int screenWidth = screenSize.width;
+
+        setSize(screenWidth / 2, screenHeight / 2);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("GeRuMap");
+    }
+
+    private void initialiseComponentsProperties(){
+        mainPanel.setLayout(new BorderLayout());
+
+        treeHolderScrollPane.setAutoscrolls(true);
+
+        Dimension minimumSize = new Dimension(100, 50);
+        treeHolderScrollPane.setPreferredSize(new Dimension(400, 400));
+        workspacePanel.setMinimumSize(minimumSize);
+        workspacePanel.setPreferredSize(new Dimension(400, 400));
+
+        treeWorkspaceSplitPane.setOneTouchExpandable(true);
+        treeWorkspaceSplitPane.setDividerLocation(100);
     }
 }

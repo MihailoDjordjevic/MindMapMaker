@@ -2,7 +2,6 @@ package rs.raf.gerumap.gui.general;
 
 public class AppCore {
     private static AppCore instance;
-    private MainFrame mainFrame;
     private SwingGui swingGui;
     public AppCore(){
 
@@ -14,8 +13,7 @@ public class AppCore {
         return instance;
     }
     public void startApp(){
-        mainFrame = new MainFrame();
-        SwingGui swingGui = new SwingGui();
+        swingGui = new SwingGui();
         swingGui.start(swingGui);
     }
 }
