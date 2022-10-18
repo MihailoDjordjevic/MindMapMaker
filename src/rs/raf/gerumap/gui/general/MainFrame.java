@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.controller.ActionManager;
 import rs.raf.gerumap.gui.menu.Menu;
+import rs.raf.gerumap.gui.toolbar.Toolbar;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -18,6 +19,7 @@ public class MainFrame extends JFrame {
 
     private static MainFrame instance = null;
     private Menu menu;
+    private Toolbar toolbar;
     private ActionManager actionManager;
 
     private JPanel mainPanel;
@@ -48,6 +50,7 @@ public class MainFrame extends JFrame {
         mainPanel = new JPanel();
         actionManager = new ActionManager();
         menu = new Menu();
+        toolbar = new Toolbar();
         treeHolderScrollPane = new JScrollPane(new JTree());
         workspacePanel = new JPanel();
         treeWorkspaceSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treeHolderScrollPane, workspacePanel);
@@ -56,6 +59,7 @@ public class MainFrame extends JFrame {
     private void addComponentsToMainFrame(){
         setJMenuBar(menu);
         mainPanel.add(treeWorkspaceSplitPane, BorderLayout.CENTER);
+        mainPanel.add(toolbar, BorderLayout.NORTH);
         add(mainPanel);
     }
 
