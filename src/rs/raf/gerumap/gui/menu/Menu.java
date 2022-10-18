@@ -22,6 +22,5 @@ public class Menu extends JMenuBar {
 
         add(jMenuFile);
         add(jMenuHelp);
-        jMenuItemInfo.addActionListener(MainFrame.getInstance().getActionManager().getActionInfo());
     }
 }
