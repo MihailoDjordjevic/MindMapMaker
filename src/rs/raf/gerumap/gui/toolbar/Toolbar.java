@@ -20,6 +20,7 @@ public class Toolbar extends JToolBar {
     }
 
     private void initComponents(){
+        add(Box.createHorizontalStrut(3));
         add(MainFrame.getInstance().getActionManager().getActionNew());
     }
 }
