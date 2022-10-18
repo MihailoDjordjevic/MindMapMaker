@@ -29,7 +29,7 @@ public class ActionInfo implements ActionListener {
         JLabel jLabelImeContent = new JLabel("Lazar");
         JLabel jLabelPrezimeContent = new JLabel("Bojanic");
         JLabel jLabelIndeksContent = new JLabel("116/21/RN:");
-        JLabel jLabelSlikaContent = new JLabel(new ImageIcon(new ImageIcon("D:\\JavaProjects\\gerumap-tim_lazarbojanic_mihailodordevic\\src\\rs\\raf\\gerumap\\assets\\linus.jpg").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+        JLabel jLabelSlikaContent = new JLabel(new ImageIcon(new ImageIcon("src/rs/raf/gerumap/assets/linus.jpg").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
 
         jPanel.add(jLabelIme); jPanel.add(jLabelImeContent);
         jPanel.add(jLabelPrezime); jPanel.add(jLabelPrezimeContent);
