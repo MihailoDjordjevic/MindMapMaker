@@ -11,11 +11,19 @@ import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class ActionInfo implements ActionListener {
+public class ActionInfo extends AbstractGeRuMapAction {
+    public ActionInfo() {
+        super("actionIcons/infoIcon.png");
+        putValue(NAME, "Info");
+        putValue(SHORT_DESCRIPTION, "Find info about developers");
+        putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_I, ActionEvent.CTRL_MASK));
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         BasicDialog jDialog = new BasicDialog(MainFrame.getInstance(), "Info", true, 375, 295);
