@@ -1,11 +1,11 @@
-package rs.raf.gerumap.gui.general;
+package rs.raf.gerumap.gui.swing;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.controller.ActionManager;
-import rs.raf.gerumap.gui.menu.Menu;
-import rs.raf.gerumap.gui.toolbar.Toolbar;
+import rs.raf.gerumap.gui.swing.menu.Menu;
+import rs.raf.gerumap.gui.swing.toolbar.Toolbar;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

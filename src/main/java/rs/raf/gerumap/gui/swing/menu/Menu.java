@@ -1,8 +1,6 @@
-package rs.raf.gerumap.gui.menu;
+package rs.raf.gerumap.gui.swing.menu;
 
-import rs.raf.gerumap.controller.ActionInfo;
-import rs.raf.gerumap.controller.ActionNew;
-import rs.raf.gerumap.gui.general.MainFrame;
+import rs.raf.gerumap.gui.swing.MainFrame;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;

@@ -1,4 +1,4 @@
-package rs.raf.gerumap.gui.dialog;
+package rs.raf.gerumap.gui.swing.dialog;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,14 +1,17 @@
 package rs.raf.gerumap.controller;
 
-import rs.raf.gerumap.gui.dialog.BasicDialog;
-import rs.raf.gerumap.gui.general.MainFrame;
+import rs.raf.gerumap.gui.swing.dialog.BasicDialog;
+import rs.raf.gerumap.gui.swing.MainFrame;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class ActionInfo extends AbstractGeRuMapAction {
     public ActionInfo() {
@@ -22,12 +25,17 @@ public class ActionInfo extends AbstractGeRuMapAction {
     public void actionPerformed(ActionEvent e) {
         BasicDialog jDialog = new BasicDialog(MainFrame.getInstance(), "Info", true, 375, 295);
 
-        addDeveloperInfo(jDialog);
+        try {
+            addDeveloperInfo(jDialog);
+        }
+        catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
 
         jDialog.setVisible(true);
     }
 
-    private void addDeveloperInfo(BasicDialog jDialog){
+    private void addDeveloperInfo(BasicDialog jDialog) throws IOException {
 
         JPanel infoPanel = new JPanel();
         //infoPanel.setLayout(new GridLayout(4, 2, 2, 1));
@@ -46,10 +54,11 @@ public class ActionInfo extends AbstractGeRuMapAction {
         JLabel jLabelPrezime2 = new JLabel("Prezime: Djordjevic");
         JLabel jLabelIndeks2 = new JLabel("Indeks: 30/20/RN");
         JLabel jLabelSlika2 = new JLabel("Slika:");
-
-        JLabel jLabelSlikaContent = new JLabel(new ImageIcon(new ImageIcon("src/main/java/rs/raf/gerumap/assets/dev1.jpg").getImage().getScaledInstance(180, 180, Image.SCALE_DEFAULT)));
+        BufferedImage dev1Img = ImageIO.read(this.getClass().getResource("dev1.png"));
+        BufferedImage dev2Img = ImageIO.read(this.getClass().getResource("dev2.png"));
+        JLabel jLabelSlikaContent = new JLabel(new ImageIcon(new ImageIcon(dev1Img).getImage().getScaledInstance(180, 180, Image.SCALE_DEFAULT)));
         jLabelSlikaContent.setBorder(new LineBorder(Color.BLACK, 1));
-        JLabel jLabelSlikaContent2 = new JLabel(new ImageIcon(new ImageIcon("src/main/java/rs/raf/gerumap/assets/dev2.png").getImage().getScaledInstance(-1, 180, Image.SCALE_DEFAULT)));
+        JLabel jLabelSlikaContent2 = new JLabel(new ImageIcon(new ImageIcon(dev2Img).getImage().getScaledInstance(-1, 180, Image.SCALE_DEFAULT)));
         jLabelSlikaContent2.setBorder(new LineBorder(Color.BLACK, 1));
 
         infoPanel.add(jLabelIme); infoPanel2.add(jLabelIme2);
