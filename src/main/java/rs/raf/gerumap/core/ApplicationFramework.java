@@ -3,6 +3,7 @@ package rs.raf.gerumap.core;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import rs.raf.gerumap.view.gui.Gui;
 
 @Setter
 @Getter
@@ -10,14 +11,14 @@ import lombok.Setter;
 public class ApplicationFramework {
     private static ApplicationFramework instance;
     protected Gui gui;
-    protected IGeRuMapRepository iGeRuMapRepository;
+    protected IMapRepository iMapRepository;
 
     public void run(){
         this.gui.start();
     }
-    public void initialise(Gui gui, IGeRuMapRepository mapRepository) {
+    public void initialise(Gui gui, IMapRepository mapRepository) {
         this.gui = gui;
-        this.iGeRuMapRepository = mapRepository;
+        this.iMapRepository = mapRepository;
     }
     public static ApplicationFramework getInstance(){
         if(instance==null){

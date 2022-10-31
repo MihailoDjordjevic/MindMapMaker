@@ -1,4 +1,4 @@
-package rs.raf.gerumap.model.geRuMapRepository.composite;
+package rs.raf.gerumap.model.repository.composite;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,14 +9,14 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class GeRuMapNode {
+public abstract class MapNode {
     private String name;
-    private GeRuMapNode parent;
+    private MapNode parent;
 
     @Override
     public boolean equals(final Object obj) {
-        if (obj != null && obj instanceof GeRuMapNode) {
-            GeRuMapNode otherObj = (GeRuMapNode) obj;
+        if (obj != null && obj instanceof MapNode) {
+            MapNode otherObj = (MapNode) obj;
             return this.getName().equals(otherObj.getName());
         }
         return false;

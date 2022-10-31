@@ -1,19 +1,15 @@
-package rs.raf.gerumap.gui.swing;
+package rs.raf.gerumap.view.gui;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import rs.raf.gerumap.core.Gui;
+import rs.raf.gerumap.view.frame.MainFrame;
 
 @Getter
 @Setter
 @NoArgsConstructor
 public class SwingGui implements Gui {
     private MainFrame instance;
-    public void start(SwingGui swingGui) {
-        MainFrame.getInstance().setVisible(true);
-    }
-
     @Override
     public void start() {
         instance = MainFrame.getInstance();

@@ -1,6 +1,6 @@
-package rs.raf.gerumap.gui.swing.toolbar;
+package rs.raf.gerumap.view.toolbar;
 
-import rs.raf.gerumap.gui.swing.MainFrame;
+import rs.raf.gerumap.view.frame.MainFrame;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;

@@ -1,7 +1,7 @@
 package rs.raf.gerumap.controller;
 
-import rs.raf.gerumap.gui.swing.dialog.BasicDialog;
-import rs.raf.gerumap.gui.swing.MainFrame;
+import rs.raf.gerumap.view.frame.BasicDialog;
+import rs.raf.gerumap.view.frame.MainFrame;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -13,7 +13,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class ActionInfo extends AbstractGeRuMapAction {
+public class ActionInfo extends AbstractMapAction {
     public ActionInfo() {
         super("infoIcon.png");
         putValue(NAME, "Info");

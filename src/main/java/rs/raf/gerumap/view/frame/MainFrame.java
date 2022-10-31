@@ -1,11 +1,15 @@
-package rs.raf.gerumap.gui.swing;
+package rs.raf.gerumap.view.frame;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.controller.ActionManager;
-import rs.raf.gerumap.gui.swing.menu.Menu;
-import rs.raf.gerumap.gui.swing.toolbar.Toolbar;
+import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
+import rs.raf.gerumap.tree.model.MapTreeItem;
+import rs.raf.gerumap.tree.model.MapTreeModel;
+import rs.raf.gerumap.tree.view.MapTreeView;
+import rs.raf.gerumap.view.menu.Menu;
+import rs.raf.gerumap.view.toolbar.Toolbar;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -51,7 +55,7 @@ public class MainFrame extends JFrame {
         actionManager = new ActionManager();
         menu = new Menu();
         toolbar = new Toolbar();
-        treeHolderScrollPane = new JScrollPane(new JTree());
+        treeHolderScrollPane = new JScrollPane(new MapTreeView(new MapTreeModel(new MapTreeItem(new ProjectExplorer("test")))));
         workspacePanel = new JPanel();
         treeWorkspaceSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treeHolderScrollPane, workspacePanel);
     }

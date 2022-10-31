@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class ActionNew extends AbstractGeRuMapAction {
+public class ActionNew extends AbstractMapAction {
 
     public ActionNew() {
         super("newIcon.png");
