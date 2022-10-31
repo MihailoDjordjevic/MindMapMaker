@@ -8,14 +8,14 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public abstract class GeRuMapComposite extends GeRuMapNode {
+public abstract class GeRuMapNodeComposite extends GeRuMapNode {
     private List<GeRuMapNode> children;
 
-    public GeRuMapComposite(final String name, final GeRuMapNode parent, final ArrayList<GeRuMapNode> children) {
+    public GeRuMapNodeComposite(final String name, final GeRuMapNode parent, final ArrayList<GeRuMapNode> children) {
         super(name, parent);
         this.children = children;
     }
-    public GeRuMapComposite(final String name, final GeRuMapNode parent) {
+    public GeRuMapNodeComposite(final String name, final GeRuMapNode parent) {
         super(name, parent);
         this.children = new ArrayList<>();
     }

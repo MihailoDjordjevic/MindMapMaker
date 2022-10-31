@@ -1,4 +1,4 @@
-package rs.raf.gerumap.main;
+package rs.raf.gerumap;
 
 import rs.raf.gerumap.gui.general.AppCore;
 public class Main {

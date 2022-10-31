@@ -3,22 +3,16 @@ package rs.raf.gerumap.controller;
 import rs.raf.gerumap.gui.dialog.BasicDialog;
 import rs.raf.gerumap.gui.general.MainFrame;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class ActionInfo extends AbstractGeRuMapAction {
     public ActionInfo() {
-        super("actionIcons/infoIcon.png");
+        super("infoIcon.png");
         putValue(NAME, "Info");
         putValue(SHORT_DESCRIPTION, "Find info about developers");
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_I, ActionEvent.CTRL_MASK));
@@ -53,9 +47,9 @@ public class ActionInfo extends AbstractGeRuMapAction {
         JLabel jLabelIndeks2 = new JLabel("Indeks: 30/20/RN");
         JLabel jLabelSlika2 = new JLabel("Slika:");
 
-        JLabel jLabelSlikaContent = new JLabel(new ImageIcon(new ImageIcon("src/rs/raf/gerumap/assets/dev1.jpg").getImage().getScaledInstance(180, 180, Image.SCALE_DEFAULT)));
+        JLabel jLabelSlikaContent = new JLabel(new ImageIcon(new ImageIcon("src/main/java/rs/raf/gerumap/assets/dev1.jpg").getImage().getScaledInstance(180, 180, Image.SCALE_DEFAULT)));
         jLabelSlikaContent.setBorder(new LineBorder(Color.BLACK, 1));
-        JLabel jLabelSlikaContent2 = new JLabel(new ImageIcon(new ImageIcon("src/rs/raf/gerumap/assets/dev2.png").getImage().getScaledInstance(-1, 180, Image.SCALE_DEFAULT)));
+        JLabel jLabelSlikaContent2 = new JLabel(new ImageIcon(new ImageIcon("src/main/java/rs/raf/gerumap/assets/dev2.png").getImage().getScaledInstance(-1, 180, Image.SCALE_DEFAULT)));
         jLabelSlikaContent2.setBorder(new LineBorder(Color.BLACK, 1));
 
         infoPanel.add(jLabelIme); infoPanel2.add(jLabelIme2);

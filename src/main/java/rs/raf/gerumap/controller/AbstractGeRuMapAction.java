@@ -1,16 +1,15 @@
 package rs.raf.gerumap.controller;
 
+import com.sun.tools.javac.Main;
+
 import javax.swing.*;
 import java.net.URL;
 
 public abstract class AbstractGeRuMapAction extends AbstractAction {
-
-    public AbstractGeRuMapAction(String imgUrl) {
-        putValue(SMALL_ICON, loadIcon(imgUrl));
+    public AbstractGeRuMapAction(String fileName) {
+        putValue(SMALL_ICON, loadIcon(fileName));
     }
-
     public Icon loadIcon(String fileName){
-
         URL imageURL = getClass().getResource(fileName);
         Icon icon = null;
 
