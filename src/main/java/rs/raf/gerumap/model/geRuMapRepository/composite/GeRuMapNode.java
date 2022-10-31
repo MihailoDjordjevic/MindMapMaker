@@ -14,7 +14,7 @@ public abstract class GeRuMapNode {
     private GeRuMapNode parent;
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (obj != null && obj instanceof GeRuMapNode) {
             GeRuMapNode otherObj = (GeRuMapNode) obj;
             return this.getName().equals(otherObj.getName());

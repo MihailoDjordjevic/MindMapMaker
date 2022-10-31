@@ -17,12 +17,12 @@ public class Project extends GeRuMapComposite {
     private String author;
     private Path resourcesPath;
     @Override
-    public void addChild(GeRuMapNode child) {
+    public void addChild(final GeRuMapNode child) {
 
     }
 
     @Override
-    public void deleteChild(GeRuMapNode child) {
+    public void deleteChild(final GeRuMapNode child) {
 
     }
 

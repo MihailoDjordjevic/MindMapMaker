@@ -13,12 +13,12 @@ import rs.raf.gerumap.model.geRuMapRepository.composite.GeRuMapNode;
 public class GeRuMap extends GeRuMapComposite {
     private boolean isTemplate;
     @Override
-    public void addChild(GeRuMapNode child) {
+    public void addChild(final GeRuMapNode child) {
 
     }
 
     @Override
-    public void deleteChild(GeRuMapNode child) {
+    public void deleteChild(final GeRuMapNode child) {
 
     }
 }
