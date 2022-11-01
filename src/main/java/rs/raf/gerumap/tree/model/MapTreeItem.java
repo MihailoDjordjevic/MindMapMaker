@@ -1,6 +1,5 @@
 package rs.raf.gerumap.tree.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,16 +10,16 @@ import javax.swing.tree.DefaultMutableTreeNode;
 @Setter
 @NoArgsConstructor
 public class MapTreeItem extends DefaultMutableTreeNode {
-    private MapNode mapNode;
+    private MapNode model;
     public MapTreeItem(MapNode nodeModel){
-        this.mapNode = nodeModel;
+        this.model = nodeModel;
     }
     @Override
     public String toString() {
-        return mapNode.getName();
+        return model.getName();
     }
 
     public void setName(String name) {
-        this.mapNode.setName(name);
+        this.model.setName(name);
     }
 }
