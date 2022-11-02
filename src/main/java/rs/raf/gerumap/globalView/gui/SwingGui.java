@@ -9,10 +9,10 @@ import rs.raf.gerumap.globalView.frame.MainFrame;
 @Setter
 @NoArgsConstructor
 public class SwingGui implements Gui {
-    private MainFrame instance;
+    private MainFrame mainFrame;
     @Override
     public void start() {
-        instance = MainFrame.getInstance();
-        instance.setVisible(true);
+        mainFrame = MainFrame.getInstance();
+        mainFrame.setVisible(true);
     }
 }

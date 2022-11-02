@@ -1,5 +1,10 @@
 package rs.raf.gerumap.controller;
 
+import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.model.repository.implementation.Project;
+import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
+import rs.raf.gerumap.observer.NotificationType;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -15,6 +20,10 @@ public class ActionNewProject extends AbstractMapAction{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        ProjectExplorer projectExplorer = ApplicationFramework.getInstance().getIMapRepository().getProjectExplorer();
+        String name = "Project" + (projectExplorer.getChildren().size() + 1);
+        Project project = new Project(name, projectExplorer);
+        projectExplorer.addChild(project);
+        projectExplorer.notifySubscribers(project, NotificationType.ADD);
     }
 }

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.observer.IPublisher;
 import rs.raf.gerumap.observer.ISubscriber;
+import rs.raf.gerumap.observer.NotificationType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,8 @@ public abstract class MapNode implements IPublisher {
     }
 
     @Override
-    public void notifySubscribers(Object notification) {
-
+    public void notifySubscribers(Object notification, NotificationType notificationType) {
+        for (ISubscriber subscriber : subscribers)
+            subscriber.update(notification, notificationType);
     }
 }
