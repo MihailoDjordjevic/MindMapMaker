@@ -4,9 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.controller.ActionManager;
-import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
-import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
-import rs.raf.gerumap.tree.model.MapTreeModel;
+import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.model.repository.MapRepositoryImplementation;
 import rs.raf.gerumap.tree.view.MapTreeView;
 import rs.raf.gerumap.view.menu.Menu;
 import rs.raf.gerumap.view.toolbar.Toolbar;
@@ -29,7 +28,8 @@ public class MainFrame extends JFrame {
     private JPanel mainPanel;
     private JPanel workspacePanel;
     private JScrollPane treeHolderScrollPane;
-    private JSplitPane treeWorkspaceSplitPane;
+    private MapTreeView mapTreeView;
+    private JSplitPane treeAndWorkspaceSplitPane;
 
     private void initialise() {
 
@@ -55,15 +55,15 @@ public class MainFrame extends JFrame {
         actionManager = new ActionManager();
         menu = new Menu();
         toolbar = new Toolbar();
-     //   treeHolderScrollPane = new JScrollPane(new MapTreeView(new MapTreeModel(new MapTreeItem(new ProjectExplorer("test")))));
-        treeHolderScrollPane = new JScrollPane();
+        mapTreeView = ((MapRepositoryImplementation) ApplicationFramework.getInstance().getIMapRepository()).takeGeneratedTree();
+        treeHolderScrollPane = new JScrollPane(mapTreeView);
         workspacePanel = new JPanel();
-        treeWorkspaceSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treeHolderScrollPane, workspacePanel);
+        treeAndWorkspaceSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treeHolderScrollPane, workspacePanel);
     }
 
     private void addComponentsToMainFrame(){
         setJMenuBar(menu);
-        mainPanel.add(treeWorkspaceSplitPane, BorderLayout.CENTER);
+        mainPanel.add(treeAndWorkspaceSplitPane, BorderLayout.CENTER);
         mainPanel.add(toolbar, BorderLayout.NORTH);
         add(mainPanel);
     }
@@ -89,7 +89,7 @@ public class MainFrame extends JFrame {
         workspacePanel.setMinimumSize(minimumSize);
         workspacePanel.setPreferredSize(new Dimension(400, 400));
 
-        treeWorkspaceSplitPane.setOneTouchExpandable(true);
-        treeWorkspaceSplitPane.setDividerLocation(100);
+        treeAndWorkspaceSplitPane.setOneTouchExpandable(true);
+        treeAndWorkspaceSplitPane.setDividerLocation(120);
     }
 }
