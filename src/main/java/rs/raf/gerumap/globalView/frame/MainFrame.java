@@ -1,15 +1,19 @@
-package rs.raf.gerumap.view.frame;
+package rs.raf.gerumap.globalView.frame;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.controller.ActionManager;
-import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
-import rs.raf.gerumap.tree.model.MapTreeItem;
-import rs.raf.gerumap.tree.model.MapTreeModel;
+import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.model.repository.MapRepositoryImplementation;
+import rs.raf.gerumap.model.repository.implementation.MindMap;
+import rs.raf.gerumap.model.repository.implementation.Project;
+import rs.raf.gerumap.tree.model.MindMapTreeItem;
+import rs.raf.gerumap.tree.model.ProjectExplorerTreeItem;
+import rs.raf.gerumap.tree.model.ProjectTreeItem;
 import rs.raf.gerumap.tree.view.MapTreeView;
-import rs.raf.gerumap.view.menu.Menu;
-import rs.raf.gerumap.view.toolbar.Toolbar;
+import rs.raf.gerumap.globalView.menu.Menu;
+import rs.raf.gerumap.globalView.toolbar.Toolbar;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -29,7 +33,8 @@ public class MainFrame extends JFrame {
     private JPanel mainPanel;
     private JPanel workspacePanel;
     private JScrollPane treeHolderScrollPane;
-    private JSplitPane treeWorkspaceSplitPane;
+    private MapTreeView mapTreeView;
+    private JSplitPane treeAndWorkspaceSplitPane;
 
     private void initialise() {
 
@@ -55,14 +60,20 @@ public class MainFrame extends JFrame {
         actionManager = new ActionManager();
         menu = new Menu();
         toolbar = new Toolbar();
-        treeHolderScrollPane = new JScrollPane(new MapTreeView(new MapTreeModel(new MapTreeItem(new ProjectExplorer("test")))));
+        mapTreeView = ((MapRepositoryImplementation) ApplicationFramework.getInstance().getIMapRepository()).takeGeneratedTree();
+        //test lines to check if icons work
+        ProjectExplorerTreeItem projectExplorerTreeItem = ((ProjectExplorerTreeItem) mapTreeView.getModel().getRoot());
+        projectExplorerTreeItem.add(new ProjectTreeItem(new Project("P1", null, "Miki", null)));
+        ((ProjectTreeItem) projectExplorerTreeItem.getChildAt(0)).add(new MindMapTreeItem(new MindMap("Map1", null)));
+        //
+        treeHolderScrollPane = new JScrollPane(mapTreeView);
         workspacePanel = new JPanel();
-        treeWorkspaceSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treeHolderScrollPane, workspacePanel);
+        treeAndWorkspaceSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treeHolderScrollPane, workspacePanel);
     }
 
     private void addComponentsToMainFrame(){
         setJMenuBar(menu);
-        mainPanel.add(treeWorkspaceSplitPane, BorderLayout.CENTER);
+        mainPanel.add(treeAndWorkspaceSplitPane, BorderLayout.CENTER);
         mainPanel.add(toolbar, BorderLayout.NORTH);
         add(mainPanel);
     }
@@ -88,7 +99,7 @@ public class MainFrame extends JFrame {
         workspacePanel.setMinimumSize(minimumSize);
         workspacePanel.setPreferredSize(new Dimension(400, 400));
 
-        treeWorkspaceSplitPane.setOneTouchExpandable(true);
-        treeWorkspaceSplitPane.setDividerLocation(100);
+        treeAndWorkspaceSplitPane.setOneTouchExpandable(true);
+        treeAndWorkspaceSplitPane.setDividerLocation(120);
     }
 }

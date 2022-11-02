@@ -3,7 +3,7 @@ package rs.raf.gerumap.core;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import rs.raf.gerumap.view.gui.Gui;
+import rs.raf.gerumap.globalView.gui.Gui;
 
 @Setter
 @Getter

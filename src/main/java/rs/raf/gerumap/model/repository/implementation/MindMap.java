@@ -11,32 +11,28 @@ import rs.raf.gerumap.observer.ISubscriber;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class MindMap extends MapNodeComposite implements IPublisher {
+public class MindMap extends MapNodeComposite {
     private boolean isTemplate;
+
+    public MindMap(String name, MapNode parent) {
+        super(name, parent);
+    }
+
     @Override
     public void addChild(final MapNode child) {
-
+        if (child instanceof Element) {
+            getChildren().add(child);
+            //TO DO notify subscribers
+        }
     }
 
     @Override
     public void deleteChild(final MapNode child) {
-
+        if (child instanceof Element) {
+            getChildren().remove(child);
+            //TO DO notify subscribers
+        }
     }
 
-    @Override
-    public void addSubscriber(ISubscriber sub) {
-
-    }
-
-    @Override
-    public void removeSubscriber(ISubscriber sub) {
-
-    }
-
-    @Override
-    public void notifySubscribers(Object notification) {
-
-    }
 }

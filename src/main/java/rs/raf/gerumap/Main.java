@@ -1,9 +1,9 @@
 package rs.raf.gerumap;
 
 import rs.raf.gerumap.core.ApplicationFramework;
-import rs.raf.gerumap.view.gui.Gui;
+import rs.raf.gerumap.globalView.gui.Gui;
 import rs.raf.gerumap.core.IMapRepository;
-import rs.raf.gerumap.view.gui.SwingGui;
+import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.MapRepositoryImplementation;
 
 public class Main {

@@ -1,6 +1,6 @@
 package rs.raf.gerumap.tree.controller;
 
-import rs.raf.gerumap.tree.model.MapTreeItem;
+import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -11,7 +11,7 @@ public class MapTreeSelectionListener implements TreeSelectionListener {
     public void valueChanged(TreeSelectionEvent e) {
         TreePath path = e.getPath();
         MapTreeItem treeItemSelected = (MapTreeItem)path.getLastPathComponent();
-        System.out.println("Selected node: " + treeItemSelected.getMapNode().getName());
+        System.out.println("Selected node: " + treeItemSelected.getModel().getName());
         System.out.println("Path: " + e.getPath());
     }
 }

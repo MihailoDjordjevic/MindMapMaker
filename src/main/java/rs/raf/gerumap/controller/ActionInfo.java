@@ -1,7 +1,7 @@
 package rs.raf.gerumap.controller;
 
-import rs.raf.gerumap.view.frame.BasicDialog;
-import rs.raf.gerumap.view.frame.MainFrame;
+import rs.raf.gerumap.globalView.frame.BasicDialog;
+import rs.raf.gerumap.globalView.frame.MainFrame;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
