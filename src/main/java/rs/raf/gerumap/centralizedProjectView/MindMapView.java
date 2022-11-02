@@ -1,4 +1,4 @@
-package rs.raf.gerumap.centralizedView;
+package rs.raf.gerumap.centralizedProjectView;
 
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.observer.ISubscriber;

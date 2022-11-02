@@ -1,6 +1,7 @@
 package rs.raf.gerumap.model.repository.composite;
 
 import lombok.*;
+import rs.raf.gerumap.observer.IPublisher;
 
 import java.util.ArrayList;
 import java.util.List;

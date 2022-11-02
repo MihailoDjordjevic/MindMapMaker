@@ -1,6 +1,7 @@
 package rs.raf.gerumap.tree.view;
 
 import lombok.NoArgsConstructor;
+import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
@@ -21,7 +22,9 @@ public class MapTreeCellRenderer extends DefaultTreeCellRenderer {
             if (((MapTreeItem) value).getModel() instanceof ProjectExplorer) {
                 imageURL = getClass().getResource("projectExplorer.png");
             } else if (((MapTreeItem) value).getModel() instanceof Project) {
-                imageURL = getClass().getResource("/images/tproject.gif");
+                imageURL = getClass().getResource("newProject.png");
+            } else if (((MapTreeItem) value).getModel() instanceof MindMap) {
+                imageURL = getClass().getResource("/rs/raf/gerumap/controller/newMindMap.png");
             }
 
             Icon icon;

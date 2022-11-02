@@ -1,4 +1,4 @@
-package rs.raf.gerumap.view.frame;
+package rs.raf.gerumap.globalView.frame;
 
 import javax.swing.*;
 import java.awt.*;

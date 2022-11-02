@@ -13,7 +13,7 @@ import rs.raf.gerumap.observer.ISubscriber;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MindMap extends MapNodeComposite implements IPublisher {
+public class MindMap extends MapNodeComposite {
     private boolean isTemplate;
     @Override
     public void addChild(final MapNode child) {

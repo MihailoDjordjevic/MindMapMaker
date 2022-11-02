@@ -1,6 +1,6 @@
-package rs.raf.gerumap.view.menu;
+package rs.raf.gerumap.globalView.menu;
 
-import rs.raf.gerumap.view.frame.MainFrame;
+import rs.raf.gerumap.globalView.frame.MainFrame;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;

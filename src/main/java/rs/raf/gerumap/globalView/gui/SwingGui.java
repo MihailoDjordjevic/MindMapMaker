@@ -1,9 +1,9 @@
-package rs.raf.gerumap.view.gui;
+package rs.raf.gerumap.globalView.gui;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import rs.raf.gerumap.view.frame.MainFrame;
+import rs.raf.gerumap.globalView.frame.MainFrame;
 
 @Getter
 @Setter

@@ -14,7 +14,7 @@ import java.nio.file.Path;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Project extends MapNodeComposite implements IPublisher {
+public class Project extends MapNodeComposite {
     private String name;
     private String author;
     private Path resourcesPath;
