@@ -4,7 +4,8 @@ import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
-import rs.raf.gerumap.tree.model.MapTreeItem;
+import rs.raf.gerumap.tree.model.ProjectExplorerTreeItem;
+import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 import rs.raf.gerumap.tree.view.MapTreeView;
 
 import javax.swing.*;
@@ -17,8 +18,8 @@ public class MapTreeImplementation implements MapTree{
     private DefaultTreeModel defaultTreeModel;
     @Override
     public MapTreeView generateTree(ProjectExplorer projectExplorer) {
-        MapTreeItem root = new MapTreeItem(projectExplorer);
-        defaultTreeModel = new DefaultTreeModel(root);
+        ProjectExplorerTreeItem projectExplorerTreeItem = new ProjectExplorerTreeItem(projectExplorer);
+        defaultTreeModel = new DefaultTreeModel(projectExplorerTreeItem);
         mapTreeView = new MapTreeView(defaultTreeModel);
         return mapTreeView;
     }
@@ -29,7 +30,7 @@ public class MapTreeImplementation implements MapTree{
             return;
         }
         MapNode child = createChild(parent.getModel());
-        parent.add(new MapTreeItem(child));
+       // parent.add(new MapTreeItem(child));
         ((MapNodeComposite) parent.getModel()).addChild(child);
         mapTreeView.expandPath(mapTreeView.getSelectionPath());
         SwingUtilities.updateComponentTreeUI(mapTreeView);

@@ -3,7 +3,7 @@ package rs.raf.gerumap.tree.view;
 import lombok.NoArgsConstructor;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
-import rs.raf.gerumap.tree.model.MapTreeItem;
+import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeCellRenderer;

@@ -1,6 +1,6 @@
 package rs.raf.gerumap.tree.controller;
 
-import rs.raf.gerumap.tree.model.MapTreeItem;
+import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;

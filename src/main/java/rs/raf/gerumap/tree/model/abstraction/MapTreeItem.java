@@ -1,4 +1,4 @@
-package rs.raf.gerumap.tree.model;
+package rs.raf.gerumap.tree.model.abstraction;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 @Getter
 @Setter
 @NoArgsConstructor
-public class MapTreeItem extends DefaultMutableTreeNode {
+public abstract class MapTreeItem extends DefaultMutableTreeNode {
     private MapNode model;
     public MapTreeItem(MapNode nodeModel){
         this.model = nodeModel;
