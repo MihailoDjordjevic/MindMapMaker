@@ -8,17 +8,23 @@ import javax.swing.JMenuItem;
 
 public class Menu extends JMenuBar {
     public Menu() {
-        JMenu jMenuFile = new JMenu("File");
-        JMenu jMenuNew = new JMenu(MainFrame.getInstance().getActionManager().getActionNew());
-        JMenu jMenuHelp = new JMenu("Help");
-        JMenuItem jMenuItemInfo = new JMenuItem(MainFrame.getInstance().getActionManager().getActionInfo());
+        JMenu File = new JMenu("File");
 
-        jMenuFile.add(jMenuNew);
-        jMenuFile.addSeparator();
+        JMenu New = new JMenu(MainFrame.getInstance().getActionManager().getActionNew());
+        JMenuItem NewProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewProject());
+        JMenuItem NewMindMap = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewMindMap());
 
-        jMenuHelp.add(jMenuItemInfo);
+        JMenu Help = new JMenu("Help");
+        JMenuItem Info = new JMenuItem(MainFrame.getInstance().getActionManager().getActionInfo());
 
-        add(jMenuFile);
-        add(jMenuHelp);
+        File.add(New);
+        New.add(NewProject);
+        New.addSeparator();
+        New.add(NewMindMap);
+
+        Help.add(Info);
+
+        add(File);
+        add(Help);
     }
 }
