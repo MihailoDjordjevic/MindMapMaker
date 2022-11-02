@@ -2,29 +2,31 @@ package rs.raf.gerumap.globalView.menu;
 
 import rs.raf.gerumap.globalView.frame.MainFrame;
 
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 
 public class Menu extends JMenuBar {
     public Menu() {
-        JMenu File = new JMenu("File");
+        JMenu file = new JMenu("File");
+        file.setMnemonic('F');
 
-        JMenu New = new JMenu(MainFrame.getInstance().getActionManager().getActionNew());
-        JMenuItem NewProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewProject());
-        JMenuItem NewMindMap = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewMindMap());
+        JMenu newItem = new JMenu(MainFrame.getInstance().getActionManager().getActionNew());
+        newItem.setMnemonic('N');
+        JMenuItem newProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewProject());
+        JMenuItem newMindMap = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewMindMap());
 
-        JMenu Help = new JMenu("Help");
-        JMenuItem Info = new JMenuItem(MainFrame.getInstance().getActionManager().getActionInfo());
+        JMenu help = new JMenu("Help");
+        JMenuItem info = new JMenuItem(MainFrame.getInstance().getActionManager().getActionInfo());
 
-        File.add(New);
-        New.add(NewProject);
-        New.addSeparator();
-        New.add(NewMindMap);
+        file.add(newItem);
+        newItem.add(newProject);
+        newItem.addSeparator();
+        newItem.add(newMindMap);
 
-        Help.add(Info);
+        help.add(info);
 
-        add(File);
-        add(Help);
+        add(file);
+        add(help);
     }
 }

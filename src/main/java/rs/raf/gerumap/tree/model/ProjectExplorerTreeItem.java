@@ -9,11 +9,10 @@ import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
 import javax.swing.*;
 
-public class ProjectExplorerTreeItem extends MapTreeItem implements ISubscriber {
+public class ProjectExplorerTreeItem extends MapTreeItem {
 
     public ProjectExplorerTreeItem(MapNode nodeModel) {
         super(nodeModel);
-        nodeModel.addSubscriber(this);
     }
 
     @Override

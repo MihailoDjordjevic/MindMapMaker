@@ -24,6 +24,5 @@ public class ActionNewProject extends AbstractMapAction{
         String name = "Project" + (projectExplorer.getChildren().size() + 1);
         Project project = new Project(name, projectExplorer);
         projectExplorer.addChild(project);
-        projectExplorer.notifySubscribers(project, NotificationType.ADD);
     }
 }

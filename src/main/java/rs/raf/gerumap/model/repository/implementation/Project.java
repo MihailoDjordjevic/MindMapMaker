@@ -8,6 +8,7 @@ import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.observer.IPublisher;
 import rs.raf.gerumap.observer.ISubscriber;
+import rs.raf.gerumap.observer.NotificationType;
 
 import java.nio.file.Path;
 @Getter
@@ -28,7 +29,7 @@ public class Project extends MapNodeComposite {
     public void addChild(final MapNode child) {
         if (child instanceof MindMap) {
             getChildren().add(child);
-            //TO DO notify subscribers
+            notifySubscribers(child, NotificationType.ADD);
         }
     }
 

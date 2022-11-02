@@ -4,15 +4,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.model.repository.composite.MapNode;
+import rs.raf.gerumap.observer.ISubscriber;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 @Getter
 @Setter
 @NoArgsConstructor
-public abstract class MapTreeItem extends DefaultMutableTreeNode {
+public abstract class MapTreeItem extends DefaultMutableTreeNode implements ISubscriber {
     private MapNode model;
     public MapTreeItem(MapNode nodeModel){
         this.model = nodeModel;
+        nodeModel.addSubscriber(this);
     }
     @Override
     public String toString() {

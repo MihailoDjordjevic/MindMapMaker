@@ -7,6 +7,7 @@ import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.observer.IPublisher;
 import rs.raf.gerumap.observer.ISubscriber;
+import rs.raf.gerumap.observer.NotificationType;
 
 @Getter
 @Setter
@@ -19,7 +20,7 @@ public class ProjectExplorer extends MapNodeComposite {
     public void addChild(MapNode child) {
         if (child instanceof Project) {
             getChildren().add(child);
-            //TO DO notify subscribers
+            notifySubscribers(child, NotificationType.ADD);
         }
     }
 
