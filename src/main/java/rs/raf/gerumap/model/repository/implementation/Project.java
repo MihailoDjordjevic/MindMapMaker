@@ -12,36 +12,36 @@ import rs.raf.gerumap.observer.ISubscriber;
 import java.nio.file.Path;
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 public class Project extends MapNodeComposite {
-    private String name;
+
     private String author;
     private Path resourcesPath;
+
+    public Project(String name, MapNode parent, String author, Path resourcesPath) {
+        super(name, parent);
+        this.author = author;
+        this.resourcesPath = resourcesPath;
+    }
+
     @Override
     public void addChild(final MapNode child) {
-
+        if (child instanceof MindMap) {
+            getChildren().add(child);
+            //TO DO notify subscribers
+        }
     }
+
     @Override
     public void deleteChild(final MapNode child) {
-
+        if (child instanceof MindMap) {
+            getChildren().remove(child);
+            //TO DO notify subscribers
+        }
     }
+
     public Project(String name, MapNode parent){
         super(name, parent);
     }
 
-    @Override
-    public void addSubscriber(ISubscriber sub) {
-
-    }
-
-    @Override
-    public void removeSubscriber(ISubscriber sub) {
-
-    }
-
-    @Override
-    public void notifySubscribers(Object notification) {
-
-    }
 }

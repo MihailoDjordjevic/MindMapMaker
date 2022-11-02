@@ -10,34 +10,24 @@ import rs.raf.gerumap.observer.ISubscriber;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class ProjectExplorer extends MapNodeComposite {
-    private String name;
+
     public ProjectExplorer(String name){
-        this.name = name;
+        super(name, null);
     }
     @Override
     public void addChild(MapNode child) {
-
+        if (child instanceof Project) {
+            getChildren().add(child);
+            //TO DO notify subscribers
+        }
     }
 
     @Override
     public void deleteChild(MapNode child) {
-        
-    }
-
-    @Override
-    public void addSubscriber(ISubscriber sub) {
-
-    }
-
-    @Override
-    public void removeSubscriber(ISubscriber sub) {
-
-    }
-
-    @Override
-    public void notifySubscribers(Object notification) {
-
+        if (child instanceof Project) {
+            getChildren().remove(child);
+            //TO DO notify subscribers
+        }
     }
 }

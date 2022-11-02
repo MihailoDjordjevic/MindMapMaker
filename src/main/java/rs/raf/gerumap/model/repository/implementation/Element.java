@@ -4,18 +4,9 @@ import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.observer.ISubscriber;
 
 public class Element extends MapNode {
-    @Override
-    public void addSubscriber(ISubscriber sub) {
 
+    public Element(String name, MapNode parent) {
+        super(name, parent);
     }
 
-    @Override
-    public void removeSubscriber(ISubscriber sub) {
-
-    }
-
-    @Override
-    public void notifySubscribers(Object notification) {
-
-    }
 }
