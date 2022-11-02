@@ -4,12 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import rs.raf.gerumap.observer.IPublisher;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class MapNode {
+public abstract class MapNode implements IPublisher {
     private String name;
     private MapNode parent;
 
