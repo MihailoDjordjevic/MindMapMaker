@@ -8,6 +8,7 @@ import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.observer.IPublisher;
 import rs.raf.gerumap.observer.ISubscriber;
+import rs.raf.gerumap.observer.NotificationType;
 
 @Getter
 @Setter
@@ -31,7 +32,7 @@ public class MindMap extends MapNodeComposite {
     public void deleteChild(final MapNode child) {
         if (child instanceof Element) {
             getChildren().remove(child);
-            //TO DO notify subscribers
+            notifySubscribers(child, NotificationType.DELETE);
         }
     }
 

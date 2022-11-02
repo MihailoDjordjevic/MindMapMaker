@@ -11,10 +11,12 @@ public class ActionManager {
     private ActionInfo actionInfo;
     private ActionNewProject actionNewProject;
     private ActionNewMindMap actionNewMindMap;
+    private ActionDelete actionDelete;
     public ActionManager(){
         actionNew = new ActionNew();
         actionInfo = new ActionInfo();
         actionNewProject = new ActionNewProject();
         actionNewMindMap = new ActionNewMindMap();
+        actionDelete = new ActionDelete();
     }
 }

@@ -1,5 +1,6 @@
 package rs.raf.gerumap.globalView.toolbar;
 
+import rs.raf.gerumap.Main;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 
 import javax.swing.*;
@@ -22,5 +23,6 @@ public class Toolbar extends JToolBar {
     private void initComponents(){
         add(Box.createHorizontalStrut(3));
         add(MainFrame.getInstance().getActionManager().getActionNew());
+        add(MainFrame.getInstance().getActionManager().getActionDelete());
     }
 }

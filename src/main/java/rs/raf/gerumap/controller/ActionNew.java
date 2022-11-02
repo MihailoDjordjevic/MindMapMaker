@@ -11,6 +11,7 @@ public class ActionNew extends AbstractMapAction {
         putValue(NAME, "New");
         putValue(SHORT_DESCRIPTION, "Create new item");
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
+        putValue(MNEMONIC_KEY, (int) 'N');
     }
 
     @Override

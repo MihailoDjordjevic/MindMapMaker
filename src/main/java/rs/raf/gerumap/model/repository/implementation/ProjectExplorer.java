@@ -28,7 +28,7 @@ public class ProjectExplorer extends MapNodeComposite {
     public void deleteChild(MapNode child) {
         if (child instanceof Project) {
             getChildren().remove(child);
-            //TO DO notify subscribers
+            notifySubscribers(child, NotificationType.DELETE);
         }
     }
 }

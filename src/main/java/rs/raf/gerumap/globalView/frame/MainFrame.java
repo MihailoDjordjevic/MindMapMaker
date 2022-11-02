@@ -61,11 +61,6 @@ public class MainFrame extends JFrame {
         menu = new Menu();
         toolbar = new Toolbar();
         mapTreeView = ((MapRepositoryImplementation) ApplicationFramework.getInstance().getIMapRepository()).takeGeneratedTree();
-        //test lines to check if icons work
-        ProjectExplorerTreeItem projectExplorerTreeItem = ((ProjectExplorerTreeItem) mapTreeView.getModel().getRoot());
-        projectExplorerTreeItem.add(new ProjectTreeItem(new Project("P1", null, "Miki", null)));
-        ((ProjectTreeItem) projectExplorerTreeItem.getChildAt(0)).add(new MindMapTreeItem(new MindMap("Map1", null)));
-        //
         treeHolderScrollPane = new JScrollPane(mapTreeView);
         workspacePanel = new JPanel();
         treeAndWorkspaceSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treeHolderScrollPane, workspacePanel);

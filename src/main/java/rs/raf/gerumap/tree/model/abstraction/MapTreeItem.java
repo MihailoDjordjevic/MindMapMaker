@@ -7,6 +7,10 @@ import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.observer.ISubscriber;
 
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.MutableTreeNode;
+import javax.swing.tree.TreeNode;
+import java.util.Objects;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,5 +27,14 @@ public abstract class MapTreeItem extends DefaultMutableTreeNode implements ISub
 
     public void setName(String name) {
         this.model.setName(name);
+    }
+
+    protected void deleteItem(Object notification){
+        for (TreeNode mapTreeItem : children){
+            if (((MapTreeItem) mapTreeItem).getModel() == notification) {
+                ((MapTreeItem) mapTreeItem.getParent()).remove((MutableTreeNode) mapTreeItem);
+                break;
+            }
+        }
     }
 }

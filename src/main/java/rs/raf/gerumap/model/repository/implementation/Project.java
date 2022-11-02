@@ -37,7 +37,7 @@ public class Project extends MapNodeComposite {
     public void deleteChild(final MapNode child) {
         if (child instanceof MindMap) {
             getChildren().remove(child);
-            //TO DO notify subscribers
+            notifySubscribers(child, NotificationType.DELETE);
         }
     }
 
