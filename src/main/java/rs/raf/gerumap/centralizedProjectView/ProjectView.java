@@ -3,6 +3,7 @@ package rs.raf.gerumap.centralizedProjectView;
 import lombok.Getter;
 import lombok.Setter;
 import rs.raf.gerumap.model.repository.composite.MapNode;
+import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.observer.ISubscriber;
@@ -37,6 +38,26 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
 
     @Override
     public void update(Object notification, NotificationType notificationType) {
+        switch (notificationType){
+            case ADD -> {
+                MindMapView mindMapView = new MindMapView((MindMap) notification);
+                addTab(((MindMap) notification).getName(), mindMapView);
+                setSelectedComponent(mindMapView);
 
+                SwingUtilities.updateComponentTreeUI(this);
+            }case DELETE -> {
+                removeTab(notification);
+                SwingUtilities.updateComponentTreeUI(this);
+            }
+        }
+    }
+
+    private void removeTab(Object o){
+        for (Component tab : getComponents()){
+            if (((MindMapView) tab).getMindMap() == ((MindMap) o)) {
+                remove(tab);
+                break;
+            }
+        }
     }
 }

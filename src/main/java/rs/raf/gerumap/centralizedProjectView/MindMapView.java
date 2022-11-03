@@ -1,5 +1,7 @@
 package rs.raf.gerumap.centralizedProjectView;
 
+import lombok.Getter;
+import lombok.Setter;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.observer.ISubscriber;
 import rs.raf.gerumap.observer.NotificationType;
@@ -8,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
+@Getter
+@Setter
 public class MindMapView extends JPanel implements ISubscriber {
 
     private MindMap mindMap;

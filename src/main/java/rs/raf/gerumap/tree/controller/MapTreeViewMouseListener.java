@@ -18,6 +18,7 @@ public class MapTreeViewMouseListener implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getClickCount() == 2){
+
             MapNode mapNode = getModelOfCurrentlyOpeningTreeItem(e);
 
             if (mapNode instanceof Project){
