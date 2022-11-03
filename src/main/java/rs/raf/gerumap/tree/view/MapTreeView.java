@@ -8,6 +8,7 @@ import rs.raf.gerumap.tree.controller.MapTreeViewMouseListener;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
+import java.awt.*;
 
 @Getter
 @Setter
@@ -25,6 +26,7 @@ public class MapTreeView extends JTree {
         setEditable(true);
 
         addMouseListener(new MapTreeViewMouseListener());
+
     }
 
     public void expandSelectedNode(){

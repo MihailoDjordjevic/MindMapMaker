@@ -1,8 +1,9 @@
-package rs.raf.gerumap.controller;
+package rs.raf.gerumap.controller.actions.managementAndAbstraction;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import rs.raf.gerumap.controller.actions.*;
+
 @Getter
 @Setter
 public class ActionManager {
@@ -13,6 +14,7 @@ public class ActionManager {
     private ActionNewMindMap actionNewMindMap;
     private ActionDelete actionDelete;
     private ActionNewElement actionNewElement;
+    private ActionRename actionRename;
     public ActionManager(){
         actionNew = new ActionNew();
         actionInfo = new ActionInfo();
@@ -20,5 +22,6 @@ public class ActionManager {
         actionNewMindMap = new ActionNewMindMap();
         actionDelete = new ActionDelete();
         actionNewElement = new ActionNewElement();
+        actionRename = new ActionRename();
     }
 }

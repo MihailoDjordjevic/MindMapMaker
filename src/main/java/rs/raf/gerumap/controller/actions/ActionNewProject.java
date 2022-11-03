@@ -1,17 +1,16 @@
-package rs.raf.gerumap.controller;
+package rs.raf.gerumap.controller.actions;
 
+import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.globalView.gui.SwingGui;
-import rs.raf.gerumap.model.repository.MapRepositoryImplementation;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
-import rs.raf.gerumap.observer.NotificationType;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class ActionNewProject extends AbstractMapAction{
+public class ActionNewProject extends AbstractMapAction {
 
     public ActionNewProject() {
         super("newProject.png");

@@ -1,10 +1,10 @@
-package rs.raf.gerumap.controller;
+package rs.raf.gerumap.controller.actions;
 
+import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.implementation.Element;
-import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 import rs.raf.gerumap.tree.view.MapTreeView;
 
@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class ActionNewElement extends AbstractMapAction{
+public class ActionNewElement extends AbstractMapAction {
     public ActionNewElement() {
         super("/rs/raf/gerumap/tree/view/elementIcon.png");
         putValue(NAME, "New Element");

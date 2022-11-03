@@ -19,8 +19,12 @@ public class Menu extends JMenuBar {
     private JMenuItem newMindMap;
     private JMenuItem newElement;
 
-    JMenu help;
-    JMenuItem info;
+    private JMenu edit;
+    private JMenuItem delete;
+    private JMenuItem rename;
+
+    private JMenu help;
+    private JMenuItem info;
 
     public Menu() {
         file = new JMenu("File");
@@ -32,18 +36,29 @@ public class Menu extends JMenuBar {
         newMindMap = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewMindMap());
         newElement = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewElement());
 
-        JMenu help = new JMenu("Help");
+        edit = new JMenu("Edit");
+        edit.setMnemonic('E');
+        delete = new JMenuItem(MainFrame.getInstance().getActionManager().getActionDelete());
+        rename = new JMenuItem(MainFrame.getInstance().getActionManager().getActionRename());
+
+        help = new JMenu("Help");
         info = new JMenuItem(MainFrame.getInstance().getActionManager().getActionInfo());
 
         file.add(newItem);
         newItem.add(newProject);
         newItem.addSeparator();
         newItem.add(newMindMap);
+        newItem.addSeparator();
         newItem.add(newElement);
+
+        edit.add(delete);
+        edit.addSeparator();
+        edit.add(rename);
 
         help.add(info);
 
         add(file);
+        add(edit);
         add(help);
     }
 }

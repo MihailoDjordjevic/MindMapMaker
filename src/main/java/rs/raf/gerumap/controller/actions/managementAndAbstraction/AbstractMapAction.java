@@ -1,4 +1,4 @@
-package rs.raf.gerumap.controller;
+package rs.raf.gerumap.controller.actions.managementAndAbstraction;
 
 import javax.swing.*;
 import java.net.URL;

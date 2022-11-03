@@ -25,7 +25,7 @@ public class MapTreeCellRenderer extends DefaultTreeCellRenderer {
             } else if (((MapTreeItem) value).getModel() instanceof Project) {
                 imageURL = getClass().getResource("newProject.png");
             } else if (((MapTreeItem) value).getModel() instanceof MindMap) {
-                imageURL = getClass().getResource("/rs/raf/gerumap/controller/newMindMap.png");
+                imageURL = getClass().getResource("/rs/raf/gerumap/controller/actions/newMindMap.png");
             } else if (((MapTreeItem) value).getModel() instanceof Element) {
                 imageURL = getClass().getResource("elementIcon.png");
             }

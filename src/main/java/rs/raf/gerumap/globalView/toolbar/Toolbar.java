@@ -5,9 +5,12 @@ import rs.raf.gerumap.globalView.frame.MainFrame;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
 
 public class Toolbar extends JToolBar {
+
+    private JTextField editNameTextField;
 
     public Toolbar() {
         initToolbar();
@@ -24,5 +27,16 @@ public class Toolbar extends JToolBar {
         add(Box.createHorizontalStrut(3));
         add(MainFrame.getInstance().getActionManager().getActionNew());
         add(MainFrame.getInstance().getActionManager().getActionDelete());
+        add(MainFrame.getInstance().getActionManager().getActionRename());
+
+        initEditNameTextField();
+    }
+
+    private void initEditNameTextField(){
+        editNameTextField = new JTextField();
+        editNameTextField.setMaximumSize(new Dimension(150, 32));
+        editNameTextField.setToolTipText("edit node name");
+
+        add(editNameTextField);
     }
 }

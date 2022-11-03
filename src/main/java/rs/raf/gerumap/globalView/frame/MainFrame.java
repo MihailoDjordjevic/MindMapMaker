@@ -3,7 +3,7 @@ package rs.raf.gerumap.globalView.frame;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import rs.raf.gerumap.controller.ActionManager;
+import rs.raf.gerumap.controller.actions.managementAndAbstraction.ActionManager;
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.globalView.menu.Menu;
 import rs.raf.gerumap.globalView.toolbar.Toolbar;

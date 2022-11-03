@@ -1,5 +1,6 @@
-package rs.raf.gerumap.controller;
+package rs.raf.gerumap.controller.actions;
 
+import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.globalView.frame.BasicDialog;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 
@@ -56,9 +57,9 @@ public class ActionInfo extends AbstractMapAction {
         JLabel jLabelSlika2 = new JLabel("Slika:");
         BufferedImage dev1Img = ImageIO.read(this.getClass().getResource("dev1.png"));
         BufferedImage dev2Img = ImageIO.read(this.getClass().getResource("dev2.png"));
-        JLabel jLabelSlikaContent = new JLabel(new ImageIcon(new ImageIcon(dev1Img).getImage().getScaledInstance(180, 180, Image.SCALE_DEFAULT)));
+        JLabel jLabelSlikaContent = new JLabel(new ImageIcon(new ImageIcon(dev1Img).getImage().getScaledInstance(180, 180, Image.SCALE_SMOOTH)));
         jLabelSlikaContent.setBorder(new LineBorder(Color.BLACK, 1));
-        JLabel jLabelSlikaContent2 = new JLabel(new ImageIcon(new ImageIcon(dev2Img).getImage().getScaledInstance(-1, 180, Image.SCALE_DEFAULT)));
+        JLabel jLabelSlikaContent2 = new JLabel(new ImageIcon(new ImageIcon(dev2Img).getImage().getScaledInstance(-1, 180, Image.SCALE_SMOOTH)));
         jLabelSlikaContent2.setBorder(new LineBorder(Color.BLACK, 1));
 
         infoPanel.add(jLabelIme); infoPanel2.add(jLabelIme2);
