@@ -29,8 +29,8 @@ public abstract class MapTreeItem extends DefaultMutableTreeNode implements ISub
         this.model.setName(name);
     }
 
-    protected void deleteItem(Object notification){
-        for (TreeNode mapTreeItem : children){
+    protected void deleteItem(Object notification){    //An item can be deleted only if memory address of its model matches the address of forwarded model
+        for (TreeNode mapTreeItem : children){              //notification is of type Map Node
             if (((MapTreeItem) mapTreeItem).getModel() == notification) {
                 ((MapTreeItem) mapTreeItem.getParent()).remove((MutableTreeNode) mapTreeItem);
                 break;

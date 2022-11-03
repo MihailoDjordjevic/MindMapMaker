@@ -6,18 +6,11 @@ import lombok.Setter;
 import rs.raf.gerumap.controller.ActionManager;
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.model.repository.MapRepositoryImplementation;
-import rs.raf.gerumap.model.repository.implementation.MindMap;
-import rs.raf.gerumap.model.repository.implementation.Project;
-import rs.raf.gerumap.tree.model.MindMapTreeItem;
-import rs.raf.gerumap.tree.model.ProjectExplorerTreeItem;
-import rs.raf.gerumap.tree.model.ProjectTreeItem;
 import rs.raf.gerumap.tree.view.MapTreeView;
 import rs.raf.gerumap.globalView.menu.Menu;
 import rs.raf.gerumap.globalView.toolbar.Toolbar;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import java.awt.*;
 import javax.swing.*;
 
 @Getter
@@ -93,6 +86,7 @@ public class MainFrame extends JFrame {
         treeHolderScrollPane.setPreferredSize(new Dimension(400, 400));
         workspacePanel.setMinimumSize(minimumSize);
         workspacePanel.setPreferredSize(new Dimension(400, 400));
+        workspacePanel.setBackground(Color.lightGray);
 
         treeAndWorkspaceSplitPane.setOneTouchExpandable(true);
         treeAndWorkspaceSplitPane.setDividerLocation(120);

@@ -15,6 +15,7 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
 
     public ProjectView(Project project) {
         this.project = project;
+        project.addSubscriber(this);
     }
 
     @Override
