@@ -2,10 +2,12 @@ package rs.raf.gerumap.centralizedProjectView;
 
 import lombok.Getter;
 import lombok.Setter;
+import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Project;
+import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
 import rs.raf.gerumap.observer.ISubscriber;
 import rs.raf.gerumap.observer.NotificationType;
 
@@ -26,6 +28,7 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
         initAllTabs();
 
         project.addSubscriber(this);
+        project.getParent().addSubscriber(this);
     }
 
     private void initAllTabs(){
@@ -45,16 +48,19 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
                 setSelectedComponent(mindMapView);
 
                 SwingUtilities.updateComponentTreeUI(this);
-            }case DELETE -> {
+            } case DELETE -> {
                 removeTab(notification);
                 SwingUtilities.updateComponentTreeUI(this);
+            } case DELETEPROJECT -> {
+                MainFrame.getInstance().getWorkspacePanel().remove(this);
+                SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getWorkspacePanel());
             }
         }
     }
 
     private void removeTab(Object o){
         for (Component tab : getComponents()){
-            if (((MindMapView) tab).getMindMap() == ((MindMap) o)) {
+            if (((MindMapView) tab).getMindMap() == o) {
                 remove(tab);
                 break;
             }

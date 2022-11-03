@@ -1,5 +1,5 @@
 package rs.raf.gerumap.observer;
 
 public enum NotificationType {
-    ADD, DELETE
+    ADD, DELETE, DELETEPROJECT
 }
