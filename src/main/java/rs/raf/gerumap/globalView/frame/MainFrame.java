@@ -91,4 +91,10 @@ public class MainFrame extends JFrame {
         treeAndWorkspaceSplitPane.setOneTouchExpandable(true);
         treeAndWorkspaceSplitPane.setDividerLocation(120);
     }
+
+    public void displayProject(JTabbedPane project){
+        workspacePanel.removeAll();
+        workspacePanel.add(project);
+        SwingUtilities.updateComponentTreeUI(this);
+    }
 }

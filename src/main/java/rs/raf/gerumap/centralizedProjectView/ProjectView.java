@@ -20,7 +20,7 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
     public ProjectView(Project project) {
         this.project = project;
         setPreferredSize(new Dimension(600, 600));
-        setBorder(BorderFactory.createTitledBorder(project.getAuthor() + " " + project.getName()));
+        setBorder(BorderFactory.createTitledBorder(project.getAuthor() + " - " + project.getName()));
 
         initAllTabs();
 

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import rs.raf.gerumap.tree.controller.MapTreeCellEditor;
 import rs.raf.gerumap.tree.controller.MapTreeSelectionListener;
+import rs.raf.gerumap.tree.controller.MapTreeViewMouseListener;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
@@ -22,6 +23,8 @@ public class MapTreeView extends JTree {
 
         setCellRenderer(ruTreeCellRenderer);
         setEditable(true);
+
+        addMouseListener(new MapTreeViewMouseListener());
     }
 
     public void expandSelectedNode(){
