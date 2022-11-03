@@ -21,14 +21,24 @@ public class MapTreeViewMouseListener implements MouseListener {
             MapNode mapNode = getModelOfCurrentlyOpeningTreeItem(e);
 
             if (mapNode instanceof Project){
+
                 ProjectView projectView = new ProjectView((Project) mapNode);
-                MainFrame.getInstance().displayProject(projectView);
+                MainFrame.getInstance().displayProject(projectView, -1);
+
             } else if (mapNode instanceof MindMap){
+
                 ProjectView projectView = new ProjectView((Project) mapNode.getParent());
-                MainFrame.getInstance().displayProject(projectView);
+                int nodeOrdinal = ((Project) mapNode.getParent()).getChildren().indexOf(mapNode);
+
+                MainFrame.getInstance().displayProject(projectView, nodeOrdinal);
+
             } else if (mapNode instanceof Element){
+
                 ProjectView projectView = new ProjectView((Project) mapNode.getParent().getParent());
-                MainFrame.getInstance().displayProject(projectView);
+                int nodeOrdinal = ((Project) mapNode.getParent().getParent()).getChildren().indexOf(mapNode.getParent());
+
+                MainFrame.getInstance().displayProject(projectView, nodeOrdinal);
+
             }
         }
     }

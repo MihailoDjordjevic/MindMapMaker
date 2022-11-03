@@ -18,7 +18,7 @@ public class MindMapView extends JPanel implements ISubscriber {
 
         Random r = new Random();
         setBackground(new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
-        setPreferredSize(new Dimension(600, 600));
+        setPreferredSize(new Dimension(800, 700));
     }
 
     @Override

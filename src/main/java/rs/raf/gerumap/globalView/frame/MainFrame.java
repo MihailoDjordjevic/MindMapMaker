@@ -72,7 +72,7 @@ public class MainFrame extends JFrame {
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
 
-        setSize(screenWidth / 2, screenHeight / 2);
+        setSize((int) (screenWidth / 1.4), (int) (screenHeight / 1.4));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("GeRuMap");
     }
@@ -92,9 +92,11 @@ public class MainFrame extends JFrame {
         treeAndWorkspaceSplitPane.setDividerLocation(120);
     }
 
-    public void displayProject(JTabbedPane project){
+    public void displayProject(JTabbedPane project, int nodeOrdinal){
         workspacePanel.removeAll();
         workspacePanel.add(project);
+        if (nodeOrdinal > -1)
+            project.setSelectedIndex(nodeOrdinal);
         SwingUtilities.updateComponentTreeUI(this);
     }
 }
