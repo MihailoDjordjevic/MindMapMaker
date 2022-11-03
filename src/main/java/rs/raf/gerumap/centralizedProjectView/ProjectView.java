@@ -12,7 +12,10 @@ import rs.raf.gerumap.observer.ISubscriber;
 import rs.raf.gerumap.observer.NotificationType;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 @Getter
 @Setter
@@ -21,6 +24,7 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
     private Project project;
 
     public ProjectView(Project project) {
+
         this.project = project;
         setPreferredSize(new Dimension(800, 700));
         setBorder(BorderFactory.createTitledBorder(project.getAuthor() + " - " + project.getName()));
@@ -28,7 +32,7 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
         initAllTabs();
 
         project.addSubscriber(this);
-        project.getParent().addSubscriber(this);
+
     }
 
     private void initAllTabs(){
@@ -41,21 +45,22 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
 
     @Override
     public void update(Object notification, NotificationType notificationType) {
+
         switch (notificationType){
+
             case ADD -> {
+
                 MindMapView mindMapView = new MindMapView((MindMap) notification);
                 addTab(((MindMap) notification).getName(), mindMapView);
                 setSelectedComponent(mindMapView);
 
-                SwingUtilities.updateComponentTreeUI(this);
-            } case DELETE -> {
-                removeTab(notification);
-                SwingUtilities.updateComponentTreeUI(this);
-            } case DELETEPROJECT -> {
-                MainFrame.getInstance().getWorkspacePanel().remove(this);
-                SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getWorkspacePanel());
-            }
+            } case DELETE -> removeTab(notification);
+
+             case DELETEPROJECT -> MainFrame.getInstance().getWorkspacePanel().remove(this);
+
+             case NAMECHANGE -> ((TitledBorder) getBorder()).setTitle(project.getAuthor() + " - " + notification);
         }
+        SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getWorkspacePanel());
     }
 
     private void removeTab(Object o){

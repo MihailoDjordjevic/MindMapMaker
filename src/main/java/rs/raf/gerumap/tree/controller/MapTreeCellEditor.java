@@ -1,5 +1,7 @@
 package rs.raf.gerumap.tree.controller;
 
+import rs.raf.gerumap.model.repository.composite.MapNode;
+import rs.raf.gerumap.observer.NotificationType;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
 import javax.swing.*;
@@ -30,9 +32,12 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
     public void actionPerformed(ActionEvent e){
 
         if (e.getSource() instanceof JTextField) {
-            ((MapTreeItem)clickedOn).setName(e.getActionCommand());
+
+            MapNode mapNode = ((MapTreeItem)clickedOn).getModel();
+            mapNode.setName(e.getActionCommand());
+            mapNode.notifySubscribers(mapNode.getName(), NotificationType.NAMECHANGE);
+
             ((JTextField) e.getSource()).setEditable(false);
-            SwingUtilities.updateComponentTreeUI(((JTextField) e.getSource()).getParent());
         }
     }
 }

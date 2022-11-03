@@ -28,8 +28,8 @@ public class ProjectExplorer extends MapNodeComposite {
     public void deleteChild(MapNode child) {
         if (child instanceof Project) {
             getChildren().remove(child);
+            child.notifySubscribers(child, NotificationType.DELETEPROJECT); //to delete project from centralized view
             notifySubscribers(child, NotificationType.DELETE);
-            notifySubscribers(child, NotificationType.DELETEPROJECT);
         }
     }
 }

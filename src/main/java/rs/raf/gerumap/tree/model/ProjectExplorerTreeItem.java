@@ -1,6 +1,7 @@
 package rs.raf.gerumap.tree.model;
 
 import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.observer.ISubscriber;
@@ -26,11 +27,9 @@ public class ProjectExplorerTreeItem extends MapTreeItem {
                 ProjectTreeItem projectTreeItem = new ProjectTreeItem((MapNode) notification);
                 add(projectTreeItem);
             }
-            case DELETE -> {
-                deleteItem(notification);
-            }
+            case DELETE -> deleteItem(notification);
         }
 
-        SwingUtilities.updateComponentTreeUI(((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame());
+        SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getMapTreeView());
     }
 }
