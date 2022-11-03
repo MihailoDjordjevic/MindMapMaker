@@ -19,26 +19,20 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
     }
     @Override
     public Component getTreeCellEditorComponent(JTree arg0, Object arg1, boolean arg2, boolean arg3, boolean arg4, int arg5) {
-        //super.getTreeCellEditorComponent(arg0,arg1,arg2,arg3,arg4,arg5);
+        super.getTreeCellEditorComponent(arg0,arg1,arg2,arg3,arg4,arg5);
         clickedOn = arg1;
         edit = new JTextField(arg1.toString());
         edit.addActionListener(this);
         return edit;
     }
-    @Override
-    public boolean isCellEditable(EventObject arg0) {
-        if (arg0 instanceof MouseEvent)
-            if (((MouseEvent)arg0).getClickCount() == 3){
-                return true;
-            }
-        return false;
-    }
+
     @Override
     public void actionPerformed(ActionEvent e){
-        if (!(clickedOn instanceof MapTreeItem)){
-            return;
+
+        if (e.getSource() instanceof JTextField) {
+            ((MapTreeItem)clickedOn).setName(e.getActionCommand());
+            ((JTextField) e.getSource()).setEditable(false);
+            SwingUtilities.updateComponentTreeUI(((JTextField) e.getSource()).getParent());
         }
-        MapTreeItem clicked = (MapTreeItem)clickedOn;
-        clicked.setName(e.getActionCommand());
     }
 }

@@ -12,10 +12,14 @@ import javax.swing.tree.DefaultTreeModel;
 @Setter
 public class MapTreeView extends JTree {
     public MapTreeView(DefaultTreeModel defaultTreeModel){
+
         setModel(defaultTreeModel);
+
         MapTreeCellRenderer ruTreeCellRenderer = new MapTreeCellRenderer();
-        addTreeSelectionListener(new MapTreeSelectionListener());
         setCellEditor(new MapTreeCellEditor(this, ruTreeCellRenderer));
+
+        addTreeSelectionListener(new MapTreeSelectionListener());
+
         setCellRenderer(ruTreeCellRenderer);
         setEditable(true);
     }

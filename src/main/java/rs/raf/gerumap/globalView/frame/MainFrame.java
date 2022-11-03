@@ -5,13 +5,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.controller.ActionManager;
 import rs.raf.gerumap.core.ApplicationFramework;
-import rs.raf.gerumap.model.repository.MapRepositoryImplementation;
-import rs.raf.gerumap.tree.view.MapTreeView;
 import rs.raf.gerumap.globalView.menu.Menu;
 import rs.raf.gerumap.globalView.toolbar.Toolbar;
+import rs.raf.gerumap.model.repository.MapRepositoryImplementation;
+import rs.raf.gerumap.tree.view.MapTreeView;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 @Getter
 @Setter
