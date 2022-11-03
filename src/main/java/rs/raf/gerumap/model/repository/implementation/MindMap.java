@@ -24,7 +24,7 @@ public class MindMap extends MapNodeComposite {
     public void addChild(final MapNode child) {
         if (child instanceof Element) {
             getChildren().add(child);
-            //TO DO notify subscribers
+            notifySubscribers(child, NotificationType.ADD);
         }
     }
 

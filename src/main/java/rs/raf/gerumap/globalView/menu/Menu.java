@@ -15,6 +15,7 @@ public class Menu extends JMenuBar {
         newItem.setMnemonic('N');
         JMenuItem newProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewProject());
         JMenuItem newMindMap = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewMindMap());
+        JMenuItem newElement = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewElement());
 
         JMenu help = new JMenu("Help");
         JMenuItem info = new JMenuItem(MainFrame.getInstance().getActionManager().getActionInfo());
@@ -23,6 +24,7 @@ public class Menu extends JMenuBar {
         newItem.add(newProject);
         newItem.addSeparator();
         newItem.add(newMindMap);
+        newItem.add(newElement);
 
         help.add(info);
 
