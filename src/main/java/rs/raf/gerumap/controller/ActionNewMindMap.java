@@ -26,10 +26,15 @@ public class ActionNewMindMap extends AbstractMapAction{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         MapTreeView mapTreeView = ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView();
         MapTreeItem projectTreeItem = ((MapTreeItem) mapTreeView.getLastSelectedPathComponent());
+
         String name = "Mind Map" + (projectTreeItem.getChildCount() + 1);
         MindMap mindMap = new MindMap(name, projectTreeItem.getModel());
+
         ((MapNodeComposite) projectTreeItem.getModel()).addChild(mindMap);
+
+        ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView().expandSelectedNode();
     }
 }

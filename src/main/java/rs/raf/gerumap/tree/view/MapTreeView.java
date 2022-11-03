@@ -19,4 +19,8 @@ public class MapTreeView extends JTree {
         setCellRenderer(ruTreeCellRenderer);
         setEditable(true);
     }
+
+    public void expandSelectedNode(){
+        expandPath(getSelectionPath());
+    }
 }
