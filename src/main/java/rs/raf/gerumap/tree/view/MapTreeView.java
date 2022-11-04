@@ -8,28 +8,46 @@ import rs.raf.gerumap.tree.controller.MapTreeViewMouseListener;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
-import java.awt.*;
 
 @Getter
 @Setter
 public class MapTreeView extends JTree {
+
+    private MapTreeCellRenderer ruTreeCellRenderer;
+    private MapTreeCellEditor mapTreeCellEditor;
+    private MapTreeSelectionListener mapTreeSelectionListener;
+    private MapTreeViewMouseListener mapTreeViewMouseListener;
+    private MapTreePopUpMenu treePopUpMenu;
+
     public MapTreeView(DefaultTreeModel defaultTreeModel){
 
         setModel(defaultTreeModel);
-
-        MapTreeCellRenderer ruTreeCellRenderer = new MapTreeCellRenderer();
-        setCellEditor(new MapTreeCellEditor(this, ruTreeCellRenderer));
-
-        addTreeSelectionListener(new MapTreeSelectionListener());
-
-        setCellRenderer(ruTreeCellRenderer);
-        setEditable(true);
-
-        addMouseListener(new MapTreeViewMouseListener());
+        initFields();
+        initJTree();
 
     }
 
     public void expandSelectedNode(){
         expandPath(getSelectionPath());
+    }
+
+    private void initFields(){
+        ruTreeCellRenderer = new MapTreeCellRenderer();
+        mapTreeCellEditor = new MapTreeCellEditor(this, ruTreeCellRenderer);
+        mapTreeSelectionListener = new MapTreeSelectionListener();
+        mapTreeViewMouseListener = new MapTreeViewMouseListener();
+        treePopUpMenu = new MapTreePopUpMenu();
+    }
+
+    private void initJTree(){
+
+        setComponentPopupMenu(treePopUpMenu);
+        setCellRenderer(ruTreeCellRenderer);
+        setCellEditor(mapTreeCellEditor);
+        addTreeSelectionListener(mapTreeSelectionListener);
+        addMouseListener(mapTreeViewMouseListener);
+
+        setEditable(true);
+
     }
 }
