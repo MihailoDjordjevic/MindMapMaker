@@ -11,6 +11,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class ActionRename extends AbstractMapAction {
 
@@ -78,7 +79,7 @@ public class ActionRename extends AbstractMapAction {
         textField.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                updateNodeName(textField.getText() + e.getKeyChar());
+
             }
 
             @Override
@@ -88,7 +89,7 @@ public class ActionRename extends AbstractMapAction {
 
             @Override
             public void keyReleased(KeyEvent e) {
-
+                updateNodeName(textField.getText());
             }
         });
         okButton.addMouseListener(new MouseListener() {
