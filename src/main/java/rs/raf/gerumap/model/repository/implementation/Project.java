@@ -16,7 +16,7 @@ import java.nio.file.Path;
 @AllArgsConstructor
 public class Project extends MapNodeComposite {
 
-    private String author = "Micko";
+    private String author;
     private Path resourcesPath;
 
     public Project(String name, MapNode parent, String author, Path resourcesPath) {

@@ -26,16 +26,15 @@ public abstract class MapNode implements IPublisher {
         subscribers = new ArrayList<>(7);
     }
 
-    @Override
-    public boolean equals(final Object obj) {
-
-        if (obj != null && obj instanceof MapNode) {
-            MapNode otherObj = (MapNode) obj;
-            return this.getName().equals(otherObj.getName());
-        }
-        return false;
-    }
-
+//    @Override
+//    public boolean equals(final Object obj) {
+//
+//        if (obj != null && obj instanceof MapNode) {
+//            MapNode otherObj = (MapNode) obj;
+//            return this.getName().equals(otherObj.getName());
+//        }
+//        return false;
+//    }
     @Override
     public String toString() {
         return name;

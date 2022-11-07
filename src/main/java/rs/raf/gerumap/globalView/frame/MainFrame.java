@@ -89,7 +89,7 @@ public class MainFrame extends JFrame {
         workspacePanel.setBackground(Color.lightGray);
 
         treeAndWorkspaceSplitPane.setOneTouchExpandable(true);
-        treeAndWorkspaceSplitPane.setDividerLocation(120);
+        treeAndWorkspaceSplitPane.setDividerLocation(200);
     }
 
     public void displayProject(JTabbedPane project, int nodeOrdinal){

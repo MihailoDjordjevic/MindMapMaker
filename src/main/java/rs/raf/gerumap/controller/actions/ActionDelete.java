@@ -10,6 +10,7 @@ import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 import rs.raf.gerumap.tree.view.MapTreeView;
 
 import javax.swing.*;
+import javax.swing.tree.TreePath;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -33,6 +34,11 @@ public class ActionDelete extends AbstractMapAction {
             MapNode mapNode = mapTreeItem.getModel();
             MapNodeComposite mapNodeComposite = ((MapNodeComposite) mapNode.getParent());  //Map Node that is to be deleted must have a parent so its safe to cast
             mapNodeComposite.deleteChild(mapNode);
+
+            //selected node in a tree becomes the parent node of deleted node
+            TreePath path = mapTreeView.getSelectionPath();
+            mapTreeView.setSelectionPath(path.getParentPath());
         }
+
     }
 }
