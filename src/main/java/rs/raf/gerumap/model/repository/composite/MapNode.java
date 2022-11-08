@@ -55,4 +55,7 @@ public abstract class MapNode implements IPublisher {
         for (ISubscriber subscriber : subscribers)
             subscriber.update(notification, notificationType);
     }
+    public void addMapNodeToTree(){
+
+    }
 }
