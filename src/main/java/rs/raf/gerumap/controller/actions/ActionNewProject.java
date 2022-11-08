@@ -3,6 +3,9 @@ package rs.raf.gerumap.controller.actions;
 import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.globalView.gui.SwingGui;
+import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
+import rs.raf.gerumap.model.repository.factory.MapNodeFactory;
+import rs.raf.gerumap.model.repository.factory.MapNodeFactoryManager;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
 
@@ -24,10 +27,8 @@ public class ActionNewProject extends AbstractMapAction {
 
         ProjectExplorer projectExplorer = ApplicationFramework.getInstance().getIMapRepository().getProjectExplorer();
 
-        String name = "Project" + (projectExplorer.getChildren().size() + 1);
-        Project project = new Project(name, projectExplorer);
-
-        projectExplorer.addChild(project);
+        MapNodeFactory element = MapNodeFactoryManager.getMapNodeFactory(projectExplorer);
+        element.getMapNode(projectExplorer);
 
         ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView().expandSelectedNode();
     }

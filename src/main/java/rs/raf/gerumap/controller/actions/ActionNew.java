@@ -1,7 +1,12 @@
 package rs.raf.gerumap.controller.actions;
 
 import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
+import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.globalView.frame.MainFrame;
+import rs.raf.gerumap.globalView.gui.SwingGui;
+import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
+import rs.raf.gerumap.model.repository.factory.MapNodeFactory;
+import rs.raf.gerumap.model.repository.factory.MapNodeFactoryManager;
 import rs.raf.gerumap.tree.model.MindMapTreeItem;
 import rs.raf.gerumap.tree.model.ProjectExplorerTreeItem;
 import rs.raf.gerumap.tree.model.ProjectTreeItem;
@@ -26,12 +31,9 @@ public class ActionNew extends AbstractMapAction {
 
         MapTreeItem mapTreeItem = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent());
 
-        if (mapTreeItem == null || mapTreeItem instanceof ProjectExplorerTreeItem)
-            MainFrame.getInstance().getMenu().getNewProject().doClick();
-        else if (mapTreeItem instanceof ProjectTreeItem)
-            MainFrame.getInstance().getMenu().getNewMindMap().doClick();
-        else if (mapTreeItem instanceof MindMapTreeItem)
-            MainFrame.getInstance().getMenu().getNewElement().doClick();
+        MapNodeFactory element = MapNodeFactoryManager.getMapNodeFactory(mapTreeItem.getModel());
+        element.getMapNode((MapNodeComposite) mapTreeItem.getModel());
 
+        ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView().expandSelectedNode();
     }
 }

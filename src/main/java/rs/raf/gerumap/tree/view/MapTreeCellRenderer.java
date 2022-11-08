@@ -10,6 +10,8 @@ import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.net.URL;
 
 @NoArgsConstructor
@@ -37,6 +39,33 @@ public class MapTreeCellRenderer extends DefaultTreeCellRenderer {
             } else {
                 System.err.println("Resource not found: " + value.getClass());
             }
+
+            this.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    System.out.println("right click");
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+
+                }
+            });
 
             return this;
         }

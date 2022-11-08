@@ -1,24 +1,16 @@
 package rs.raf.gerumap.tree.controller;
 
-import rs.raf.gerumap.Main;
 import rs.raf.gerumap.centralizedProjectView.ProjectView;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Project;
-import rs.raf.gerumap.tree.MapTree;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 import rs.raf.gerumap.tree.view.MapTreeView;
 
-import javax.swing.*;
-import javax.swing.event.PopupMenuEvent;
-import javax.swing.event.PopupMenuListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyVetoException;
-import java.beans.VetoableChangeListener;
 
 public class MapTreeViewMouseListener implements MouseListener {
     private MapTreeItem mapTreeItem;

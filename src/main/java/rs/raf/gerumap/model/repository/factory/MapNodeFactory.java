@@ -7,8 +7,8 @@ public abstract class MapNodeFactory {
     public abstract MapNode createMapNode(MapNodeComposite parent);
     public MapNode getMapNode(MapNodeComposite parent){
         MapNode mapNode = createMapNode(parent);
-        parent.addChild(mapNode);
         mapNode.setName(mapNode.getName() + " " + (parent.getChildren().size() + 1));
+        parent.addChild(mapNode);
         return mapNode;
     }
 }

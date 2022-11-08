@@ -4,6 +4,8 @@ import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAct
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
+import rs.raf.gerumap.model.repository.factory.MapNodeFactory;
+import rs.raf.gerumap.model.repository.factory.MapNodeFactoryManager;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 import rs.raf.gerumap.tree.view.MapTreeView;
@@ -27,10 +29,8 @@ public class ActionNewMindMap extends AbstractMapAction {
         MapTreeView mapTreeView = ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView();
         MapTreeItem projectTreeItem = ((MapTreeItem) mapTreeView.getLastSelectedPathComponent());
 
-        String name = "Mind Map" + (projectTreeItem.getChildCount() + 1);
-        MindMap mindMap = new MindMap(name, projectTreeItem.getModel());
-
-        ((MapNodeComposite) projectTreeItem.getModel()).addChild(mindMap);
+        MapNodeFactory element = MapNodeFactoryManager.getMapNodeFactory(projectTreeItem.getModel());
+        element.getMapNode((MapNodeComposite) projectTreeItem.getModel());
 
         ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView().expandSelectedNode();
     }
