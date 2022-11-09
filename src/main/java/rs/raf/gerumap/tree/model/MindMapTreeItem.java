@@ -2,11 +2,8 @@ package rs.raf.gerumap.tree.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.globalView.frame.MainFrame;
-import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNode;
-import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.observer.NotificationType;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
@@ -29,7 +26,7 @@ public class MindMapTreeItem extends MapTreeItem {
                 add(elementTreeItem);
             }
             case DELETE -> deleteItem(notification);
-            case NAMECHANGE -> setName((String) notification);
+            case NAME_CHANGE -> setName((String) notification);
         }
 
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getMapTreeView());

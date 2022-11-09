@@ -1,5 +1,7 @@
 package rs.raf.gerumap.globalView.gui;
 
-public interface Gui {
+import rs.raf.gerumap.observer.ISubscriber;
+
+public interface Gui extends ISubscriber {
     void start();
 }

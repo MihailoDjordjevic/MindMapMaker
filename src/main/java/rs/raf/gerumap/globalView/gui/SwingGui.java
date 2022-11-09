@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.globalView.frame.MainFrame;
+import rs.raf.gerumap.observer.NotificationType;
 
 @Getter
 @Setter
@@ -14,5 +15,9 @@ public class SwingGui implements Gui {
     public void start() {
         mainFrame = MainFrame.getInstance();
         mainFrame.setVisible(true);
+    }
+    @Override
+    public void update(Object notification, NotificationType notificationType) {
+
     }
 }

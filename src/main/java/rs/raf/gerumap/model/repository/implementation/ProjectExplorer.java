@@ -1,12 +1,9 @@
 package rs.raf.gerumap.model.repository.implementation;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.composite.MapNode;
-import rs.raf.gerumap.observer.IPublisher;
-import rs.raf.gerumap.observer.ISubscriber;
 import rs.raf.gerumap.observer.NotificationType;
 
 @Getter
@@ -28,7 +25,7 @@ public class ProjectExplorer extends MapNodeComposite {
     public void deleteChild(MapNode child) {
         if (child instanceof Project) {
             getChildren().remove(child);
-            child.notifySubscribers(child, NotificationType.DELETEPROJECT); //to delete project from centralized view
+            child.notifySubscribers(child, NotificationType.DELETE_PROJECT); //to delete project from centralized view
             notifySubscribers(child, NotificationType.DELETE);
         }
     }

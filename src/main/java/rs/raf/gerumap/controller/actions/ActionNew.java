@@ -7,9 +7,6 @@ import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.factory.MapNodeFactory;
 import rs.raf.gerumap.model.repository.factory.MapNodeFactoryManager;
-import rs.raf.gerumap.tree.model.MindMapTreeItem;
-import rs.raf.gerumap.tree.model.ProjectExplorerTreeItem;
-import rs.raf.gerumap.tree.model.ProjectTreeItem;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
 import javax.swing.*;
@@ -35,5 +32,6 @@ public class ActionNew extends AbstractMapAction {
         element.getMapNode((MapNodeComposite) mapTreeItem.getModel());
 
         ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView().expandSelectedNode();
+
     }
 }

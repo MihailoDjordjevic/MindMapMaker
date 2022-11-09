@@ -11,7 +11,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class ActionRename extends AbstractMapAction {
 
@@ -123,7 +122,7 @@ public class ActionRename extends AbstractMapAction {
             public void mouseClicked(MouseEvent e) {
                 MapNode mapNode = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent()).getModel();
                 mapNode.setName(originalName);
-                mapNode.notifySubscribers(originalName, NotificationType.NAMECHANGE);
+                mapNode.notifySubscribers(originalName, NotificationType.NAME_CHANGE);
                 dialog.dispose();
             }
 
@@ -153,7 +152,7 @@ public class ActionRename extends AbstractMapAction {
 
         MapNode mapNode = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent()).getModel();
         mapNode.setName(name);
-        mapNode.notifySubscribers(name, NotificationType.NAMECHANGE);
+        mapNode.notifySubscribers(name, NotificationType.NAME_CHANGE);
 
     }
 }

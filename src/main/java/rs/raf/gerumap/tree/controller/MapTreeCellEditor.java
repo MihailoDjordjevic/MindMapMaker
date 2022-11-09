@@ -5,15 +5,11 @@ import rs.raf.gerumap.observer.NotificationType;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
 import javax.swing.*;
-import javax.swing.event.CellEditorListener;
 import javax.swing.tree.DefaultTreeCellEditor;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.util.Arrays;
-import java.util.EventObject;
 
 public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionListener {
     private Object clickedOn = null;
@@ -37,7 +33,7 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
 
             MapNode mapNode = ((MapTreeItem)clickedOn).getModel();
             mapNode.setName(e.getActionCommand());
-            mapNode.notifySubscribers(mapNode.getName(), NotificationType.NAMECHANGE);
+            mapNode.notifySubscribers(mapNode.getName(), NotificationType.NAME_CHANGE);
 
         }
     }

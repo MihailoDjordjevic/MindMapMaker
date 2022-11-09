@@ -17,7 +17,7 @@ public class ElementTreeItem extends MapTreeItem {
     public void update(Object notification, NotificationType notificationType) {
 
         switch (notificationType) {
-            case NAMECHANGE -> setName((String) notification);
+            case NAME_CHANGE -> setName((String) notification);
         }
 
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getMapTreeView());

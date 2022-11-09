@@ -20,22 +20,16 @@ public class MindMapView extends JPanel implements ISubscriber {
     public MindMapView(MindMap mindMap) {
         this.mindMap = mindMap;
         mindMap.addSubscriber(this);
-
-        Random r = new Random();
         setBackground(mindMap.getBackgroundColor());
         setPreferredSize(new Dimension(800, 700));
     }
 
     @Override
     public void update(Object notification, NotificationType notificationType) {
-
         switch (notificationType){
-
-            case NAMECHANGE -> {
-
+            case NAME_CHANGE -> {
                 ProjectView projectView = ((ProjectView) this.getParent());
                 projectView.setTitleAt(projectView.indexOfComponent(this), mindMap.getName());
-
             }
         }
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getWorkspacePanel());
