@@ -6,25 +6,15 @@ import rs.raf.gerumap.observer.NotificationType;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
+import static rs.raf.gerumap.core.ApplicationFramework.workingDirectory;
 public class FileLogger implements Logger{
-    //private static final Path loggingParentPath = Paths.get(System.getProperty("user.dir")).resolve("Logging");
-    private Path fileLogPath;
-    private File file;
+    private final File file;
     public FileLogger() {
-        URL fileLogPathString = this.getClass().getResource("log.txt");
-        file = new File(fileLogPathString.getFile());
-        fileLogPath = file.toPath();
+        file = workingDirectory.resolve("src/main/resources/rs/raf/gerumap/errorHandling/logger/log.txt").toFile();
     }
     @Override
     public void log(final AbstractMessageEvent eventMessage) {
         try{
-            if(!Files.exists(fileLogPath)){
-                Files.createFile(fileLogPath);
-            }
             FileUtils.writeStringToFile(file, eventMessage.toString() + "\n", "UTF-8", true);
         }
         catch (IOException e){

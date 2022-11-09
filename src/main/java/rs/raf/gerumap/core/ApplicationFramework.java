@@ -8,10 +8,14 @@ import rs.raf.gerumap.errorHandling.logger.FileLogger;
 import rs.raf.gerumap.errorHandling.MessageGeneratorImplementation;
 import rs.raf.gerumap.globalView.gui.Gui;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 @Setter
 @Getter
 @NoArgsConstructor
 public class ApplicationFramework {
+    public static final Path workingDirectory = Paths.get(System.getProperty("user.dir"));
     protected MessageGeneratorImplementation messageGeneratorImplementation;
     protected ConsoleLogger consoleLogger;
     protected FileLogger fileLogger;
