@@ -28,8 +28,8 @@ public class ActionNew extends AbstractMapAction {
 
         MapTreeItem mapTreeItem = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent());
 
-        MapNodeFactory element = MapNodeFactoryManager.getMapNodeFactory(mapTreeItem.getModel());
-        element.getMapNode((MapNodeComposite) mapTreeItem.getModel());
+        MapNodeFactory mapNodeFactory = MapNodeFactoryManager.getMapNodeFactory(mapTreeItem.getModel());
+        mapNodeFactory.getMapNode((MapNodeComposite) mapTreeItem.getModel());
 
         ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView().expandSelectedNode();
 

@@ -1,7 +1,9 @@
 package rs.raf.gerumap.errorHandling;
 
 import rs.raf.gerumap.errorHandling.message.CannotRemoveNodeMessage;
+import rs.raf.gerumap.errorHandling.message.NoNodeSelectedMessage;
 import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
+import rs.raf.gerumap.errorHandling.message.WrongNodeSelectedMessage;
 import rs.raf.gerumap.observer.IPublisher;
 import rs.raf.gerumap.observer.ISubscriber;
 import rs.raf.gerumap.observer.NotificationType;
@@ -31,6 +33,8 @@ public class MessageGeneratorImplementation implements MessageGenerator, IPublis
     public void generateMessage(MessageDescription messageDescription, Object source) {
         switch (messageDescription){
             case CANNOT_REMOVE_NODE -> notifySubscribers(new CannotRemoveNodeMessage(source), NotificationType.MESSAGE);
+            case WRONG_NODE_SELECTED -> notifySubscribers(new WrongNodeSelectedMessage(source), NotificationType.MESSAGE);
+            case NO_NODE_SELECTED -> notifySubscribers(new NoNodeSelectedMessage(source), NotificationType.MESSAGE);
         }
     }
 }

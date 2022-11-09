@@ -1,5 +1,7 @@
 package rs.raf.gerumap.errorHandling.message.abstractionAndEnums;
 
 public enum MessageDescription {
-    CANNOT_REMOVE_NODE
+    CANNOT_REMOVE_NODE,
+    WRONG_NODE_SELECTED,
+    NO_NODE_SELECTED
 }

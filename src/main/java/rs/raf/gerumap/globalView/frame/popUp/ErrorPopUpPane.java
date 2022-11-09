@@ -10,7 +10,7 @@ public class ErrorPopUpPane extends PopUpPane{
     @Override
     public void showPopUp(AbstractMessageEvent eventMessage) {
         if(eventMessage.getEventType().equals(EventType.ERROR)){
-            JOptionPane.showConfirmDialog(MainFrame.getInstance(), eventMessage.getText(), eventMessage.getEventType().name(), JOptionPane.DEFAULT_OPTION);
+            JOptionPane.showMessageDialog(MainFrame.getInstance(), eventMessage.getText(), eventMessage.getEventType().name(), JOptionPane.ERROR_MESSAGE);
         }
     }
 }

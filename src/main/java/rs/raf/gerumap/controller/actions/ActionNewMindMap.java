@@ -2,9 +2,13 @@ package rs.raf.gerumap.controller.actions;
 
 import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
 import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
+import rs.raf.gerumap.model.repository.factory.MapNodeFactory;
+import rs.raf.gerumap.model.repository.factory.MapNodeFactoryManager;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
+import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 import rs.raf.gerumap.tree.view.MapTreeView;
 
@@ -25,10 +29,17 @@ public class ActionNewMindMap extends AbstractMapAction {
         MapTreeView mapTreeView = ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView();
         MapTreeItem projectTreeItem = ((MapTreeItem) mapTreeView.getLastSelectedPathComponent());
 
-        String name = "Mind Map" + (projectTreeItem.getChildCount() + 1);
-        MindMap mindMap = new MindMap(name, projectTreeItem.getModel());
+        if (projectTreeItem == null){
+            ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NO_NODE_SELECTED, null);
+            return;
+        } else if (!(projectTreeItem.getModel() instanceof Project)){
+            String[] str = new String[]{"MindMap", projectTreeItem.getModel().toString(), "Project"};
+            ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.WRONG_NODE_SELECTED, str);
+            return;
+        }
 
-        ((MapNodeComposite) projectTreeItem.getModel()).addChild(mindMap);
+        MapNodeFactory mapNodeFactory = MapNodeFactoryManager.getMapNodeFactory(projectTreeItem.getModel());
+        mapNodeFactory.getMapNode((MapNodeComposite) projectTreeItem.getModel());
 
         ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView().expandSelectedNode();
     }

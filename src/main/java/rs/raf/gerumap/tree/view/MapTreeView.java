@@ -41,7 +41,7 @@ public class MapTreeView extends JTree {
 
     private void initJTree(){
 
-      //  setComponentPopupMenu(treePopUpMenu);
+        setComponentPopupMenu(treePopUpMenu);
         setCellRenderer(ruTreeCellRenderer);
         setCellEditor(mapTreeCellEditor);
         addTreeSelectionListener(mapTreeSelectionListener);

@@ -29,23 +29,8 @@ public class ActionDelete extends AbstractMapAction {
         MapTreeView mapTreeView = ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView();
         MapTreeItem mapTreeItem = ((MapTreeItem) mapTreeView.getLastSelectedPathComponent());
 
-//        if(mapTreeItem != null){
-//            if (!(mapTreeItem instanceof ProjectExplorerTreeItem)) {
-//                MapNode mapNode = mapTreeItem.getModel();
-//                MapNodeComposite mapNodeComposite = ((MapNodeComposite) mapNode.getParent());  //Map Node that is to be deleted must have a parent so its safe to cast
-//                mapNodeComposite.deleteChild(mapNode);
-//
-//                //selected node in a tree becomes the parent node of deleted node
-//                TreePath path = mapTreeView.getSelectionPath();
-//                mapTreeView.setSelectionPath(path.getParentPath());
-//            }
-//            else{
-//                ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.CANNOT_REMOVE_NODE, );
-//            }
-//        }
-
         if (mapTreeItem == null){
-            ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.CANNOT_REMOVE_NODE, null);
+            ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NO_NODE_SELECTED, null);
         } else if (mapTreeItem.getModel() instanceof ProjectExplorer) {
             ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.CANNOT_REMOVE_NODE, mapTreeItem.getModel());
         } else {

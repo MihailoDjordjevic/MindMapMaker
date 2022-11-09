@@ -2,3 +2,130 @@ Event type: [ERROR]
 Timestamp: [2022-11-09 20:51:18.582]
 Text: [Cannot remove: Project Explorer]
 
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:12:06.393]
+Text: [Wrong node selected. Trying to add new Element to Project 1]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:12:25.103]
+Text: [Wrong node selected. Trying to add new Element to Project 1]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:12:36.888]
+Text: [Wrong node selected. Trying to add new Element to Element 1]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:15:11.408]
+Text: [Wrong node selected. Trying to add new Element to Project Explorer.
+Select a node that is of type MindMap and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:17:01.056]
+Text: [Wrong node selected. Trying to add new MindMap to Project Explorer.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:17:17.551]
+Text: [Wrong node selected. Trying to add new MindMap to Project 1.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:18:48.828]
+Text: [Wrong node selected. Trying to add new Element to Project 1.
+Select or create a node that is of type MindMap and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:19:02.869]
+Text: [Wrong node selected. Trying to add new MindMap to Project Explorer.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:19:06.823]
+Text: [Wrong node selected. Trying to add new Element to Project Explorer.
+Select or create a node that is of type MindMap and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:23:01.547]
+Text: [Cannot remove: Project Explorer]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:23:14.932]
+Text: [Cannot remove: No item is selected to remove]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:23:34.566]
+Text: [Wrong node selected. Trying to add new Element to Project Explorer.
+Select or create a node that is of type MindMap and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:23:47.079]
+Text: [Wrong node selected. Trying to add new MindMap to Project Explorer.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:39:38.916]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:39:56.614]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:39:59.719]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:40:01.145]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:40:42.905]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:40:47.441]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:41:20.644]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:41:22.43]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:41:25.638]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:41:30.604]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:41:32.409]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:41:35.223]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:41:38.147]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:41:43.005]
+Text: [Wrong node selected. Trying to add new MindMap to Project Explorer.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:41:45.511]
+Text: [Wrong node selected. Trying to add new Element to Project Explorer.
+Select or create a node that is of type MindMap and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 21:41:50.607]
+Text: [Wrong node selected. Trying to add new Element to Project 1.
+Select or create a node that is of type MindMap and try again.]
+
