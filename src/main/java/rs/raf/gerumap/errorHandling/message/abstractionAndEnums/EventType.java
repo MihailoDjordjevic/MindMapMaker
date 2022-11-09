@@ -1,4 +1,4 @@
-package rs.raf.gerumap.core.log.message;
+package rs.raf.gerumap.errorHandling.message.abstractionAndEnums;
 
 public enum EventType {
     ERROR,

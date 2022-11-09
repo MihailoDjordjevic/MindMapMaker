@@ -3,9 +3,9 @@ package rs.raf.gerumap.core;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import rs.raf.gerumap.core.log.logger.ConsoleLogger;
-import rs.raf.gerumap.core.log.logger.FileLogger;
-import rs.raf.gerumap.core.log.MessageGeneratorImplementation;
+import rs.raf.gerumap.errorHandling.logger.ConsoleLogger;
+import rs.raf.gerumap.errorHandling.logger.FileLogger;
+import rs.raf.gerumap.errorHandling.MessageGeneratorImplementation;
 import rs.raf.gerumap.globalView.gui.Gui;
 
 @Setter

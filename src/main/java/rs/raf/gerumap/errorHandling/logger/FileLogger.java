@@ -1,7 +1,7 @@
-package rs.raf.gerumap.core.log.logger;
+package rs.raf.gerumap.errorHandling.logger;
 
 import org.apache.commons.io.FileUtils;
-import rs.raf.gerumap.core.log.message.EventMessage;
+import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.AbstractMessageEvent;
 import rs.raf.gerumap.observer.NotificationType;
 
 import java.io.File;
@@ -20,7 +20,7 @@ public class FileLogger implements Logger{
         fileLogPath = file.toPath();
     }
     @Override
-    public void log(final EventMessage eventMessage) {
+    public void log(final AbstractMessageEvent eventMessage) {
         try{
             if(!Files.exists(fileLogPath)){
                 Files.createFile(fileLogPath);
@@ -33,6 +33,6 @@ public class FileLogger implements Logger{
     }
     @Override
     public void update(final Object notification, NotificationType notificationType) {
-        log((EventMessage) notification);
+        log((AbstractMessageEvent) notification);
     }
 }

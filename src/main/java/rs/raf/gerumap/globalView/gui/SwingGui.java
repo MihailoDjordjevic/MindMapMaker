@@ -3,7 +3,7 @@ package rs.raf.gerumap.globalView.gui;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import rs.raf.gerumap.core.log.message.EventMessage;
+import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.AbstractMessageEvent;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.frame.popUp.ErrorPopUpPane;
 import rs.raf.gerumap.observer.NotificationType;
@@ -20,6 +20,6 @@ public class SwingGui implements Gui {
     }
     @Override
     public void update(Object notification, NotificationType notificationType) {
-        new ErrorPopUpPane().showPopUp((EventMessage) notification);
+        new ErrorPopUpPane().showPopUp((AbstractMessageEvent) notification);
     }
 }
