@@ -4,8 +4,10 @@ import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.observer.NotificationType;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
+import rs.raf.gerumap.tree.model.treeNodeFactory.SimpleTreeNodeFactory;
 
 import javax.swing.*;
+import java.util.Map;
 
 public class ProjectTreeItem extends MapTreeItem {
     public ProjectTreeItem(MapNode nodeModel) {
@@ -17,8 +19,7 @@ public class ProjectTreeItem extends MapTreeItem {
 
         switch (notificationType) {
             case ADD -> {
-                MindMapTreeItem mindMapTreeItem = new MindMapTreeItem((MapNode) notification);
-                add(mindMapTreeItem);
+                add(SimpleTreeNodeFactory.getNode((MapNode) notification));
             }
             case DELETE -> deleteItem(notification);
 

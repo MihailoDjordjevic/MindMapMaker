@@ -8,6 +8,7 @@ import rs.raf.gerumap.observer.ISubscriber;
 import rs.raf.gerumap.observer.NotificationType;
 import rs.raf.gerumap.tree.MapTree;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
+import rs.raf.gerumap.tree.model.treeNodeFactory.SimpleTreeNodeFactory;
 
 import javax.swing.*;
 import javax.swing.tree.MutableTreeNode;
@@ -24,8 +25,7 @@ public class ProjectExplorerTreeItem extends MapTreeItem {
 
         switch (notificationType) {
             case ADD -> {
-                ProjectTreeItem projectTreeItem = new ProjectTreeItem((MapNode) notification);
-                add(projectTreeItem);
+                add(SimpleTreeNodeFactory.getNode((MapNode) notification));
             }
             case DELETE -> deleteItem(notification);
         }

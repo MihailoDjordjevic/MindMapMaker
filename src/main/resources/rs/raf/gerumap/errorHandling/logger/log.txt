@@ -129,3 +129,53 @@ Timestamp: [2022-11-09 21:41:50.607]
 Text: [Wrong node selected. Trying to add new Element to Project 1.
 Select or create a node that is of type MindMap and try again.]
 
+Event type: [ERROR]
+Timestamp: [2022-11-09 22:29:38.028]
+Text: [Wrong node selected. Trying to add new Element to Project Explorer.
+Select or create a node that is of type MindMap and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 22:34:45.093]
+Text: [Wrong node selected. Trying to add new Element to Project 1.
+Select or create a node that is of type MindMap and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 22:35:19.654]
+Text: [Wrong node selected. Trying to add new MindMap to Mind Map 1.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 22:37:59.065]
+Text: [Wrong node selected. Trying to add new MindMap to Project Explorer.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 22:41:23.604]
+Text: [Wrong node selected. Trying to add new Element to Project 1.
+Select or create a node that is of type MindMap and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 22:41:30.954]
+Text: [Wrong node selected. Trying to add new MindMap to Mind Map 1.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 22:41:47.385]
+Text: [Wrong node selected. Trying to add new MindMap to Mind Map 6.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 22:41:56.802]
+Text: [Wrong node selected. Trying to add new MindMap to Mind Map 6.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 22:42:01.611]
+Text: [Wrong node selected. Trying to add new MindMap to Project Explorer.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-09 22:42:03.374]
+Text: [Wrong node selected. Trying to add new Element to Project Explorer.
+Select or create a node that is of type MindMap and try again.]
+
