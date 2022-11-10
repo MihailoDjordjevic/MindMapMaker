@@ -56,7 +56,7 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
             case DELETE_PROJECT -> {
                  MainFrame.getInstance().getWorkspacePanel().remove(this);
                  MainFrame.getInstance().getWorkspacePanel().setLayout(null);
-                 MainFrame.getInstance().getWorkspacePanel().add(MainFrame.getInstance().getNoProjcetLabel());
+                 MainFrame.getInstance().getWorkspacePanel().add(MainFrame.getInstance().getNoProjectLabel());
             }
             case NAME_CHANGE -> ((TitledBorder) getBorder()).setTitle(project.getAuthor() + " - " + notification);
 

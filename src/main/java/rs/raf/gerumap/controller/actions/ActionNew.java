@@ -2,14 +2,12 @@ package rs.raf.gerumap.controller.actions;
 
 import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.core.ApplicationFramework;
-import rs.raf.gerumap.errorHandling.MessageGenerator;
 import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.factory.MapNodeFactory;
 import rs.raf.gerumap.model.repository.factory.MapNodeFactoryManager;
-import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
@@ -49,7 +47,7 @@ public class ActionNew extends AbstractMapAction{
             mapNodeFactory.getMapNode((MapNodeComposite) mapTreeItem.getModel());
         }
 
-        ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView().expandSelectedNode();
+        ((SwingGui) ApplicationFramework.getInstance().getIGui()).getMainFrame().getMapTreeView().expandSelectedNode();
 
     }
 }

@@ -29,7 +29,7 @@ public class MainFrame extends JFrame {
     private MapTreeView mapTreeView;
     private JSplitPane treeAndWorkspaceSplitPane;
 
-    private JLabel noProjcetLabel;
+    private JLabel noProjectLabel;
     private JLabel noMindMapLabel;
 
     private void initialise() {
@@ -61,12 +61,12 @@ public class MainFrame extends JFrame {
         workspacePanel = new JPanel();
         treeAndWorkspaceSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treeHolderScrollPane, workspacePanel);
         noMindMapLabel = new JLabel("This project doesnt have any mind maps yet");
-        noProjcetLabel = new JLabel("No project is currently selected to display");
+        noProjectLabel = new JLabel("No project is currently selected to display");
     }
 
     private void addComponentsToMainFrame(){
         setJMenuBar(menu);
-        workspacePanel.add(noProjcetLabel);
+        workspacePanel.add(noProjectLabel);
         mainPanel.add(treeAndWorkspaceSplitPane, BorderLayout.CENTER);
         mainPanel.add(toolbar, BorderLayout.NORTH);
         add(mainPanel);
@@ -98,8 +98,8 @@ public class MainFrame extends JFrame {
         treeAndWorkspaceSplitPane.setOneTouchExpandable(true);
         treeAndWorkspaceSplitPane.setDividerLocation(200);
 
-        noProjcetLabel.setBounds(workspacePanel.getPreferredSize().width/2, workspacePanel.getPreferredSize().height/2, 280, 20);
-        noProjcetLabel.setFont(new Font(Font.DIALOG, Font.ITALIC, 13));
+        noProjectLabel.setBounds(workspacePanel.getPreferredSize().width/2, workspacePanel.getPreferredSize().height/2, 280, 20);
+        noProjectLabel.setFont(new Font(Font.DIALOG, Font.ITALIC, 13));
 
         noMindMapLabel.setBounds(workspacePanel.getPreferredSize().width/2, workspacePanel.getPreferredSize().height/2, 280, 20);
         noMindMapLabel.setFont(new Font(Font.DIALOG, Font.ITALIC, 13));

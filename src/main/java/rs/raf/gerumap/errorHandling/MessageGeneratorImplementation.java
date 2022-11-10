@@ -10,7 +10,7 @@ import rs.raf.gerumap.observer.NotificationType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MessageGeneratorImplementation implements MessageGenerator, IPublisher {
+public class MessageGeneratorImplementation implements IMessageGenerator, IPublisher {
     private List<ISubscriber> subscribers;
     public MessageGeneratorImplementation(){
         subscribers = new ArrayList<>();

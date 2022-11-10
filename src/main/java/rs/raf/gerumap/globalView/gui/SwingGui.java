@@ -11,7 +11,7 @@ import rs.raf.gerumap.observer.NotificationType;
 @Getter
 @Setter
 @NoArgsConstructor
-public class SwingGui implements Gui {
+public class SwingGui implements IGui {
     private MainFrame mainFrame;
     @Override
     public void start() {

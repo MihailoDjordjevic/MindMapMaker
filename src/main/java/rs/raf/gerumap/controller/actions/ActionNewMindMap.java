@@ -7,7 +7,6 @@ import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.factory.MapNodeFactory;
 import rs.raf.gerumap.model.repository.factory.MapNodeFactoryManager;
-import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 import rs.raf.gerumap.tree.view.MapTreeView;
@@ -26,7 +25,7 @@ public class ActionNewMindMap extends AbstractMapAction {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        MapTreeView mapTreeView = ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView();
+        MapTreeView mapTreeView = ((SwingGui) ApplicationFramework.getInstance().getIGui()).getMainFrame().getMapTreeView();
         MapTreeItem projectTreeItem = ((MapTreeItem) mapTreeView.getLastSelectedPathComponent());
 
         if (projectTreeItem == null){
@@ -41,6 +40,6 @@ public class ActionNewMindMap extends AbstractMapAction {
         MapNodeFactory mapNodeFactory = MapNodeFactoryManager.getMapNodeFactory(projectTreeItem.getModel());
         mapNodeFactory.getMapNode((MapNodeComposite) projectTreeItem.getModel());
 
-        ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView().expandSelectedNode();
+        ((SwingGui) ApplicationFramework.getInstance().getIGui()).getMainFrame().getMapTreeView().expandSelectedNode();
     }
 }

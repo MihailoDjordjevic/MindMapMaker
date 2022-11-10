@@ -4,6 +4,6 @@ import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescripti
 
 import java.io.IOException;
 
-public interface MessageGenerator {
+public interface IMessageGenerator {
     void generateMessage(MessageDescription messageDescription, Object source) throws IOException;
 }

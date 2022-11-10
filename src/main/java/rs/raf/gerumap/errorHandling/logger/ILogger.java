@@ -5,7 +5,7 @@ import rs.raf.gerumap.observer.ISubscriber;
 
 import java.io.IOException;
 
-public interface Logger extends ISubscriber {
+public interface ILogger extends ISubscriber {
      void log(final AbstractMessageEvent eventMessage) throws IOException;
 
 }

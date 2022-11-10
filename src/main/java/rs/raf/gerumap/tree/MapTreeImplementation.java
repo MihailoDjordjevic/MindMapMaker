@@ -13,7 +13,7 @@ import javax.swing.tree.DefaultTreeModel;
 
 import java.util.Random;
 
-public class MapTreeImplementation implements MapTree{
+public class MapTreeImplementation implements IMapTree {
     private MapTreeView mapTreeView;
     private DefaultTreeModel defaultTreeModel;
     @Override

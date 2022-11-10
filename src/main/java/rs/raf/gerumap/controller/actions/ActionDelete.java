@@ -26,7 +26,7 @@ public class ActionDelete extends AbstractMapAction {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        MapTreeView mapTreeView = ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView();
+        MapTreeView mapTreeView = ((SwingGui) ApplicationFramework.getInstance().getIGui()).getMainFrame().getMapTreeView();
         MapTreeItem mapTreeItem = ((MapTreeItem) mapTreeView.getLastSelectedPathComponent());
 
         if (mapTreeItem == null){

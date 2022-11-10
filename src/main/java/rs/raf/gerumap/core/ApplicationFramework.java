@@ -6,7 +6,7 @@ import lombok.Setter;
 import rs.raf.gerumap.errorHandling.logger.ConsoleLogger;
 import rs.raf.gerumap.errorHandling.logger.FileLogger;
 import rs.raf.gerumap.errorHandling.MessageGeneratorImplementation;
-import rs.raf.gerumap.globalView.gui.Gui;
+import rs.raf.gerumap.globalView.gui.IGui;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,13 +20,13 @@ public class ApplicationFramework {
     protected ConsoleLogger consoleLogger;
     protected FileLogger fileLogger;
     private static ApplicationFramework instance;
-    protected Gui gui;
+    protected IGui IGui;
     protected IMapRepository iMapRepository;
     public void run(){
-        this.gui.start();
+        this.IGui.start();
     }
-    public void initialise(Gui gui, IMapRepository mapRepository) {
-        this.gui = gui;
+    public void initialise(IGui IGui, IMapRepository mapRepository) {
+        this.IGui = IGui;
         this.iMapRepository = mapRepository;
         initialiseLogger();
         manageSubscriptions();
@@ -37,7 +37,7 @@ public class ApplicationFramework {
         fileLogger = new FileLogger();
     }
     public void manageSubscriptions(){
-        messageGeneratorImplementation.addSubscriber(gui);
+        messageGeneratorImplementation.addSubscriber(IGui);
         messageGeneratorImplementation.addSubscriber(consoleLogger);
         messageGeneratorImplementation.addSubscriber(fileLogger);
     }

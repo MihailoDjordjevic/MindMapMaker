@@ -7,7 +7,7 @@ import rs.raf.gerumap.observer.NotificationType;
 import java.io.File;
 import java.io.IOException;
 import static rs.raf.gerumap.core.ApplicationFramework.workingDirectory;
-public class FileLogger implements Logger{
+public class FileLogger implements ILogger {
     private final File file;
     public FileLogger() {
         file = workingDirectory.resolve("src/main/resources/rs/raf/gerumap/errorHandling/logger/log.txt").toFile();
