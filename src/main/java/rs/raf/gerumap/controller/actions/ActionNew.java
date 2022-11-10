@@ -2,6 +2,8 @@ package rs.raf.gerumap.controller.actions;
 
 import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.errorHandling.MessageGenerator;
+import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
@@ -28,8 +30,12 @@ public class ActionNew extends AbstractMapAction {
 
         MapTreeItem mapTreeItem = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent());
 
-        MapNodeFactory mapNodeFactory = MapNodeFactoryManager.getMapNodeFactory(mapTreeItem.getModel());
-        mapNodeFactory.getMapNode((MapNodeComposite) mapTreeItem.getModel());
+        if (mapTreeItem == null) {
+            ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NO_NODE_SELECTED, null);
+        } else {
+            MapNodeFactory mapNodeFactory = MapNodeFactoryManager.getMapNodeFactory(mapTreeItem.getModel());
+            mapNodeFactory.getMapNode((MapNodeComposite) mapTreeItem.getModel());
+        }
 
         ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView().expandSelectedNode();
 

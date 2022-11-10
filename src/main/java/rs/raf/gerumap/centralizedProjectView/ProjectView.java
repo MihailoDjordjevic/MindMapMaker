@@ -50,11 +50,15 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
                 addTab(((MindMap) notification).getName(), mindMapView);
                 setSelectedComponent(mindMapView);
 
-            } case DELETE -> removeTab(notification);
+            }
+            case DELETE -> removeTab(notification);
 
-             case DELETE_PROJECT -> MainFrame.getInstance().getWorkspacePanel().remove(this);
-
-             case NAME_CHANGE -> ((TitledBorder) getBorder()).setTitle(project.getAuthor() + " - " + notification);
+            case DELETE_PROJECT -> {
+                 MainFrame.getInstance().getWorkspacePanel().remove(this);
+                 MainFrame.getInstance().getWorkspacePanel().setLayout(null);
+                 MainFrame.getInstance().getWorkspacePanel().add(MainFrame.getInstance().getNoProjcetLabel());
+            }
+            case NAME_CHANGE -> ((TitledBorder) getBorder()).setTitle(project.getAuthor() + " - " + notification);
         }
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getWorkspacePanel());
     }
@@ -67,4 +71,5 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
             }
         }
     }
+
 }

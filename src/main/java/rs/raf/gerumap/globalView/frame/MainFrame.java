@@ -29,6 +29,9 @@ public class MainFrame extends JFrame {
     private MapTreeView mapTreeView;
     private JSplitPane treeAndWorkspaceSplitPane;
 
+    private JLabel noProjcetLabel;
+    private JLabel noMindMapLabel;
+
     private void initialise() {
 
         initialiseFrameComponents();  //calls new for every component
@@ -57,10 +60,13 @@ public class MainFrame extends JFrame {
         treeHolderScrollPane = new JScrollPane(mapTreeView);
         workspacePanel = new JPanel();
         treeAndWorkspaceSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treeHolderScrollPane, workspacePanel);
+        noMindMapLabel = new JLabel("This project doesnt have any mind maps yet");
+        noProjcetLabel = new JLabel("No project is currently selected to display");
     }
 
     private void addComponentsToMainFrame(){
         setJMenuBar(menu);
+        workspacePanel.add(noProjcetLabel);
         mainPanel.add(treeAndWorkspaceSplitPane, BorderLayout.CENTER);
         mainPanel.add(toolbar, BorderLayout.NORTH);
         add(mainPanel);
@@ -87,13 +93,21 @@ public class MainFrame extends JFrame {
         workspacePanel.setMinimumSize(minimumSize);
         workspacePanel.setPreferredSize(new Dimension(400, 400));
         workspacePanel.setBackground(Color.lightGray);
+        workspacePanel.setLayout(null);
 
         treeAndWorkspaceSplitPane.setOneTouchExpandable(true);
         treeAndWorkspaceSplitPane.setDividerLocation(200);
+
+        noProjcetLabel.setBounds(workspacePanel.getPreferredSize().width/2, workspacePanel.getPreferredSize().height/2, 280, 20);
+        noProjcetLabel.setFont(new Font(Font.DIALOG, Font.ITALIC, 13));
+
+        noMindMapLabel.setBounds(workspacePanel.getPreferredSize().width/2, workspacePanel.getPreferredSize().height/2, 280, 20);
+        noMindMapLabel.setFont(new Font(Font.DIALOG, Font.ITALIC, 13));
     }
 
     public void displayProject(JTabbedPane project, int nodeOrdinal){
         workspacePanel.removeAll();
+        workspacePanel.setLayout(new FlowLayout());
         workspacePanel.add(project);
         if (nodeOrdinal > -1)
             project.setSelectedIndex(nodeOrdinal);
