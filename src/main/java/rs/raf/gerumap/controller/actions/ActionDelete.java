@@ -36,10 +36,10 @@ public class ActionDelete extends AbstractMapAction {
         } else {
 
             MapNode mapNode = mapTreeItem.getModel();
-            MapNodeComposite mapNodeComposite = ((MapNodeComposite) mapNode.getParent());  //Map Node that is to be deleted must have a parent so its safe to cast
+            MapNodeComposite mapNodeComposite = ((MapNodeComposite) mapNode.getParent());  //Map Node that is to be deleted must have a parent, so it's safe to cast
             mapNodeComposite.deleteChild(mapNode);
 
-            //selected node in a tree becomes the parent node of deleted node
+            //parent node of deleted node becomes the currently selected node in a tree
             TreePath path = mapTreeView.getSelectionPath();
             mapTreeView.setSelectionPath(path.getParentPath());
 

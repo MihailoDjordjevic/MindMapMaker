@@ -22,6 +22,7 @@ public class Menu extends JMenuBar {
     private JMenu edit;
     private JMenuItem delete;
     private JMenuItem rename;
+    private JMenuItem setAuthor;
 
     private JMenu help;
     private JMenuItem info;
@@ -40,6 +41,7 @@ public class Menu extends JMenuBar {
         edit.setMnemonic('E');
         delete = new JMenuItem(MainFrame.getInstance().getActionManager().getActionDelete());
         rename = new JMenuItem(MainFrame.getInstance().getActionManager().getActionRename());
+        setAuthor = new JMenuItem(MainFrame.getInstance().getActionManager().getActionSetAuthor());
 
         help = new JMenu("Help");
         info = new JMenuItem(MainFrame.getInstance().getActionManager().getActionInfo());
@@ -54,6 +56,7 @@ public class Menu extends JMenuBar {
         edit.add(delete);
         edit.addSeparator();
         edit.add(rename);
+        edit.add(setAuthor);
 
         help.add(info);
 

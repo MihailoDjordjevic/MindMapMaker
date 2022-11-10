@@ -15,6 +15,7 @@ public class ActionManager {
     private ActionDelete actionDelete;
     private ActionNewElement actionNewElement;
     private ActionRename actionRename;
+    private ActionSetAuthor actionSetAuthor;
     public ActionManager(){
         actionNew = new ActionNew();
         actionInfo = new ActionInfo();
@@ -23,5 +24,6 @@ public class ActionManager {
         actionDelete = new ActionDelete();
         actionNewElement = new ActionNewElement();
         actionRename = new ActionRename();
+        actionSetAuthor = new ActionSetAuthor();
     }
 }

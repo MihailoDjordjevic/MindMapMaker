@@ -2,6 +2,7 @@ package rs.raf.gerumap.errorHandling.message.abstractionAndEnums;
 
 import lombok.*;
 
+import java.awt.*;
 import java.sql.Timestamp;
 
 @Getter
@@ -20,5 +21,6 @@ public class AbstractMessageEvent {
     public AbstractMessageEvent(final EventType eventType){
         this.eventType = eventType;
         timestamp = new Timestamp(System.currentTimeMillis());
+        Toolkit.getDefaultToolkit().beep();
     }
 }

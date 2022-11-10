@@ -5,5 +5,6 @@ public enum NotificationType {
     DELETE,
     DELETE_PROJECT,
     NAME_CHANGE,
+    AUTHOR_CHANGE,
     MESSAGE
 }

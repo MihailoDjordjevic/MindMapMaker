@@ -28,6 +28,7 @@ public class Toolbar extends JToolBar {
         add(MainFrame.getInstance().getActionManager().getActionNew());
         add(MainFrame.getInstance().getActionManager().getActionDelete());
         add(MainFrame.getInstance().getActionManager().getActionRename());
+        add(MainFrame.getInstance().getActionManager().getActionSetAuthor());
 
         initEditNameTextField();
     }

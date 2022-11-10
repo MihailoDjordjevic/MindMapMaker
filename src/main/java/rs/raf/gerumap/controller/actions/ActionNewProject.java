@@ -6,6 +6,7 @@ import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.factory.MapNodeFactory;
 import rs.raf.gerumap.model.repository.factory.MapNodeFactoryManager;
+import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
 
@@ -25,8 +26,12 @@ public class ActionNewProject extends AbstractMapAction {
     public void actionPerformed(ActionEvent e) {
         ProjectExplorer projectExplorer = ApplicationFramework.getInstance().getIMapRepository().getProjectExplorer();
 
-        MapNodeFactory mapNodeFactory = MapNodeFactoryManager.getMapNodeFactory(projectExplorer);
-        mapNodeFactory.getMapNode(projectExplorer);
+        String author = JOptionPane.showInputDialog("Please enter the name of the author");
+
+        if (author != null) {
+            MapNodeFactory mapNodeFactory = MapNodeFactoryManager.getMapNodeFactory(projectExplorer);
+            ((Project) mapNodeFactory.getMapNode(projectExplorer)).setAuthor(author);
+        }
 
 
         ((SwingGui) ApplicationFramework.getInstance().getGui()).getMainFrame().getMapTreeView().expandSelectedNode();

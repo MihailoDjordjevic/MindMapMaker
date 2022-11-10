@@ -211,3 +211,86 @@ Event type: [ERROR]
 Timestamp: [2022-11-10 16:26:04.664]
 Text: [No node is currently selected for a desired action, please select a node and try again]
 
+Event type: [ERROR]
+Timestamp: [2022-11-10 16:27:57.046]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 16:28:01.773]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 16:28:04.341]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 17:29:08.164]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 17:35:33.643]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 17:35:40.433]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 17:36:04.798]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 17:37:04.976]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 17:52:02.081]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 17:53:35.378]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 17:53:39.644]
+Text: [Wrong node selected. Trying to add new MindMap to Project Explorer.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 19:33:50.523]
+Text: [Cannot remove: Project Explorer]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 19:33:53.193]
+Text: [Cannot remove: Project Explorer]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 19:34:10.066]
+Text: [Wrong node selected. Trying to add new MindMap to Mind Map 2.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 19:34:34.339]
+Text: [Wrong node selected. Trying to add new Element to Project Explorer.
+Select or create a node that is of type MindMap and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 20:12:04.612]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 20:28:08.229]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 20:28:54.563]
+Text: [Cannot remove: Project Explorer]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 20:29:00.474]
+Text: [Cannot remove: Project Explorer]
+
+Event type: [ERROR]
+Timestamp: [2022-11-10 20:31:48.333]
+Text: [Cannot remove: Project Explorer]
+

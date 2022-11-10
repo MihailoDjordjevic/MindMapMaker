@@ -59,6 +59,8 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
                  MainFrame.getInstance().getWorkspacePanel().add(MainFrame.getInstance().getNoProjcetLabel());
             }
             case NAME_CHANGE -> ((TitledBorder) getBorder()).setTitle(project.getAuthor() + " - " + notification);
+
+            case AUTHOR_CHANGE -> ((TitledBorder) getBorder()).setTitle(project.getAuthor() + " - " + project.getName());
         }
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getWorkspacePanel());
     }
