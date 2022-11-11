@@ -9,9 +9,9 @@ import javax.swing.tree.TreePath;
 public class MapTreeSelectionListener implements TreeSelectionListener {
     @Override
     public void valueChanged(TreeSelectionEvent e) {
-        TreePath path = e.getPath();
-        MapTreeItem treeItemSelected = (MapTreeItem)path.getLastPathComponent();
-        System.out.println("Selected node: " + treeItemSelected.getModel().getName());
-        System.out.println("Path: " + e.getPath());
+//        TreePath path = e.getPath();
+//        MapTreeItem treeItemSelected = (MapTreeItem)path.getLastPathComponent();
+//        System.out.println("Selected node: " + treeItemSelected.getModel().getName());
+//        System.out.println("Path: " + e.getPath());
     }
 }

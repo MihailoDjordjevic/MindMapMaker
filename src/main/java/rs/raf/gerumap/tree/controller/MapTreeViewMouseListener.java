@@ -17,7 +17,15 @@ public class MapTreeViewMouseListener implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
 
+        if(e.getClickCount() == 3) System.out.println("poyy 3");
+
         if (e.getClickCount() == 2){
+
+//            try {
+//                Thread.sleep(3000);
+//            } catch (InterruptedException ex) {
+//                throw new RuntimeException(ex);
+//            }
 
             MapNode mapNode = getModelOfCurrentlyOpeningTreeItem(e);
 

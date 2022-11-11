@@ -2,6 +2,7 @@ package rs.raf.gerumap.controller.actions;
 
 import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.errorHandling.message.NameCannotBeEmpty;
 import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.gui.SwingGui;
@@ -32,17 +33,26 @@ public class ActionNew extends AbstractMapAction{
         MapTreeItem mapTreeItem = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent());
 
         if (mapTreeItem == null) {
+
             ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NO_NODE_SELECTED, null);
             return;
-        }
-        if (mapTreeItem.getModel() instanceof ProjectExplorer) {
+
+        } else if (mapTreeItem.getModel() instanceof ProjectExplorer) {
+
             String author = JOptionPane.showInputDialog("Please enter the name of the author");
 
-            if (author != null) {
+            if (author == null){
+                return;
+            } else if (author.equals("")){
+                ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NAME_CANNOT_BE_EMPTY, null);
+                actionPerformed(e);
+            } else {
                 MapNodeFactory mapNodeFactory = MapNodeFactoryManager.getMapNodeFactory(mapTreeItem.getModel());
                 ((Project) mapNodeFactory.getMapNode((MapNodeComposite) mapTreeItem.getModel())).setAuthor(author);
             }
+
         } else {
+
             MapNodeFactory mapNodeFactory = MapNodeFactoryManager.getMapNodeFactory(mapTreeItem.getModel());
             mapNodeFactory.getMapNode((MapNodeComposite) mapTreeItem.getModel());
         }
