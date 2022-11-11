@@ -1,6 +1,8 @@
 package rs.raf.gerumap.controller.actions;
 
 import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
+import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
 import rs.raf.gerumap.globalView.frame.BasicDialog;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
@@ -36,8 +38,14 @@ public class ActionSetAuthor extends AbstractMapAction {
         initDialog();
         initListeners();
 
-        MapNode mapNode = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent()).getModel();
-        String name = ((Project) mapNode).getAuthor();
+        MapTreeItem mapTreeItem = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent());
+
+        if (mapTreeItem == null || !(mapTreeItem.getModel() instanceof Project)){
+            ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.CANNOT_CHANGE_AUTHOR, null);
+            return;
+        }
+
+        String name = ((Project) mapTreeItem.getModel()).getAuthor();
         originalName = name;
 
         textField.setText(name);
@@ -95,7 +103,13 @@ public class ActionSetAuthor extends AbstractMapAction {
         okButton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                dialog.dispose();
+                if(textField.getText().equals("")){
+                    MapNode mapNode = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent()).getModel();
+                    ((Project) mapNode).setAuthor(originalName);
+                    mapNode.notifySubscribers(originalName, NotificationType.AUTHOR_CHANGE);
+                    ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NAME_CANNOT_BE_EMPTY, null);
+                }
+                else dialog.dispose();
             }
 
             @Override

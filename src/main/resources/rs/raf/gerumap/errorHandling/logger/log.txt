@@ -294,3 +294,155 @@ Event type: [ERROR]
 Timestamp: [2022-11-10 20:31:48.333]
 Text: [Cannot remove: Project Explorer]
 
+Event type: [ERROR]
+Timestamp: [2022-11-11 01:35:09.789]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 01:37:29.35]
+Text: [Cannot remove: Project Explorer]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:02:17.179]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:02:19.899]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:02:24.996]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:03:26.38]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:03:57.286]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:03:59.747]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:17:03.269]
+Text: [To change author please select a project or create a new one]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:17:07.582]
+Text: [To change author please select a project or create a new one]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:17:15.077]
+Text: [To change author please select a project or create a new one]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:38:02.617]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:38:24.85]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:40:15.516]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:40:28.292]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:41:04.707]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:41:20.411]
+Text: [To change author please select a project or create a new one]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:41:23.867]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:41:37.536]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:43:08.056]
+Text: [To change author please select a project or create a new one]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:43:20.883]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:43:25.042]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:43:27.282]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:43:40.848]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:43:55.297]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:50:40.215]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:51:58.905]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:53:27.597]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:53:33.374]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:54:06.348]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:54:09.068]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:54:45.584]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:54:47.987]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 02:55:02.882]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 03:08:49.308]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 03:09:46.649]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 03:09:49.003]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-11 03:09:55.868]
+Text: [Name cannot be empty, please type at least one character]
+

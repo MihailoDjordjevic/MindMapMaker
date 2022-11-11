@@ -1,9 +1,12 @@
 package rs.raf.gerumap.controller.actions;
 
 import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
+import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
 import rs.raf.gerumap.globalView.frame.BasicDialog;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
+import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.observer.NotificationType;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
@@ -35,7 +38,14 @@ public class ActionRename extends AbstractMapAction {
         initDialog();
         initListeners();
 
-        MapNode mapNode = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent()).getModel();
+        MapTreeItem mapNodeTreeItem = (MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent();
+
+        if (mapNodeTreeItem == null){
+            ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NO_NODE_SELECTED, null);
+            return;
+        }
+
+        MapNode mapNode = mapNodeTreeItem.getModel();
         String name = mapNode.getName();
         originalName = name;
 
@@ -94,7 +104,13 @@ public class ActionRename extends AbstractMapAction {
         okButton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                dialog.dispose();
+                if(textField.getText().equals("")){
+                    MapNode mapNode = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent()).getModel();
+                    mapNode.setName(originalName);
+                    mapNode.notifySubscribers(originalName, NotificationType.NAME_CHANGE);
+                    ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NAME_CANNOT_BE_EMPTY, null);
+                }
+                else dialog.dispose();
             }
 
             @Override
