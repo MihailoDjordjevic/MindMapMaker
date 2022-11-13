@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.AbstractMessageEvent;
 import rs.raf.gerumap.globalView.frame.MainFrame;
-import rs.raf.gerumap.globalView.frame.popUp.ErrorPopUpPane;
+import rs.raf.gerumap.globalView.popUpPanes.ErrorPopUpPane;
 import rs.raf.gerumap.observer.NotificationType;
 
 @Getter

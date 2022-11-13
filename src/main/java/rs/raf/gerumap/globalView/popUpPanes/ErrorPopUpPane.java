@@ -1,4 +1,4 @@
-package rs.raf.gerumap.globalView.frame.popUp;
+package rs.raf.gerumap.globalView.popUpPanes;
 
 import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.AbstractMessageEvent;
 import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.EventType;

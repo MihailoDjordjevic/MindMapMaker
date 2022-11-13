@@ -30,9 +30,13 @@ public class ActionDelete extends AbstractMapAction {
         MapTreeItem mapTreeItem = ((MapTreeItem) mapTreeView.getLastSelectedPathComponent());
 
         if (mapTreeItem == null){
+
             ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NO_NODE_SELECTED, null);
+
         } else if (mapTreeItem.getModel() instanceof ProjectExplorer) {
+
             ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.CANNOT_REMOVE_NODE, mapTreeItem.getModel());
+
         } else {
 
             MapNode mapNode = mapTreeItem.getModel();
