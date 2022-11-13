@@ -33,4 +33,12 @@ public abstract class MapNodeComposite extends MapNode {
         }
         return null;
     }
+
+    public boolean containsName(String name, MapNode node){
+        for (MapNode mapNode : getChildren()){
+            if (mapNode.getName().equals(name) && mapNode != node)
+                return true;
+        }
+        return false;
+    }
 }

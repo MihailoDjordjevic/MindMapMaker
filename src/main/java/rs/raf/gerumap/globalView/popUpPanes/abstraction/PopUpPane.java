@@ -1,4 +1,4 @@
-package rs.raf.gerumap.globalView.popUpPanes;
+package rs.raf.gerumap.globalView.popUpPanes.abstraction;
 
 import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.AbstractMessageEvent;
 
@@ -8,5 +8,5 @@ public abstract class PopUpPane extends JOptionPane {
     public PopUpPane(){
         super();
     }
-    public abstract void showPopUp(AbstractMessageEvent eventMessage);
+    public abstract Object showPopUp(AbstractMessageEvent eventMessage);
 }

@@ -29,12 +29,16 @@ public class ActionNewMindMap extends AbstractMapAction {
         MapTreeItem projectTreeItem = ((MapTreeItem) mapTreeView.getLastSelectedPathComponent());
 
         if (projectTreeItem == null){
+
             ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NO_NODE_SELECTED, null);
             return;
+
         } else if (!(projectTreeItem.getModel() instanceof Project)){
+
             String[] str = new String[]{"MindMap", projectTreeItem.getModel().toString(), "Project"};
             ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.WRONG_NODE_SELECTED, str);
             return;
+
         }
 
         MapNodeFactory mapNodeFactory = MapNodeFactoryManager.getMapNodeFactory(projectTreeItem.getModel());

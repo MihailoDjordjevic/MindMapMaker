@@ -8,6 +8,8 @@ import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescripti
 import rs.raf.gerumap.globalView.frame.BasicDialog;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
+import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
+import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.observer.NotificationType;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
@@ -134,9 +136,14 @@ public class RenameUpdateOnInputPopUpPane extends BasicDialog {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if(textField.getText().equals("")){
+                MapNode mapNode = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent()).getModel();
 
-                    MapNode mapNode = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent()).getModel();
+                if (((MapNodeComposite) mapNode.getParent()).containsName(textField.getText(), mapNode)){
+                    String[] str = new String[]{mapNode.getParent().getName(), mapNode.getClass().getSimpleName(), textField.getText()};
+                    ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.CONTAINING_SAME_NAME, str);
+                }
+
+                if(textField.getText().equals("")){
 
                     switch (notificationType){
 

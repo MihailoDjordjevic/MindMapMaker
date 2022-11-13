@@ -141,3 +141,74 @@ Event type: [ERROR]
 Timestamp: [2022-11-13 15:58:37.853]
 Text: [Name cannot be empty, please type at least one character]
 
+Event type: [ERROR]
+Timestamp: [2022-11-13 18:55:22.904]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-13 18:55:32.134]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-13 18:55:34.809]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-13 18:57:11.728]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [WARNING]
+Timestamp: [2022-11-13 19:08:50.251]
+Text: [Mind Map 1 already contains Node named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-13 19:10:16.073]
+Text: [Mind Map 1 already contains Node named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-13 19:11:44.801]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-13 19:12:03.137]
+Text: [Mind Map 1 already contains Element named brno.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-13 19:12:15.025]
+Text: [Mind Map 1 already contains Element named brno.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-13 19:12:23.546]
+Text: [Mind Map 1 already contains Element named Element 2.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-13 19:12:36.274]
+Text: [Mind Map 1 already contains Element named Element 22q.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-13 19:26:05.41]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-13 19:26:28.89]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-13 19:26:35.417]
+Text: [Project 1 already contains MindMap named Mind Map 6.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-13 19:27:02.418]
+Text: [Project Explorer already contains Project named Project 1.
+ Do you want to continue?]
+

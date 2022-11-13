@@ -6,6 +6,7 @@ import lombok.Setter;
 import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.AbstractMessageEvent;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.popUpPanes.ErrorPopUpPane;
+import rs.raf.gerumap.globalView.popUpPanes.WarningPopUpPane;
 import rs.raf.gerumap.observer.NotificationType;
 
 @Getter
@@ -20,6 +21,13 @@ public class SwingGui implements IGui {
     }
     @Override
     public void update(Object notification, NotificationType notificationType) {
-        new ErrorPopUpPane().showPopUp((AbstractMessageEvent) notification);
+
+        AbstractMessageEvent abstractMessageEvent = ((AbstractMessageEvent) notification);
+
+        switch (abstractMessageEvent.getEventType()){
+            case ERROR ->  new ErrorPopUpPane().showPopUp(abstractMessageEvent);
+            case WARNING -> new WarningPopUpPane().showPopUp(abstractMessageEvent);
+        }
+
     }
 }
