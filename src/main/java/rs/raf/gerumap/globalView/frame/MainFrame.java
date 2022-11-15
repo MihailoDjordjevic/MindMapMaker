@@ -113,4 +113,10 @@ public class MainFrame extends JFrame {
             project.setSelectedIndex(nodeOrdinal);
         SwingUtilities.updateComponentTreeUI(this);
     }
+
+    public void removeDisplayedProject(){
+        this.getWorkspacePanel().removeAll();
+        this.getWorkspacePanel().setLayout(null);
+        this.getWorkspacePanel().add(this.getNoProjectLabel());
+    }
 }
