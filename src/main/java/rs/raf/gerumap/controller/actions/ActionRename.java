@@ -28,14 +28,14 @@ public class ActionRename extends AbstractMapAction {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        RenameUpdateOnInputPopUpPane renameUpdateOnInputPopUpPane = new RenameUpdateOnInputPopUpPane(MainFrame.getInstance(), "Rename", true, 200, 200, NotificationType.NAME_CHANGE);
-
         MapTreeItem mapNodeTreeItem = (MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent();
 
         if (mapNodeTreeItem == null){
             ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NO_NODE_SELECTED, null);
             return;
         }
+
+        RenameUpdateOnInputPopUpPane renameUpdateOnInputPopUpPane = new RenameUpdateOnInputPopUpPane(MainFrame.getInstance(), "Rename", true, 200, 200, NotificationType.NAME_CHANGE);
 
         MapNode mapNode = mapNodeTreeItem.getModel();
         String name = mapNode.getName();

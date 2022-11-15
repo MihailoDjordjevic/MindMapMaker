@@ -28,14 +28,14 @@ public class ActionSetAuthor extends AbstractMapAction {
 
     public void actionPerformed(ActionEvent e) {
 
-        RenameUpdateOnInputPopUpPane renameUpdateOnInputPopUpPane = new RenameUpdateOnInputPopUpPane(MainFrame.getInstance(), "Rename", true, 200, 200, NotificationType.AUTHOR_CHANGE);
-
         MapTreeItem mapTreeItem = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent());
 
         if (mapTreeItem == null || !(mapTreeItem.getModel() instanceof Project)){
             ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.CANNOT_CHANGE_AUTHOR, null);
             return;
         }
+
+        RenameUpdateOnInputPopUpPane renameUpdateOnInputPopUpPane = new RenameUpdateOnInputPopUpPane(MainFrame.getInstance(), "Rename", true, 200, 200, NotificationType.AUTHOR_CHANGE);
 
         String name = ((Project) mapTreeItem.getModel()).getAuthor();
         renameUpdateOnInputPopUpPane.setOriginalName(name);

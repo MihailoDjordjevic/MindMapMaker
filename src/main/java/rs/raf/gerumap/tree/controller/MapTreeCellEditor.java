@@ -1,6 +1,11 @@
 package rs.raf.gerumap.tree.controller;
 
+import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
+import rs.raf.gerumap.globalView.popUpPanes.WarningPopUpPane;
 import rs.raf.gerumap.model.repository.composite.MapNode;
+import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
+import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
 import rs.raf.gerumap.observer.NotificationType;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
@@ -32,6 +37,22 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
         if (e.getSource() instanceof JTextField) {
 
             MapNode mapNode = ((MapTreeItem)clickedOn).getModel();
+
+            if (!(mapNode instanceof ProjectExplorer) && ((MapNodeComposite) mapNode.getParent()).containsName(e.getActionCommand(), mapNode)){
+
+                String[] str = new String[]{mapNode.getParent().getName(), mapNode.getClass().getSimpleName(), e.getActionCommand()};
+                ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.CONTAINING_SAME_NAME, str);
+
+
+                if (WarningPopUpPane.warningPaneState == 2){
+                    return;
+                }
+
+            } else if (e.getActionCommand().equals("")){
+                ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NAME_CANNOT_BE_EMPTY, null);
+                return;
+            }
+
             mapNode.setName(e.getActionCommand());
             mapNode.notifySubscribers(mapNode.getName(), NotificationType.NAME_CHANGE);
 

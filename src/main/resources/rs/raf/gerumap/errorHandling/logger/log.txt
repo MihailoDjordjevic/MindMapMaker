@@ -212,3 +212,256 @@ Timestamp: [2022-11-13 19:27:02.418]
 Text: [Project Explorer already contains Project named Project 1.
  Do you want to continue?]
 
+Event type: [ERROR]
+Timestamp: [2022-11-13 23:42:32.612]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-13 23:42:37.314]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-13 23:42:39.935]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [WARNING]
+Timestamp: [2022-11-13 23:42:50.542]
+Text: [Project 1 already contains MindMap named pop.
+ Do you want to continue?]
+
+Event type: [ERROR]
+Timestamp: [2022-11-14 01:47:32.659]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-14 01:51:25.96]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-14 01:53:11.276]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-14 03:04:38.988]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-14 03:07:24.544]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [WARNING]
+Timestamp: [2022-11-14 03:28:59.637]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-14 03:29:17.356]
+Text: [Project 1 already contains MindMap named qqq.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-14 03:29:35.604]
+Text: [Project 1 already contains MindMap named qqq.
+ Do you want to continue?]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 02:47:00.676]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 02:47:38.273]
+Text: [To change author please select a project or create a new one]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 02:47:44.204]
+Text: [To change author please select a project or create a new one]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 02:48:11.933]
+Text: [Project 1 already contains MindMap named Mind Map 2.
+ Do you want to continue?]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 02:48:17.117]
+Text: [To change author please select a project or create a new one]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 02:48:19.883]
+Text: [To change author please select a project or create a new one]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:08:04.5]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:08:15.978]
+Text: [Project Explorer already contains Project named Project 2.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:08:42.658]
+Text: [Project 2 already contains MindMap named Mind Map 4.
+ Do you want to continue?]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:08:55.17]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:09:25.813]
+Text: [To change author please select a project or create a new one]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:12:51.062]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:14:34.334]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:15:32.846]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:15:43.185]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:16:17.345]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:16:50.055]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:16:58.427]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:17:03.721]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:17:09.393]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:17:18.891]
+Text: [Project 1 already contains MindMap named sdsss.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:17:30.634]
+Text: [Project 1 already contains MindMap named sdsss.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:17:55.465]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:18:09.337]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:28:52.681]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:29:03.881]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-15 07:29:06.288]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:33:26.004]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:40:27.469]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:40:41.169]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:40:54.978]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:40:58.921]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:42:15.14]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:42:21.921]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:42:28.386]
+Text: [Project 1 already contains MindMap named Mind Map 5.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:42:32.001]
+Text: [Project 1 already contains MindMap named Mind Map 5.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:42:35.53]
+Text: [Project 1 already contains MindMap named Mind Map 5.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:42:44.561]
+Text: [Project 1 already contains MindMap named Mind Map 55.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:44:17.188]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:44:29.249]
+Text: [Project 1 already contains MindMap named Mind Map 3.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:44:44.857]
+Text: [Project Explorer already contains Project named Project 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:44:53.178]
+Text: [Project Explorer already contains Project named Project 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:45:04.273]
+Text: [Project Explorer already contains Project named Project 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-11-15 07:45:16.953]
+Text: [Mind Map 3 already contains Element named Element 4.
+ Do you want to continue?]
+

@@ -11,6 +11,7 @@ import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.model.repository.implementation.Project;
+import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
 import rs.raf.gerumap.observer.NotificationType;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
@@ -138,14 +139,20 @@ public class RenameUpdateOnInputPopUpPane extends BasicDialog {
 
                 MapNode mapNode = ((MapTreeItem) MainFrame.getInstance().getMapTreeView().getLastSelectedPathComponent()).getModel();
 
-                if (((MapNodeComposite) mapNode.getParent()).containsName(textField.getText(), mapNode)){
+                if (!(mapNode instanceof ProjectExplorer) && ((MapNodeComposite) mapNode.getParent()).containsName(textField.getText(), mapNode)){
+
                     String[] str = new String[]{mapNode.getParent().getName(), mapNode.getClass().getSimpleName(), textField.getText()};
                     ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.CONTAINING_SAME_NAME, str);
+
+                    if (WarningPopUpPane.warningPaneState == 2){
+                        return;
+                    }
+
                 }
 
                 if(textField.getText().equals("")){
 
-                    switch (notificationType){
+                    switch (notificationType){    //this is to reset author name to old name
 
                         case AUTHOR_CHANGE -> {
 
