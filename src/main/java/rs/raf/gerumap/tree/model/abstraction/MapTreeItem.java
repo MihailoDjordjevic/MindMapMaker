@@ -3,10 +3,12 @@ package rs.raf.gerumap.tree.model.abstraction;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.observer.ISubscriber;
 
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeNode;
 import java.util.Objects;
@@ -34,7 +36,7 @@ public abstract class MapTreeItem extends DefaultMutableTreeNode implements ISub
         for (TreeNode mapTreeItem : children){
             //notification is of type Map Node
             if (((MapTreeItem) mapTreeItem).getModel() == notification) {
-
+               // ((DefaultTreeModel) MainFrame.getInstance().getMapTreeView().getModel()).removeNodeFromParent((MutableTreeNode) mapTreeItem);
                 ((MapTreeItem) mapTreeItem.getParent()).remove((MutableTreeNode) mapTreeItem);
                 ((MapTreeItem) mapTreeItem).finalizeMapTreeItem();
                 break;
