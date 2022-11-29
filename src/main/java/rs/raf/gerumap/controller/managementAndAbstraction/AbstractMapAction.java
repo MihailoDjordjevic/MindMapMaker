@@ -8,6 +8,7 @@ public abstract class AbstractMapAction extends AbstractAction {
         putValue(SMALL_ICON, loadIcon(fileName));
     }
     public Icon loadIcon(String fileName){
+
         URL imageURL = getClass().getResource(fileName);
         Icon icon = null;
 

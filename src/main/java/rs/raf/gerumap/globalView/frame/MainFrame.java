@@ -3,6 +3,7 @@ package rs.raf.gerumap.globalView.frame;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import rs.raf.gerumap.centralizedProjectView.ProjectView;
 import rs.raf.gerumap.controller.managementAndAbstraction.ActionManager;
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.globalView.menu.Menu;
@@ -30,6 +31,7 @@ public class MainFrame extends JFrame {
     private JScrollPane treeHolderScrollPane;
     private MapTreeView mapTreeView;
     private JSplitPane treeAndWorkspaceSplitPane;
+    private ProjectView currentProjectView;
 
     private JLabel noProjectLabel;
     private JLabel noMindMapLabel;
@@ -115,6 +117,8 @@ public class MainFrame extends JFrame {
         workspacePanel.add(project, BorderLayout.CENTER);
         workspacePanel.add(editorToolbar, BorderLayout.EAST);
 
+        currentProjectView = (ProjectView) project;
+
         if (nodeOrdinal > -1)
             project.setSelectedIndex(nodeOrdinal);
 
@@ -125,5 +129,6 @@ public class MainFrame extends JFrame {
         this.getWorkspacePanel().removeAll();
         this.getWorkspacePanel().setLayout(null);
         this.getWorkspacePanel().add(this.getNoProjectLabel());
+        this.setCurrentProjectView(null);
     }
 }

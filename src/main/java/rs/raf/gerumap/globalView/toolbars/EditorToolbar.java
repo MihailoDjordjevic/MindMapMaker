@@ -16,20 +16,23 @@ public class EditorToolbar extends JToolBar {
     }
 
     private void initToolbar(){
-        setPreferredSize(new Dimension(60, 400));
+        setPreferredSize(new Dimension(45, 400));
         setBackground(Color.PINK);
         setBorder(new LineBorder(Color.BLACK, 2, true));
         setOrientation(VERTICAL);
         setFloatable(false);
+
     }
 
     private void initComponents(){
 
         add(Box.createVerticalStrut(3));
-        add(MainFrame.getInstance().getActionManager().getActionAddTermState());
-//        add(MainFrame.getInstance().getActionManager().getActionDelete());
-//        add(MainFrame.getInstance().getActionManager().getActionRename());
-//        add(MainFrame.getInstance().getActionManager().getActionSetAuthor());
+        add(MainFrame.getInstance().getActionManager().getActionAddTermState()); getComponent(1).getLocation().translate(4, 0);
+        add(MainFrame.getInstance().getActionManager().getActionLinkElementsState()); getComponent(2).getLocation().translate(4, 0);
+        add(MainFrame.getInstance().getActionManager().getActionDeleteState()); getComponent(3).getLocation().translate(4, 0);
+        add(MainFrame.getInstance().getActionManager().getActionSelectState()); getComponent(4).getLocation().translate(4, 0);
+        add(MainFrame.getInstance().getActionManager().getActionMoveState()); getComponent(5).getLocation().translate(4, 0);
+        add(Box.createHorizontalStrut(5));
 
     }
 }

@@ -34,21 +34,26 @@ public class StateManager {
 
     public void setAddTermState(){
         currentState = addTermState;
+        System.out.println("Editor state set to: add term");
     }
 
     public void setDeleteState(){
         currentState = deleteState;
+        System.out.println("Editor state set to: delete");
     }
 
     public void setLinkElementsState(){
         currentState = linkElementsState;
+        System.out.println("Editor state set to: link");
     }
 
     public void setMoveState(){
         currentState = moveState;
+        System.out.println("Editor state set to: move");
     }
 
     public void setSelectState(){
         currentState = selectState;
+        System.out.println("Editor state set to: select");
     }
 }

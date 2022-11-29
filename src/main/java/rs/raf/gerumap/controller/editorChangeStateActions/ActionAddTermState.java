@@ -1,10 +1,13 @@
 package rs.raf.gerumap.controller.editorChangeStateActions;
 
+import rs.raf.gerumap.controller.managementAndAbstraction.AbstractMapAction;
+import rs.raf.gerumap.globalView.frame.MainFrame;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class ActionAddTermState extends AbstractAction {
+public class ActionAddTermState extends AbstractMapAction {
 
 
     public ActionAddTermState() {
@@ -18,6 +21,6 @@ public class ActionAddTermState extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        MainFrame.getInstance().getCurrentProjectView().getStateManager().setAddTermState();
     }
 }

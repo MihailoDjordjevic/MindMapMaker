@@ -7,6 +7,7 @@ import rs.raf.gerumap.errorHandling.logger.ConsoleLogger;
 import rs.raf.gerumap.errorHandling.logger.FileLogger;
 import rs.raf.gerumap.errorHandling.MessageGeneratorImplementation;
 import rs.raf.gerumap.globalView.gui.IGui;
+import rs.raf.gerumap.mindMapEditor.StateManager;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,6 +17,7 @@ import java.nio.file.Paths;
 @NoArgsConstructor
 public class ApplicationFramework {
     public static final Path workingDirectory = Paths.get(System.getProperty("user.dir"));
+    private StateManager stateManager;
     protected MessageGeneratorImplementation messageGeneratorImplementation;
     protected ConsoleLogger consoleLogger;
     protected FileLogger fileLogger;
