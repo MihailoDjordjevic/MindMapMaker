@@ -2,9 +2,7 @@ package rs.raf.gerumap.tree.model.treeNodeFactory;
 
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.implementation.Project;
-import rs.raf.gerumap.tree.model.ElementTreeItem;
-import rs.raf.gerumap.tree.model.MindMapTreeItem;
-import rs.raf.gerumap.tree.model.ProjectTreeItem;
+import rs.raf.gerumap.tree.model.*;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
 import java.util.Map;
@@ -17,6 +15,8 @@ public class SimpleTreeNodeFactory {
             case "Project" -> new ProjectTreeItem(mapNode);
             case "MindMap" -> new MindMapTreeItem(mapNode);
             case "Element" -> new ElementTreeItem(mapNode);
+            case "Term" -> new TermTreeItem(mapNode);
+            case "Link" -> new LinkTreeItem(mapNode);
             default -> null;
         };
     }

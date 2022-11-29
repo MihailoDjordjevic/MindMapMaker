@@ -19,8 +19,8 @@ public class StateManager {
 
     public StateManager() {
 
-        currentState = selectState;   //default state on startup
         initStates();
+        currentState = selectState;   //default state on startup
 
     }
 
