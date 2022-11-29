@@ -3,10 +3,11 @@ package rs.raf.gerumap.globalView.frame;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import rs.raf.gerumap.controller.actions.managementAndAbstraction.ActionManager;
+import rs.raf.gerumap.controller.managementAndAbstraction.ActionManager;
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.globalView.menu.Menu;
-import rs.raf.gerumap.globalView.toolbar.Toolbar;
+import rs.raf.gerumap.globalView.toolbars.EditorToolbar;
+import rs.raf.gerumap.globalView.toolbars.GlobalToolbar;
 import rs.raf.gerumap.model.repository.MapRepositoryImplementation;
 import rs.raf.gerumap.tree.view.MapTreeView;
 
@@ -20,7 +21,8 @@ public class MainFrame extends JFrame {
 
     private static MainFrame instance = null;
     private Menu menu;
-    private Toolbar toolbar;
+    private GlobalToolbar globalToolbar;
+    private EditorToolbar editorToolbar;
     private ActionManager actionManager;
 
     private JPanel mainPanel;
@@ -55,7 +57,8 @@ public class MainFrame extends JFrame {
         mainPanel = new JPanel();
         actionManager = new ActionManager();
         menu = new Menu();
-        toolbar = new Toolbar();
+        globalToolbar = new GlobalToolbar();
+        editorToolbar = new EditorToolbar();
         mapTreeView = ((MapRepositoryImplementation) ApplicationFramework.getInstance().getIMapRepository()).takeGeneratedTree();
         treeHolderScrollPane = new JScrollPane(mapTreeView);
         workspacePanel = new JPanel();
@@ -68,7 +71,7 @@ public class MainFrame extends JFrame {
         setJMenuBar(menu);
         workspacePanel.add(noProjectLabel);
         mainPanel.add(treeAndWorkspaceSplitPane, BorderLayout.CENTER);
-        mainPanel.add(toolbar, BorderLayout.NORTH);
+        mainPanel.add(globalToolbar, BorderLayout.NORTH);
         add(mainPanel);
     }
 
@@ -106,11 +109,15 @@ public class MainFrame extends JFrame {
     }
 
     public void displayProject(JTabbedPane project, int nodeOrdinal){
+
         workspacePanel.removeAll();
-        workspacePanel.setLayout(new FlowLayout());
-        workspacePanel.add(project);
+        workspacePanel.setLayout(new BorderLayout());
+        workspacePanel.add(project, BorderLayout.CENTER);
+        workspacePanel.add(editorToolbar, BorderLayout.EAST);
+
         if (nodeOrdinal > -1)
             project.setSelectedIndex(nodeOrdinal);
+
         SwingUtilities.updateComponentTreeUI(this);
     }
 

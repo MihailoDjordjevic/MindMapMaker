@@ -1,20 +1,15 @@
-package rs.raf.gerumap.controller.actions;
+package rs.raf.gerumap.controller.globalActions;
 
-import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
+import rs.raf.gerumap.controller.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
-import rs.raf.gerumap.globalView.frame.BasicDialog;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.popUpPanes.RenameUpdateOnInputPopUpPane;
-import rs.raf.gerumap.model.repository.composite.MapNode;
-import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.observer.NotificationType;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
 import java.awt.event.*;
 
 public class ActionSetAuthor extends AbstractMapAction {

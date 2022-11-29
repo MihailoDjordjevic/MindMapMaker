@@ -1,18 +1,16 @@
-package rs.raf.gerumap.globalView.toolbar;
+package rs.raf.gerumap.globalView.toolbars;
 
-import rs.raf.gerumap.Main;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
-import javax.swing.text.JTextComponent;
 import java.awt.*;
 
-public class Toolbar extends JToolBar {
+public class GlobalToolbar extends JToolBar {
 
     private JTextField editNameTextField;
 
-    public Toolbar() {
+    public GlobalToolbar() {
         initToolbar();
         initComponents();
     }
@@ -29,6 +27,7 @@ public class Toolbar extends JToolBar {
         add(MainFrame.getInstance().getActionManager().getActionDelete());
         add(MainFrame.getInstance().getActionManager().getActionRename());
         add(MainFrame.getInstance().getActionManager().getActionSetAuthor());
+        add(MainFrame.getInstance().getActionManager().getActionAddTermState());
 
         initEditNameTextField();
     }

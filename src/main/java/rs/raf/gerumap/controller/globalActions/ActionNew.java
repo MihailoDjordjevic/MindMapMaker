@@ -1,8 +1,7 @@
-package rs.raf.gerumap.controller.actions;
+package rs.raf.gerumap.controller.globalActions;
 
-import rs.raf.gerumap.controller.actions.managementAndAbstraction.AbstractMapAction;
+import rs.raf.gerumap.controller.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.core.ApplicationFramework;
-import rs.raf.gerumap.errorHandling.message.NameCannotBeEmpty;
 import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.gui.SwingGui;
