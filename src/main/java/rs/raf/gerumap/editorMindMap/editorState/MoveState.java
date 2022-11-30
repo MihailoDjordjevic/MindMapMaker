@@ -5,6 +5,7 @@ import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 import rs.raf.gerumap.model.repository.implementation.Term;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class MoveState implements IState{
@@ -19,22 +20,27 @@ public class MoveState implements IState{
 
         MouseEvent mouseEvent = ((MouseEvent) event);
         MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
-        ElementPainter clickedElement;
 
-        for (ElementPainter elementPainter : mindMapView.getElementPainters()){
-            if (elementPainter.isContained(mouseEvent.getPoint())){
-                System.out.println("Selected element " + elementPainter.getModel().getName());
-                clickedElement = elementPainter;
-                ((Term) clickedElement.getModel()).getLocation().setLocation(mouseEvent.getPoint().getX() - 10, mouseEvent.getPoint().getY() - 15);
-                SwingUtilities.updateComponentTreeUI(mindMapView);
-                break;
-            }
+        if (mindMapView.getSelectionModel().getSingleSelectionElement() != null){
+
+            Term term = ((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel());
+
+            term.setLocation(new Point(
+                    mouseEvent.getPoint().x - term.getEllipseDimension().width/2,
+                    mouseEvent.getPoint().y - term.getEllipseDimension().height/2
+                    ));
         }
+
+        SwingUtilities.updateComponentTreeUI(mindMapView);
     }
 
     @Override
     public void mousePressedAction(Object event) {
+        MouseEvent mouseEvent = ((MouseEvent) event);
+        MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
 
+        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(mouseEvent.getPoint());
+        mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
     }
 
     @Override

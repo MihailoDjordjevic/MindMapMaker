@@ -1,10 +1,25 @@
 package rs.raf.gerumap.editorMindMap.editorState;
 
+import rs.raf.gerumap.centralizedProjectView.MindMapView;
+import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
+import rs.raf.gerumap.model.repository.implementation.Element;
+import rs.raf.gerumap.model.repository.implementation.MindMap;
+
+import java.awt.event.MouseEvent;
+
 public class DeleteState implements IState{
 
     @Override
     public void mouseClickAction(Object event) {
+        MouseEvent e = ((MouseEvent) event);
+        MindMapView mindMapView = (MindMapView) ((MouseEvent) event).getSource();
+        MindMap mindMap = mindMapView.getMindMap();
 
+        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(e.getPoint());
+
+        if (elementPainter != null){
+            mindMap.deleteChild(elementPainter.getModel());
+        }
     }
 
     @Override

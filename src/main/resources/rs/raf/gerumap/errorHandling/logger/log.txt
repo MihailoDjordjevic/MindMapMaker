@@ -612,3 +612,8 @@ Timestamp: [2022-11-30 14:33:26.343]
 Text: [Mind Map 1 already contains Term named Term 1.
  Do you want to continue?]
 
+Event type: [WARNING]
+Timestamp: [2022-11-30 21:50:24.75]
+Text: [Mind Map 4 already contains Term named Term 3.
+ Do you want to continue?]
+

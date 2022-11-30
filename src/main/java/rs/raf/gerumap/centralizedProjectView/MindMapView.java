@@ -16,6 +16,7 @@ import rs.raf.gerumap.observer.NotificationType;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 @Getter
@@ -25,6 +26,7 @@ public class MindMapView extends JPanel implements ISubscriber {
     private MindMap mindMap;
     private ArrayList<ElementPainter> elementPainters;
     private SelectionModel selectionModel;
+    private Line2D temporaryLink;
 
     public MindMapView(MindMap mindMap) {
 
@@ -76,6 +78,11 @@ public class MindMapView extends JPanel implements ISubscriber {
         super.paintComponent(g);
 
         Graphics2D graphics2D = (Graphics2D) g;
+
+        if (temporaryLink != null) {
+            graphics2D.setColor(Color.BLACK);
+            graphics2D.draw(temporaryLink);
+        }
 
         for (ElementPainter elementPainter : elementPainters){
             elementPainter.paintElement(graphics2D);

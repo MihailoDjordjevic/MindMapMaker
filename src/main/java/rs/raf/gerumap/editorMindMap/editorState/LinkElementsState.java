@@ -4,10 +4,13 @@ package rs.raf.gerumap.editorMindMap.editorState;
 import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
+import rs.raf.gerumap.model.repository.implementation.Term;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.util.Objects;
+import java.awt.geom.Line2D;
+import java.awt.geom.Point2D;
 
 public class LinkElementsState implements IState{
     @Override
@@ -28,6 +31,17 @@ public class LinkElementsState implements IState{
             mindMapView.getSelectionModel().setSecondarySelectionElement(elementPainter);
         }
 
+        if (mindMapView.getSelectionModel().getSingleSelectionElement() != null) {
+            Point point = new Point(
+                    (int) (((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel()).getLocation().getX() +
+                            ((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel()).getEllipseDimension().width / 2),
+                    (int) (((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel()).getLocation().getY() +
+                            ((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel()).getEllipseDimension().height / 2)
+            );
+
+            mindMapView.setTemporaryLink(new Line2D.Double(point, mouseEvent.getPoint()));
+        }
+
         SwingUtilities.updateComponentTreeUI(mindMapView);
     }
 
@@ -40,6 +54,8 @@ public class LinkElementsState implements IState{
 
         ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(mouseEvent.getPoint());
         mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
+
+        mindMapView.setTemporaryLink(new Line2D.Double(0,0,0,0));
 
         SwingUtilities.updateComponentTreeUI(mindMapView);
     }
@@ -54,6 +70,7 @@ public class LinkElementsState implements IState{
         mindMapView.getSelectionModel().setSingleSelectionElement(null);
         mindMapView.getSelectionModel().setSecondarySelectionElement(null);
 
+        mindMapView.setTemporaryLink(null);
 
         SwingUtilities.updateComponentTreeUI(mindMapView);
     }
