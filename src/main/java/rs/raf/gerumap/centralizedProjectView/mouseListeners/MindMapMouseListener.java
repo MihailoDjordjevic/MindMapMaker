@@ -8,7 +8,7 @@ import java.awt.event.MouseListener;
 public class MindMapMouseListener implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
-        MainFrame.getInstance().getCurrentProjectView().getStateManager().getCurrentState().performAction(e);
+        MainFrame.getInstance().getCurrentProjectView().getStateManager().getCurrentState().mouseClickAction(e);
     }
 
     @Override

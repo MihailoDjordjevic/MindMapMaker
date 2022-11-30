@@ -1,8 +1,8 @@
-package rs.raf.gerumap.mindMapEditor;
+package rs.raf.gerumap.editorMindMap;
 
 import lombok.Getter;
 import lombok.Setter;
-import rs.raf.gerumap.mindMapEditor.editorState.*;
+import rs.raf.gerumap.editorMindMap.editorState.*;
 
 @Getter
 @Setter

@@ -2,6 +2,7 @@ package rs.raf.gerumap.centralizedProjectView;
 
 import rs.raf.gerumap.centralizedProjectView.emenetViewing.ElementPainter;
 import rs.raf.gerumap.model.repository.composite.MapNode;
+import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.model.repository.implementation.Term;
 import rs.raf.gerumap.observer.ISubscriber;
 import rs.raf.gerumap.observer.NotificationType;
@@ -11,20 +12,28 @@ import java.awt.geom.GeneralPath;
 
 public class TermPainter extends ElementPainter implements ISubscriber {
 
-    public TermPainter(MapNode model) {
+    public TermPainter(Element model) {
         super(model);
         model.getSubscribers().add(this);
-        setShape();
     }
 
     @Override
     public void paintElement(Graphics2D g) {
+
         Term term = ((Term) getModel());
-        g.setColor(term.getColor());
+
+        g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.8f));
+
+        g.setColor(term.getBorderColor());
         g.setStroke(new BasicStroke(term.getThickness()));
-        g.draw(getShape());
-       // g.drawRect(term.getLocation().x - term.getDimension().width/2, term.getLocation().y - term.getDimension().height/2, term.getDimension().width, term.getDimension().height);
-        g.drawString(term.getName(), term.getLocation().x - term.getDimension().width/2, term.getLocation().y - term.getDimension().height/2 + 13);
+        g.draw(createShape());
+
+        g.setColor(term.getBackgroundColor());
+        g.fill(getShape());
+
+        g.setColor(term.getTextColor());
+        g.setFont(new Font("Basic font", Font.PLAIN, term.getFontSize()));
+        g.drawString(term.getName(), term.getLocation().x + 3, term.getLocation().y + 18);
     }
 
     @Override
@@ -38,7 +47,7 @@ public class TermPainter extends ElementPainter implements ISubscriber {
 
     }
 
-    private void setShape(){
+    private Shape createShape(){
         Term term = ((Term) getModel());
 
         GeneralPath generalPath = new GeneralPath();
@@ -50,5 +59,6 @@ public class TermPainter extends ElementPainter implements ISubscriber {
 
         setShape(generalPath);
 
+        return getShape();
     }
 }

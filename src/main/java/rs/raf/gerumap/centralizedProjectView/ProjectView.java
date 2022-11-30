@@ -3,7 +3,7 @@ package rs.raf.gerumap.centralizedProjectView;
 import lombok.Getter;
 import lombok.Setter;
 import rs.raf.gerumap.globalView.frame.MainFrame;
-import rs.raf.gerumap.mindMapEditor.StateManager;
+import rs.raf.gerumap.editorMindMap.StateManager;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Project;

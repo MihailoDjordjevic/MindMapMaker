@@ -2,7 +2,6 @@ package rs.raf.gerumap.controller.editorChangeStateActions;
 
 import rs.raf.gerumap.controller.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.globalView.frame.MainFrame;
-import rs.raf.gerumap.mindMapEditor.editorState.IState;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
