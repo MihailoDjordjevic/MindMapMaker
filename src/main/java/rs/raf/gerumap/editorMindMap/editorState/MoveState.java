@@ -1,7 +1,7 @@
 package rs.raf.gerumap.editorMindMap.editorState;
 
 import rs.raf.gerumap.centralizedProjectView.MindMapView;
-import rs.raf.gerumap.centralizedProjectView.emenetViewing.ElementPainter;
+import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 import rs.raf.gerumap.model.repository.implementation.Term;
 
 import javax.swing.*;
@@ -30,5 +30,30 @@ public class MoveState implements IState{
                 break;
             }
         }
+    }
+
+    @Override
+    public void mousePressedAction(Object event) {
+
+    }
+
+    @Override
+    public void mouseReleasedAction(Object event) {
+
+    }
+
+    @Override
+    public void mouseEnteredAction(Object event) {
+
+    }
+
+    @Override
+    public void mouseExitedAction(Object event) {
+
+    }
+
+    @Override
+    public void mouseMovedAction(Object event) {
+
     }
 }

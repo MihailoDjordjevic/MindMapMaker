@@ -13,6 +13,6 @@ public class MindMapMouseMotionLsnr implements MouseMotionListener {
 
     @Override
     public void mouseMoved(MouseEvent e) {
-
+        MainFrame.getInstance().getCurrentProjectView().getStateManager().getCurrentState().mouseMovedAction(e);
     }
 }

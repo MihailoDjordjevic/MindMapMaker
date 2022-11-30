@@ -1,4 +1,4 @@
-package rs.raf.gerumap.centralizedProjectView.emenetViewing;
+package rs.raf.gerumap.centralizedProjectView.elementViewing;
 
 import java.awt.*;
 

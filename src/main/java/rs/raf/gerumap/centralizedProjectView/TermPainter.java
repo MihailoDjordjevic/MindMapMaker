@@ -1,8 +1,7 @@
 package rs.raf.gerumap.centralizedProjectView;
 
-import rs.raf.gerumap.centralizedProjectView.emenetViewing.ElementPainter;
+import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 import rs.raf.gerumap.globalView.frame.MainFrame;
-import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.model.repository.implementation.Term;
 import rs.raf.gerumap.observer.ISubscriber;
@@ -10,6 +9,7 @@ import rs.raf.gerumap.observer.NotificationType;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.GeneralPath;
 
 public class TermPainter extends ElementPainter implements ISubscriber {
@@ -25,6 +25,7 @@ public class TermPainter extends ElementPainter implements ISubscriber {
         Term term = ((Term) getModel());
 
         g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.8f));
+        g.setFont(new Font("Basic font", Font.PLAIN, term.getFontSize()));
 
         g.setColor(term.getBorderColor());
         g.setStroke(new BasicStroke(term.getThickness()));
@@ -35,15 +36,20 @@ public class TermPainter extends ElementPainter implements ISubscriber {
         g.fillOval(term.getLocation().x, term.getLocation().y, term.getEllipseDimension().width, term.getEllipseDimension().height);
 
         g.setColor(term.getTextColor());
-        g.setFont(new Font("Basic font", Font.PLAIN, term.getFontSize()));
         int offsetX = (term.getEllipseDimension().width - term.getDimension().width)/2;
         g.drawString(term.getName(), term.getLocation().x + offsetX, term.getLocation().y + 18);
 
+        if (isSelected())
+            setSelectionBorder(g);
     }
 
     @Override
     public boolean isContained(Point p) {
-        if (getShape().contains(p)) return true;
+
+        Term term = ((Term) getModel());
+        Ellipse2D ellipse2D = new Ellipse2D.Float(term.getLocation().x,term.getLocation().y,term.getEllipseDimension().width,term.getEllipseDimension().height);
+
+        if (ellipse2D.contains(p)) return true;
         return false;
     }
 
@@ -59,9 +65,9 @@ public class TermPainter extends ElementPainter implements ISubscriber {
 
         GeneralPath generalPath = new GeneralPath();
         generalPath.moveTo(term.getLocation().x, term.getLocation().y);
-        generalPath.lineTo(term.getLocation().x + term.getDimension().width, term.getLocation().y);
-        generalPath.lineTo(term.getLocation().x + term.getDimension().width, term.getLocation().y + term.getDimension().height);
-        generalPath.lineTo(term.getLocation().x, term.getLocation().y + term.getDimension().height);
+        generalPath.lineTo(term.getLocation().x + term.getEllipseDimension().width, term.getLocation().y);
+        generalPath.lineTo(term.getLocation().x + term.getEllipseDimension().width, term.getLocation().y + term.getEllipseDimension().height);
+        generalPath.lineTo(term.getLocation().x, term.getLocation().y + term.getEllipseDimension().height);
         generalPath.closePath();
 
         setShape(generalPath);
@@ -75,5 +81,11 @@ public class TermPainter extends ElementPainter implements ISubscriber {
         term.getDimension().width = Math.max(width, 10);
         term.getEllipseDimension().width = Math.max((int) (term.getDimension().width*1.33), 10);
 
+    }
+
+    private void setSelectionBorder(Graphics2D graphics2D){
+        BasicStroke stroke = new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, new float[]{5,5}, 0);
+        graphics2D.setStroke(stroke);
+        graphics2D.draw(createShape());
     }
 }

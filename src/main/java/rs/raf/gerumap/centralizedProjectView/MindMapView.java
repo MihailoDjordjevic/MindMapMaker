@@ -2,9 +2,10 @@ package rs.raf.gerumap.centralizedProjectView;
 
 import lombok.Getter;
 import lombok.Setter;
-import rs.raf.gerumap.centralizedProjectView.emenetViewing.ElementPainter;
+import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 import rs.raf.gerumap.centralizedProjectView.mouseListeners.MindMapMouseListener;
 import rs.raf.gerumap.centralizedProjectView.mouseListeners.MindMapMouseMotionLsnr;
+import rs.raf.gerumap.centralizedProjectView.selectionModel.SelectionModel;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.implementation.Element;
@@ -16,7 +17,6 @@ import rs.raf.gerumap.observer.NotificationType;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 @Getter
 @Setter
@@ -24,11 +24,13 @@ public class MindMapView extends JPanel implements ISubscriber {
 
     private MindMap mindMap;
     private ArrayList<ElementPainter> elementPainters;
+    private SelectionModel selectionModel;
 
     public MindMapView(MindMap mindMap) {
 
         this.mindMap = mindMap;
         elementPainters = new ArrayList<>(10);
+        selectionModel = new SelectionModel();
         mindMap.addSubscriber(this);
 
         setBackground(mindMap.getBackgroundColor());
@@ -51,6 +53,22 @@ public class MindMapView extends JPanel implements ISubscriber {
 
 
         SwingUtilities.updateComponentTreeUI(this);
+    }
+
+    public ElementPainter getGraphicsAtLocation(Point p){
+
+        ElementPainter elementPainter;
+
+        for (int i = this.getElementPainters().size() - 1; i >= 0; i--){
+
+            if (this.getElementPainters().get(i).isContained(p)) {
+                elementPainter = this.getElementPainters().get(i);
+                return elementPainter;
+            }
+        }
+
+        return null;
+
     }
 
     @Override

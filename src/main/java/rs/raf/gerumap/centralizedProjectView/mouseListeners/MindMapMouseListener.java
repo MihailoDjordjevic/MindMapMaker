@@ -13,12 +13,12 @@ public class MindMapMouseListener implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        MainFrame.getInstance().getCurrentProjectView().getStateManager().getCurrentState().mousePressedAction(e);
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        MainFrame.getInstance().getCurrentProjectView().getStateManager().getCurrentState().mouseReleasedAction(e);
     }
 
     @Override
