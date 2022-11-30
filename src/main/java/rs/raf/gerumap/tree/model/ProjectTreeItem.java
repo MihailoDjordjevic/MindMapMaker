@@ -23,7 +23,7 @@ public class ProjectTreeItem extends MapTreeItem {
             }
             case DELETE -> deleteItem(notification);
 
-            case NAME_CHANGE -> setName((String) notification);
+          //  case NAME_CHANGE -> setName((String) notification);
         }
 
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getMapTreeView());

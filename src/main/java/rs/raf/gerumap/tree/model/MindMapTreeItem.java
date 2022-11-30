@@ -24,7 +24,7 @@ public class MindMapTreeItem extends MapTreeItem {
         switch (notificationType) {
             case ADD -> add(SimpleTreeNodeFactory.getNode((MapNode) notification));
             case DELETE -> deleteItem(notification);
-            case NAME_CHANGE -> setName((String) notification);
+          //  case NAME_CHANGE -> setName((String) notification);
         }
 
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getMapTreeView());

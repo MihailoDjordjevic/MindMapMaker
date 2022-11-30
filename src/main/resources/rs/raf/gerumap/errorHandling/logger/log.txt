@@ -572,3 +572,29 @@ Event type: [ERROR]
 Timestamp: [2022-11-30 12:20:54.7]
 Text: [Name cannot be empty, please type at least one character]
 
+Event type: [ERROR]
+Timestamp: [2022-11-30 13:35:48.412]
+Text: [Wrong node selected. Trying to add new MindMap to werttrttttt.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-11-30 13:42:22.095]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-30 13:42:26.911]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-30 13:42:33.559]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-11-30 13:56:01.94]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [WARNING]
+Timestamp: [2022-11-30 14:09:29.489]
+Text: [Mind Map 3 already contains Term named Term 1.
+ Do you want to continue?]
+

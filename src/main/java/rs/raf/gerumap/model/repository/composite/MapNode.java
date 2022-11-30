@@ -58,4 +58,8 @@ public abstract class MapNode implements IPublisher {
     public void addMapNodeToTree(){
 
     }
+    public void setName(String name) {
+        this.name = name;
+        this.notifySubscribers(this.getName(), NotificationType.NAME_CHANGE);
+    }
 }

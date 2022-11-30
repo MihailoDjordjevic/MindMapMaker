@@ -18,8 +18,9 @@ public class AddTermState implements IState{
         Term term = new Term("Term " + (mindMap.getChildren().size() + 1), mindMap);
         mindMap.addChild(term);
 
-        int x = e.getX() - term.getDimension().width/2;
-        int y = e.getY() - term.getDimension().height/2;
+        int x = e.getX() - term.getEllipseDimension().width/2;
+        int y = e.getY() - term.getEllipseDimension().height/2;
+
         term.getLocation().setLocation(x, y);
 
         TermPainter termPainter = new TermPainter(term);

@@ -66,10 +66,21 @@ public class MindMapView extends JPanel implements ISubscriber {
 
     @Override
     public void update(Object notification, NotificationType notificationType) {
+
         switch (notificationType){
+
             case NAME_CHANGE -> {
                 ProjectView projectView = ((ProjectView) this.getParent());
                 projectView.setTitleAt(projectView.indexOfComponent(this), mindMap.getName());
+            }
+
+            case DELETE -> {
+                for (ElementPainter elementPainter : elementPainters){
+                    if (elementPainter.getModel() == notification) {
+                        elementPainters.remove(elementPainter);
+                        break;
+                    }
+                }
             }
         }
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getWorkspacePanel());
