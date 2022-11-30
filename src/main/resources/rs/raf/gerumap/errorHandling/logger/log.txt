@@ -617,3 +617,7 @@ Timestamp: [2022-11-30 21:50:24.75]
 Text: [Mind Map 4 already contains Term named Term 3.
  Do you want to continue?]
 
+Event type: [ERROR]
+Timestamp: [2022-11-30 23:15:00.735]
+Text: [Name cannot be empty, please type at least one character]
+

@@ -1,8 +1,10 @@
 package rs.raf.gerumap.editorMindMap.editorState;
 
 
+import rs.raf.gerumap.centralizedProjectView.LinkPainter;
 import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
+import rs.raf.gerumap.model.repository.implementation.Link;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Term;
 
@@ -10,7 +12,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
-import java.awt.geom.Point2D;
 
 public class LinkElementsState implements IState{
     @Override
@@ -67,6 +68,9 @@ public class LinkElementsState implements IState{
         MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
         MindMap mindMap = mindMapView.getMindMap();
 
+        if (mindMapView.getSelectionModel().getSingleSelectionElement() != null && mindMapView.getSelectionModel().getSecondarySelectionElement() != null )
+            setNewLink(mindMapView);
+
         mindMapView.getSelectionModel().setSingleSelectionElement(null);
         mindMapView.getSelectionModel().setSecondarySelectionElement(null);
 
@@ -87,6 +91,27 @@ public class LinkElementsState implements IState{
 
     @Override
     public void mouseMovedAction(Object event) {
+
+    }
+
+    private void setNewLink(MindMapView mindMapView){
+
+        MindMap mindMap = mindMapView.getMindMap();
+
+        Term term1 = ((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel());
+        Term term2 = ((Term) mindMapView.getSelectionModel().getSecondarySelectionElement().getModel());
+
+        Link link = new Link(term1 + " with " + term2, mindMap);
+        link.setSourceTerm(term1);
+        link.setDestinationTerm(term2);
+
+        term1.getLinks().add(link);
+        term2.getLinks().add(link);
+
+        mindMap.addChild(link);
+
+        LinkPainter linkPainter = new LinkPainter(link);
+        mindMapView.getElementPainters().add(0, linkPainter);
 
     }
 }

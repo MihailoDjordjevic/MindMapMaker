@@ -9,6 +9,7 @@ import rs.raf.gerumap.centralizedProjectView.selectionModel.SelectionModel;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.implementation.Element;
+import rs.raf.gerumap.model.repository.implementation.Link;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Term;
 import rs.raf.gerumap.observer.ISubscriber;
@@ -18,20 +19,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 @Getter
 @Setter
 public class MindMapView extends JPanel implements ISubscriber {
 
     private MindMap mindMap;
-    private ArrayList<ElementPainter> elementPainters;
+    private LinkedList<ElementPainter> elementPainters;
     private SelectionModel selectionModel;
     private Line2D temporaryLink;
 
     public MindMapView(MindMap mindMap) {
 
         this.mindMap = mindMap;
-        elementPainters = new ArrayList<>(10);
+        elementPainters = new LinkedList<>();
         selectionModel = new SelectionModel();
         mindMap.addSubscriber(this);
 
@@ -50,6 +52,10 @@ public class MindMapView extends JPanel implements ISubscriber {
             if (mapNode instanceof Term){
                 TermPainter termPainter = new TermPainter((Element) mapNode);
                 getElementPainters().add(termPainter);
+            }
+            if (mapNode instanceof Link){
+                LinkPainter linkPainter = new LinkPainter((Element) mapNode);
+                getElementPainters().add(0, linkPainter);
             }
         }
 

@@ -24,7 +24,7 @@ public class TermPainter extends ElementPainter implements ISubscriber {
 
         Term term = ((Term) getModel());
 
-        g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.8f));
+        g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
         g.setFont(new Font("Basic font", Font.PLAIN, term.getFontSize()));
 
         g.setColor(term.getBorderColor());
