@@ -36,20 +36,15 @@ public class MindMap extends MapNodeComposite {
 
     @Override
     public void deleteChild(final MapNode child) {
+
         if (child instanceof Term) {
             getChildren().remove(child);
 
-            for (MapNode mapNode : ((Term) child).getChildren()){
+            Term term = ((Term) child);
 
-                if (((Link) mapNode).getSourceTerm() != child)
-                    ((Link) mapNode).getSourceTerm().deleteChild(mapNode);
-                else ((Link) mapNode).getDestinationTerm().deleteChild(mapNode);
-
-                getChildren().remove(mapNode);
-                notifySubscribers(mapNode, NotificationType.DELETE);   //remove Link Painter
+            while (!term.getChildren().isEmpty()){    //to prevent concurrent modification no iteration through list is possible so this is a solution
+                term.deleteChild(term.getChildren().get(0));
             }
-
-            ((Term) child).getChildren().clear();
 
             notifySubscribers(child, NotificationType.DELETE);   //remove elementPainter
         }

@@ -57,10 +57,12 @@ public class TermPainter extends ElementPainter implements ISubscriber {
     public void update(Object notification, NotificationType notificationType) {
         switch (notificationType){
             case NAME_CHANGE -> SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getCurrentProjectView().getSelectedComponent());
+
+            case DELETE -> getModel().getParent().notifySubscribers(notification, NotificationType.DELETE);
         }
     }
 
-    private Shape createShape(){
+    public Shape createShape(){
         Term term = ((Term) getModel());
 
         GeneralPath generalPath = new GeneralPath();
@@ -83,7 +85,7 @@ public class TermPainter extends ElementPainter implements ISubscriber {
 
     }
 
-    private void setSelectionBorder(Graphics2D graphics2D){
+    public void setSelectionBorder(Graphics2D graphics2D){
         BasicStroke stroke = new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, new float[]{5,5}, 0);
         graphics2D.setStroke(stroke);
         graphics2D.draw(createShape());

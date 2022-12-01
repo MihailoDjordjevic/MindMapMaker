@@ -1,7 +1,9 @@
 package rs.raf.gerumap.editorMindMap.editorState;
 
+import rs.raf.gerumap.centralizedProjectView.LinkPainter;
 import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
+import rs.raf.gerumap.model.repository.implementation.Link;
 import rs.raf.gerumap.model.repository.implementation.Term;
 
 import javax.swing.*;
@@ -21,7 +23,7 @@ public class MoveState implements IState{
         MouseEvent mouseEvent = ((MouseEvent) event);
         MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
 
-        if (mindMapView.getSelectionModel().getSingleSelectionElement() != null){
+        if (mindMapView.getSelectionModel().getSingleSelectionElement() != null && !(mindMapView.getSelectionModel().getSingleSelectionElement() instanceof LinkPainter)){
 
             Term term = ((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel());
 

@@ -8,6 +8,7 @@ import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.factory.MapNodeFactory;
 import rs.raf.gerumap.model.repository.factory.MapNodeFactoryManager;
+import rs.raf.gerumap.model.repository.implementation.Link;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
@@ -50,7 +51,13 @@ public class ActionNew extends AbstractMapAction{
                 ((Project) mapNodeFactory.getMapNode((MapNodeComposite) mapTreeItem.getModel())).setAuthor(author);
             }
 
-        } else {
+        } else if (mapTreeItem.getModel() instanceof Link){
+
+            String[] str = new String[]{"Link", mapTreeItem.getModel().toString(), "Term"};
+            ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.WRONG_NODE_SELECTED, str);
+            return;
+
+        }else {
 
             MapNodeFactory mapNodeFactory = MapNodeFactoryManager.getMapNodeFactory(mapTreeItem.getModel());
             mapNodeFactory.getMapNode((MapNodeComposite) mapTreeItem.getModel());

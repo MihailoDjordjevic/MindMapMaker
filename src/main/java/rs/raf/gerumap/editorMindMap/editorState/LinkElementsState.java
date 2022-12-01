@@ -28,7 +28,10 @@ public class LinkElementsState implements IState{
 
         ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(mouseEvent.getPoint());
 
-        if(mindMapView.getSelectionModel().getSingleSelectionElement() != null && mindMapView.getSelectionModel().getSingleSelectionElement() != elementPainter){
+        if(mindMapView.getSelectionModel().getSingleSelectionElement() != null &&
+                mindMapView.getSelectionModel().getSingleSelectionElement() != elementPainter &&
+                !(elementPainter instanceof LinkPainter)
+        ){
             mindMapView.getSelectionModel().setSecondarySelectionElement(elementPainter);
         }
 
@@ -54,7 +57,8 @@ public class LinkElementsState implements IState{
         MindMap mindMap = mindMapView.getMindMap();
 
         ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(mouseEvent.getPoint());
-        mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
+        if (!(elementPainter instanceof LinkPainter))
+            mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
 
         mindMapView.setTemporaryLink(new Line2D.Double(0,0,0,0));
 
@@ -96,12 +100,10 @@ public class LinkElementsState implements IState{
 
     private void setNewLink(MindMapView mindMapView){
 
-        MindMap mindMap = mindMapView.getMindMap();
-
         Term term1 = ((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel());
         Term term2 = ((Term) mindMapView.getSelectionModel().getSecondarySelectionElement().getModel());
 
-        Link link = new Link(term1 + " with " + term2, mindMap);
+        Link link = new Link(term1 + " with " + term2, term1);
         link.setSourceTerm(term1);
         link.setDestinationTerm(term2);
 

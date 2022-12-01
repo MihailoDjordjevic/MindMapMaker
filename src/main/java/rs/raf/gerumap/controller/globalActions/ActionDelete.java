@@ -6,6 +6,7 @@ import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescripti
 import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
+import rs.raf.gerumap.model.repository.implementation.Link;
 import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 import rs.raf.gerumap.tree.view.MapTreeView;

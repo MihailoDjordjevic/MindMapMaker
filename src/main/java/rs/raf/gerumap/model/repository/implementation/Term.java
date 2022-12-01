@@ -49,7 +49,7 @@ public class Term extends MapNodeComposite {
     @Override
     public void addChild(MapNode child) {
         if (child instanceof Link) {
-            getChildren().add(child);
+            getChildren().add(child); 
             notifySubscribers(child, NotificationType.ADD);
         }
     }
@@ -57,8 +57,15 @@ public class Term extends MapNodeComposite {
     @Override
     public void deleteChild(MapNode child) {
         if (child instanceof Link) {
-            getChildren().remove(child);
-            notifySubscribers(child, NotificationType.DELETE);
+
+            Link link = ((Link) child);
+
+            link.getSourceTerm().getChildren().remove(link);
+            link.getSourceTerm().notifySubscribers(link, NotificationType.DELETE);
+
+            link.getDestinationTerm().getChildren().remove(link);
+            link.getDestinationTerm().notifySubscribers(link, NotificationType.DELETE);
+
         }
     }
 

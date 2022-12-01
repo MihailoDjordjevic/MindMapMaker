@@ -41,8 +41,8 @@ public class MapTreeViewMouseListener implements MouseListener {
 
             } else if (mapNode instanceof Link){
 
-                ProjectView projectView = new ProjectView((Project) mapNode.getParent().getParent());
-                int nodeOrdinal = ((Project) mapNode.getParent().getParent()).getChildren().indexOf(mapNode.getParent());
+                ProjectView projectView = new ProjectView((Project) mapNode.getParent().getParent().getParent());
+                int nodeOrdinal = ((Project) mapNode.getParent().getParent().getParent()).getChildren().indexOf(mapNode.getParent().getParent());
 
                 MainFrame.getInstance().displayProject(projectView, nodeOrdinal);
 
