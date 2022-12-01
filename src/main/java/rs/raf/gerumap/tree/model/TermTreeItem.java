@@ -19,6 +19,8 @@ public class TermTreeItem extends ElementTreeItem{
 
         switch (notificationType) {
             case ADD -> add(SimpleTreeNodeFactory.getNode(((MapNode) notification)));
+
+            case DELETE -> deleteItem(notification);
         }
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getMapTreeView());
     }

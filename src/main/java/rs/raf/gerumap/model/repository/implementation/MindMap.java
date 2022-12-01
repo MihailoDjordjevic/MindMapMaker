@@ -38,7 +38,20 @@ public class MindMap extends MapNodeComposite {
     public void deleteChild(final MapNode child) {
         if (child instanceof Term) {
             getChildren().remove(child);
-            notifySubscribers(child, NotificationType.DELETE);
+
+            for (MapNode mapNode : ((Term) child).getChildren()){
+
+                if (((Link) mapNode).getSourceTerm() != child)
+                    ((Link) mapNode).getSourceTerm().deleteChild(mapNode);
+                else ((Link) mapNode).getDestinationTerm().deleteChild(mapNode);
+
+                getChildren().remove(mapNode);
+                notifySubscribers(mapNode, NotificationType.DELETE);   //remove Link Painter
+            }
+
+            ((Term) child).getChildren().clear();
+
+            notifySubscribers(child, NotificationType.DELETE);   //remove elementPainter
         }
     }
 

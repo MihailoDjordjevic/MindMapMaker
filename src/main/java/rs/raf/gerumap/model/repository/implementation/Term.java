@@ -56,7 +56,10 @@ public class Term extends MapNodeComposite {
 
     @Override
     public void deleteChild(MapNode child) {
-
+        if (child instanceof Link) {
+            getChildren().remove(child);
+            notifySubscribers(child, NotificationType.DELETE);
+        }
     }
 
     @Override

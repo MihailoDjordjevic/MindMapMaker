@@ -23,8 +23,6 @@ public class AddTermState implements IState{
 
         term.getLocation().setLocation(x, y);
 
-        TermPainter termPainter = new TermPainter(term);
-        mindMapView.getElementPainters().add(termPainter);
         SwingUtilities.updateComponentTreeUI(mindMapView);
     }
 
