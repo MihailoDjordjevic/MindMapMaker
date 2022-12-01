@@ -5,6 +5,7 @@ import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescripti
 import rs.raf.gerumap.globalView.popUpPanes.WarningPopUpPane;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
+import rs.raf.gerumap.model.repository.implementation.Link;
 import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
 import rs.raf.gerumap.observer.NotificationType;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
@@ -25,9 +26,17 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
     @Override
     public Component getTreeCellEditorComponent(JTree arg0, Object arg1, boolean arg2, boolean arg3, boolean arg4, int arg5) {
         super.getTreeCellEditorComponent(arg0,arg1,arg2,arg3,arg4,arg5);
+
         clickedOn = arg1;
         edit = new JTextField(arg1.toString());
+
+        if (clickedOn instanceof Link){
+            edit.setEditable(false);
+            return edit;
+        }
+
         edit.addActionListener(this);
+
         return edit;
     }
 
@@ -51,7 +60,7 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
             } else if (e.getActionCommand().equals("")){
                 ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NAME_CANNOT_BE_EMPTY, null);
                 return;
-            }
+            } //else if (mapNode instanceof Link) return;
 
             mapNode.setName(e.getActionCommand());
 

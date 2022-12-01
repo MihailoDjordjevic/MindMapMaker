@@ -14,7 +14,6 @@ public class SimpleTreeNodeFactory {
         return switch (mapNode.getClass().getSimpleName()) {
             case "Project" -> new ProjectTreeItem(mapNode);
             case "MindMap" -> new MindMapTreeItem(mapNode);
-            case "Element" -> new ElementTreeItem(mapNode);
             case "Term" -> new TermTreeItem(mapNode);
             case "Link" -> new LinkTreeItem(mapNode);
             default -> null;

@@ -24,7 +24,7 @@ public abstract class MapTreeItem extends DefaultMutableTreeNode implements ISub
     }
     @Override
     public String toString() {
-        return model.getName();
+        return model.toString();
     }
 
     public void setName(String name) {

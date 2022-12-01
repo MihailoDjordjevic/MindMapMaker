@@ -2,14 +2,12 @@ package rs.raf.gerumap.globalView.popUpPanes;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.experimental.StandardException;
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
 import rs.raf.gerumap.globalView.frame.BasicDialog;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
-import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.model.repository.implementation.ProjectExplorer;
 import rs.raf.gerumap.observer.NotificationType;
@@ -105,7 +103,6 @@ public class RenameUpdateOnInputPopUpPane extends BasicDialog {
                     case NAME_CHANGE -> {
 
                         mapNode.setName(originalName);
-                        mapNode.notifySubscribers(originalName, NotificationType.NAME_CHANGE);
 
                     }
                 }
@@ -163,7 +160,6 @@ public class RenameUpdateOnInputPopUpPane extends BasicDialog {
                         case NAME_CHANGE -> {
 
                             mapNode.setName(originalName);
-                            mapNode.notifySubscribers(originalName, NotificationType.NAME_CHANGE);
                         }
                     }
                     ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NAME_CANNOT_BE_EMPTY, null);
@@ -208,7 +204,6 @@ public class RenameUpdateOnInputPopUpPane extends BasicDialog {
             case NAME_CHANGE -> {
 
                 mapNode.setName(name);
-                mapNode.notifySubscribers(name, NotificationType.NAME_CHANGE);
 
             }
         }

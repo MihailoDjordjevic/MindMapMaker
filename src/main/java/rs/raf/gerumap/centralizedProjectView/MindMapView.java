@@ -8,8 +8,7 @@ import rs.raf.gerumap.centralizedProjectView.mouseListeners.MindMapMouseMotionLs
 import rs.raf.gerumap.centralizedProjectView.selectionModel.SelectionModel;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
-import rs.raf.gerumap.model.repository.implementation.Element;
-import rs.raf.gerumap.model.repository.implementation.Link;
+import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Term;
 import rs.raf.gerumap.observer.ISubscriber;
@@ -18,7 +17,6 @@ import rs.raf.gerumap.observer.NotificationType;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 @Getter
@@ -50,11 +48,11 @@ public class MindMapView extends JPanel implements ISubscriber {
 
         for (MapNode mapNode : getMindMap().getChildren()){
             if (mapNode instanceof Term){
-                TermPainter termPainter = new TermPainter((Element) mapNode);
+                TermPainter termPainter = new TermPainter(mapNode);
                 getElementPainters().add(termPainter);
             }
-            if (mapNode instanceof Link){
-                LinkPainter linkPainter = new LinkPainter((Element) mapNode);
+            for (MapNode mapNode1 : ((MapNodeComposite) mapNode).getChildren()){
+                LinkPainter linkPainter = new LinkPainter(mapNode1);
                 getElementPainters().add(0, linkPainter);
             }
         }
@@ -112,6 +110,11 @@ public class MindMapView extends JPanel implements ISubscriber {
                         break;
                     }
                 }
+            }
+
+            case ADD -> {
+                TermPainter termPainter = new TermPainter(((Term) notification));
+                getElementPainters().add((termPainter));
             }
         }
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getWorkspacePanel());

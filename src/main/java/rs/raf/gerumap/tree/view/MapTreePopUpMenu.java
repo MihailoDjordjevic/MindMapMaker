@@ -13,7 +13,7 @@ public class MapTreePopUpMenu extends JPopupMenu {
         newMenu = new JMenu(MainFrame.getInstance().getActionManager().getActionNew());
         newMenu.add(MainFrame.getInstance().getActionManager().getActionNewProject());
         newMenu.add(MainFrame.getInstance().getActionManager().getActionNewMindMap());
-        newMenu.add(MainFrame.getInstance().getActionManager().getActionNewElement());
+        newMenu.add(MainFrame.getInstance().getActionManager().getActionNewTerm());
         add(newMenu);
         addSeparator();
 

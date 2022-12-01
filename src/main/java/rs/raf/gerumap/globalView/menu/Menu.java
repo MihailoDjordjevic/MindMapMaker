@@ -5,9 +5,6 @@ import lombok.Setter;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.beans.BeanProperty;
 
 @Getter
 @Setter
@@ -35,7 +32,7 @@ public class Menu extends JMenuBar {
         newItem.setMnemonic('N');
         newProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewProject());
         newMindMap = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewMindMap());
-        newElement = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewElement());
+        newElement = new JMenuItem(MainFrame.getInstance().getActionManager().getActionNewTerm());
 
         edit = new JMenu("Edit");
         edit.setMnemonic('E');

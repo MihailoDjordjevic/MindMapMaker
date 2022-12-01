@@ -2,7 +2,6 @@ package rs.raf.gerumap.editorMindMap.editorState;
 
 import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
-import rs.raf.gerumap.model.repository.implementation.Element;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 
 import java.awt.event.MouseEvent;

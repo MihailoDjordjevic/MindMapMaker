@@ -1,15 +1,14 @@
 package rs.raf.gerumap.centralizedProjectView;
 
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
-import rs.raf.gerumap.model.repository.implementation.Element;
+import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.implementation.Link;
-import rs.raf.gerumap.model.repository.implementation.Term;
 
 import java.awt.*;
 
 public class LinkPainter extends ElementPainter {
 
-    public LinkPainter(Element model) {
+    public LinkPainter(MapNode model) {
         super(model);
     }
 

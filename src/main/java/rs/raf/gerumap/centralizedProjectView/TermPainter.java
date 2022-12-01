@@ -2,7 +2,7 @@ package rs.raf.gerumap.centralizedProjectView;
 
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 import rs.raf.gerumap.globalView.frame.MainFrame;
-import rs.raf.gerumap.model.repository.implementation.Element;
+import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.implementation.Term;
 import rs.raf.gerumap.observer.ISubscriber;
 import rs.raf.gerumap.observer.NotificationType;
@@ -14,7 +14,7 @@ import java.awt.geom.GeneralPath;
 
 public class TermPainter extends ElementPainter implements ISubscriber {
 
-    public TermPainter(Element model) {
+    public TermPainter(MapNode model) {
         super(model);
         model.getSubscribers().add(this);
     }

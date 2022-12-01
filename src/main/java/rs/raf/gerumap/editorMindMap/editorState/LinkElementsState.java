@@ -105,10 +105,8 @@ public class LinkElementsState implements IState{
         link.setSourceTerm(term1);
         link.setDestinationTerm(term2);
 
-        term1.getLinks().add(link);
-        term2.getLinks().add(link);
-
-        mindMap.addChild(link);
+        term1.addChild(link);
+        term2.addChild(link);
 
         LinkPainter linkPainter = new LinkPainter(link);
         mindMapView.getElementPainters().add(0, linkPainter);

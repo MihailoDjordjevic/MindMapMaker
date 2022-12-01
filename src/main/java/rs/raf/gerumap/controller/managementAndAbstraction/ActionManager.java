@@ -14,7 +14,7 @@ public class ActionManager {
     private ActionNewProject actionNewProject;
     private ActionNewMindMap actionNewMindMap;
     private ActionDelete actionDelete;
-    private ActionNewElement actionNewElement;
+    private ActionNewTerm actionNewTerm;
     private ActionRename actionRename;
     private ActionSetAuthor actionSetAuthor;
 
@@ -30,7 +30,7 @@ public class ActionManager {
         actionNewProject = new ActionNewProject();
         actionNewMindMap = new ActionNewMindMap();
         actionDelete = new ActionDelete();
-        actionNewElement = new ActionNewElement();
+        actionNewTerm = new ActionNewTerm();
         actionRename = new ActionRename();
         actionSetAuthor = new ActionSetAuthor();
 

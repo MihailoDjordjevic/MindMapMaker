@@ -4,9 +4,7 @@ import rs.raf.gerumap.Main;
 import rs.raf.gerumap.centralizedProjectView.ProjectView;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
-import rs.raf.gerumap.model.repository.implementation.Element;
-import rs.raf.gerumap.model.repository.implementation.MindMap;
-import rs.raf.gerumap.model.repository.implementation.Project;
+import rs.raf.gerumap.model.repository.implementation.*;
 import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 import rs.raf.gerumap.tree.view.MapTreeView;
 
@@ -34,7 +32,14 @@ public class MapTreeViewMouseListener implements MouseListener {
 
                 MainFrame.getInstance().displayProject(projectView, nodeOrdinal);
 
-            } else if (mapNode instanceof Element){
+            } else if (mapNode instanceof Term){
+
+                ProjectView projectView = new ProjectView((Project) mapNode.getParent().getParent());
+                int nodeOrdinal = ((Project) mapNode.getParent().getParent()).getChildren().indexOf(mapNode.getParent());
+
+                MainFrame.getInstance().displayProject(projectView, nodeOrdinal);
+
+            } else if (mapNode instanceof Link){
 
                 ProjectView projectView = new ProjectView((Project) mapNode.getParent().getParent());
                 int nodeOrdinal = ((Project) mapNode.getParent().getParent()).getChildren().indexOf(mapNode.getParent());

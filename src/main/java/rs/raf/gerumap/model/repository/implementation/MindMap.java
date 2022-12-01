@@ -28,7 +28,7 @@ public class MindMap extends MapNodeComposite {
 
     @Override
     public void addChild(final MapNode child) {
-        if (child instanceof Element) {
+        if (child instanceof Term) {
             getChildren().add(child);
             notifySubscribers(child, NotificationType.ADD);
         }
@@ -36,7 +36,7 @@ public class MindMap extends MapNodeComposite {
 
     @Override
     public void deleteChild(final MapNode child) {
-        if (child instanceof Element) {
+        if (child instanceof Term) {
             getChildren().remove(child);
             notifySubscribers(child, NotificationType.DELETE);
         }

@@ -2,7 +2,7 @@ package rs.raf.gerumap.centralizedProjectView.elementViewing;
 
 import lombok.Getter;
 import lombok.Setter;
-import rs.raf.gerumap.model.repository.implementation.Element;
+import rs.raf.gerumap.model.repository.composite.MapNode;
 
 import java.awt.*;
 
@@ -11,10 +11,10 @@ import java.awt.*;
 public abstract class ElementPainter implements IPainter {
 
     private Shape shape;
-    private Element model;
+    private MapNode model;
     private boolean isSelected;
 
-    public ElementPainter(Element model) {
+    public ElementPainter(MapNode model) {
         this.model = model;
     }
 }

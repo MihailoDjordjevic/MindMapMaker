@@ -15,12 +15,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class ActionNewElement extends AbstractMapAction {
-    public ActionNewElement() {
+public class ActionNewTerm extends AbstractMapAction {
+    public ActionNewTerm() {
         super("/rs/raf/gerumap/tree/view/elementIcon.png");
-        putValue(NAME, "New Element");
+        putValue(NAME, "New Term");
         putValue(SHORT_DESCRIPTION, "Create new element");
-        putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_E, ActionEvent.CTRL_MASK));
+        putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_T, ActionEvent.CTRL_MASK));
     }
 
     @Override
@@ -32,7 +32,7 @@ public class ActionNewElement extends AbstractMapAction {
             ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NO_NODE_SELECTED, null);
             return;
         } else if (!(mindMapTreeItem.getModel() instanceof MindMap)){
-            String[] str = new String[]{"Element", mindMapTreeItem.getModel().toString(), "MindMap"};
+            String[] str = new String[]{"Term", mindMapTreeItem.getModel().toString(), "MindMap"};
             ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.WRONG_NODE_SELECTED, str);
             return;
         }
