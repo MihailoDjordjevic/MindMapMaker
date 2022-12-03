@@ -32,6 +32,7 @@ public class EditorToolbar extends JToolBar {
         add(MainFrame.getInstance().getActionManager().getActionDeleteState()); getComponent(3).getLocation().translate(4, 0);
         add(MainFrame.getInstance().getActionManager().getActionSelectState()); getComponent(4).getLocation().translate(4, 0);
         add(MainFrame.getInstance().getActionManager().getActionMoveState()); getComponent(5).getLocation().translate(4, 0);
+
         add(Box.createHorizontalStrut(5));
 
     }

@@ -1,11 +1,14 @@
 package rs.raf.gerumap.centralizedProjectView;
 
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
+import rs.raf.gerumap.globalView.frame.MainFrame;
+import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.implementation.Link;
 import rs.raf.gerumap.model.repository.implementation.Term;
 import rs.raf.gerumap.observer.NotificationType;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.GeneralPath;
 
@@ -69,6 +72,8 @@ public class LinkPainter extends ElementPainter {
 
     @Override
     public void update(Object notification, NotificationType notificationType) {
-
+        switch (notificationType){
+            case REPAINT -> SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getCurrentProjectView());
+        }
     }
 }

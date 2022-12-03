@@ -56,9 +56,10 @@ public class TermPainter extends ElementPainter implements ISubscriber {
     @Override
     public void update(Object notification, NotificationType notificationType) {
         switch (notificationType){
-            case NAME_CHANGE -> SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getCurrentProjectView().getSelectedComponent());
+            case NAME_CHANGE, REPAINT -> SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getCurrentProjectView().getSelectedComponent());
 
             case DELETE -> getModel().getParent().notifySubscribers(notification, NotificationType.DELETE);
+
         }
     }
 
@@ -88,6 +89,7 @@ public class TermPainter extends ElementPainter implements ISubscriber {
     public void setSelectionBorder(Graphics2D graphics2D){
         BasicStroke stroke = new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, new float[]{5,5}, 0);
         graphics2D.setStroke(stroke);
+        graphics2D.setColor(Color.BLACK);
         graphics2D.draw(createShape());
     }
 }

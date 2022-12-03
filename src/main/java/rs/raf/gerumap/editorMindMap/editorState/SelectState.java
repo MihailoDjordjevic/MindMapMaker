@@ -2,6 +2,9 @@ package rs.raf.gerumap.editorMindMap.editorState;
 
 import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
+import rs.raf.gerumap.globalView.frame.MainFrame;
+import rs.raf.gerumap.globalView.popUpPanes.editElementsPane.EditElementsPane;
+import rs.raf.gerumap.model.repository.implementation.Term;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +19,9 @@ public class SelectState implements IState{
 
         ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(mouseEvent.getPoint());
 
+        if (mouseEvent.getClickCount() == 2){
+            new EditElementsPane(MainFrame.getInstance(), elementPainter.getModel(), "Modify element", true, 190, 300);
+        }
         if (elementPainter != null)
             mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
         else mindMapView.getSelectionModel().setSingleSelectionElement(null);

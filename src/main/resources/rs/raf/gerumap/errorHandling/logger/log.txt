@@ -731,3 +731,32 @@ Event type: [ERROR]
 Timestamp: [2022-12-01 20:06:10.169]
 Text: [Name cannot be empty, please type at least one character]
 
+Event type: [ERROR]
+Timestamp: [2022-12-02 13:54:13.527]
+Text: [Wrong node selected. Trying to add new Link to Term 5 with Term 4.
+Select or create a node that is of type Term and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-12-02 13:54:45.715]
+Text: [Wrong node selected. Trying to add new Term to Term 5.
+Select or create a node that is of type MindMap and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-12-02 13:55:00.143]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-12-02 13:55:07.352]
+Text: [Wrong node selected. Trying to add new MindMap to Mind Map 3.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-12-02 16:14:54.695]
+Text: [Wrong node selected. Trying to add new MindMap to Project Explorer.
+Select or create a node that is of type Project and try again.]
+
+Event type: [ERROR]
+Timestamp: [2022-12-02 16:14:57.1]
+Text: [Wrong node selected. Trying to add new MindMap to Project Explorer.
+Select or create a node that is of type Project and try again.]
+
