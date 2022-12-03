@@ -115,7 +115,14 @@ public class EditElementsPane extends JDialog {
             colorPanel.add(backgroundColor); colorPanel.add(backgroundButton);
             colorPanel.add(textColor); colorPanel.add(textButton);
 
+            thicknessSlider.setPreferredSize(new Dimension(150, 30));
+            thicknessSlider.addChangeListener(e ->{
+                term.setThickness(thicknessSlider.getValue());
+                term.notifySubscribers(null, NotificationType.REPAINT);
+            });
+
             mainPanel.add(colorPanel);
+            mainPanel.add(thicknessSlider);
         }
 
 
