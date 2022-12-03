@@ -2,12 +2,17 @@ package rs.raf.gerumap.globalView.popUpPanes.editElementsPane;
 
 import lombok.Getter;
 import lombok.Setter;
+import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
+import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.model.repository.implementation.Term;
 import rs.raf.gerumap.observer.NotificationType;
+import rs.raf.gerumap.tree.model.abstraction.MapTreeItem;
 ;import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 @Getter
 @Setter
@@ -29,10 +34,14 @@ public class EditElementsPane extends JDialog {
     private JButton backgroundButton;
     private JButton textButton;
 
+    private JLabel thicknessLabel;
     private JSlider thicknessSlider;
+
     private JColorChooser jColorChooserBackground;
     private JColorChooser jColorChooserBorder;
     private JColorChooser jColorChooserText;
+
+    private JTextField renameField;
 
     private JDialog jDialog;
 
@@ -76,7 +85,10 @@ public class EditElementsPane extends JDialog {
         jColorChooserText = new JColorChooser();
         jColorChooserBackground = new JColorChooser();
 
+        thicknessLabel = new JLabel("border thickness");
         thicknessSlider = new JSlider(SwingConstants.HORIZONTAL,0, 20, 3);
+
+        renameField = new JTextField();
         jDialog = new JDialog();
 
     }
@@ -115,14 +127,38 @@ public class EditElementsPane extends JDialog {
             colorPanel.add(backgroundColor); colorPanel.add(backgroundButton);
             colorPanel.add(textColor); colorPanel.add(textButton);
 
+            thicknessLabel.setMaximumSize(new Dimension(150, 20));
+            thicknessLabel.setHorizontalAlignment(JLabel.LEFT); thicknessLabel.setBackground(Color.red);
+
             thicknessSlider.setPreferredSize(new Dimension(150, 30));
             thicknessSlider.addChangeListener(e ->{
                 term.setThickness(thicknessSlider.getValue());
                 term.notifySubscribers(null, NotificationType.REPAINT);
             });
 
+            renameField.setText(model.toString());
+            renameField.setMaximumSize(new Dimension(150, 15));
+            renameField.addKeyListener(new KeyListener() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+
+                }
+
+                @Override
+                public void keyPressed(KeyEvent e) {
+
+                }
+
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    updateNodeName(renameField.getText());
+                }
+            });
+
             mainPanel.add(colorPanel);
+            //mainPanel.add(thicknessLabel);
             mainPanel.add(thicknessSlider);
+            mainPanel.add(renameField);
         }
 
 
@@ -157,10 +193,6 @@ public class EditElementsPane extends JDialog {
         jDialog.setSize(new Dimension(500, 500));
         jDialog.setLocation(200, 200);
 
-        JPanel panel = new JPanel();
-        panel.setPreferredSize(new Dimension(630, 420));
-        panel.setSize(new Dimension(630, 420));
-
         switch (type){
             case 1 -> jDialog.add(jColorChooserBorder);
             case 2 -> jDialog.add(jColorChooserBackground);
@@ -171,6 +203,12 @@ public class EditElementsPane extends JDialog {
         jDialog.setAlwaysOnTop(true);
 
         return jDialog;
+    }
+
+    private void updateNodeName(String name){
+
+        model.setName(name);
+
     }
 }
 

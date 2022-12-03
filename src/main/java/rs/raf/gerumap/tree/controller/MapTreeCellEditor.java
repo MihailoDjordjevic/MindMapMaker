@@ -63,6 +63,7 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
             } //else if (mapNode instanceof Link) return;
 
             mapNode.setName(e.getActionCommand());
+            mapNode.notifySubscribers(e.getActionCommand(), NotificationType.NAME_CHANGE);
 
         }
     }

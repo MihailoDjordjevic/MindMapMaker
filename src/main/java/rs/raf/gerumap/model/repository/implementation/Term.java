@@ -28,8 +28,8 @@ public class Term extends MapNodeComposite {
         super(name, parent);
 
         location = randomPoint();   //default values
-        fontSize = 14;
-        dimension = new Dimension((int) (fontSize*getName().length()*0.5), (int) (fontSize *1.5));
+        fontSize = 20;
+        dimension = new Dimension((int) (fontSize*getName().length()*0.5), (int) (fontSize *1.8));
 
         ellipseDimension = new Dimension((int) (dimension.width*1.33), (int) (dimension.height*1.33));
 

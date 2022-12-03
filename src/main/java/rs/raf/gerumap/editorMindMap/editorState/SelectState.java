@@ -19,12 +19,10 @@ public class SelectState implements IState{
 
         ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(mouseEvent.getPoint());
 
-        if (mouseEvent.getClickCount() == 2){
-            new EditElementsPane(MainFrame.getInstance(), elementPainter.getModel(), "Modify element", true, 190, 300);
+        if (mouseEvent.getClickCount() == 2 && elementPainter != null){
+            new EditElementsPane(MainFrame.getInstance(), elementPainter.getModel(), "Modify element", true, 190, 270);
         }
-        if (elementPainter != null)
-            mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
-        else mindMapView.getSelectionModel().setSingleSelectionElement(null);
+        mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
 
         SwingUtilities.updateComponentTreeUI(mindMapView);
     }

@@ -37,7 +37,7 @@ public class TermPainter extends ElementPainter implements ISubscriber {
 
         g.setColor(term.getTextColor());
         int offsetX = (term.getEllipseDimension().width - term.getDimension().width)/2;
-        g.drawString(term.getName(), term.getLocation().x + offsetX, term.getLocation().y + 18);
+        g.drawString(term.getName(), term.getLocation().x + offsetX, term.getLocation().y + 31);
 
         if (isSelected())
             setSelectionBorder(g);

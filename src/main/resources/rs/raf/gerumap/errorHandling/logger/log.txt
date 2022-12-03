@@ -760,3 +760,7 @@ Timestamp: [2022-12-02 16:14:57.1]
 Text: [Wrong node selected. Trying to add new MindMap to Project Explorer.
 Select or create a node that is of type Project and try again.]
 
+Event type: [ERROR]
+Timestamp: [2022-12-03 12:09:20.601]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+

@@ -21,7 +21,6 @@ public class TermTreeItem extends ElementTreeItem{
             case ADD -> add(SimpleTreeNodeFactory.getNode(((MapNode) notification)));
 
             case DELETE -> {
-                System.out.println("deleting");
                 deleteItem(notification);
             }
         }
