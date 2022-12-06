@@ -30,11 +30,6 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
         clickedOn = arg1;
         edit = new JTextField(arg1.toString());
 
-        if (clickedOn instanceof Link){
-            edit.setEditable(false);
-            return edit;
-        }
-
         edit.addActionListener(this);
 
         return edit;

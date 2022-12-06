@@ -7,5 +7,6 @@ public enum NotificationType {
     NAME_CHANGE,
     AUTHOR_CHANGE,
     MESSAGE,
-    REPAINT
+    REPAINT,
+    ZOOM
 }

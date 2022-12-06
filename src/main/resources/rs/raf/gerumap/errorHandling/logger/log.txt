@@ -764,3 +764,19 @@ Event type: [ERROR]
 Timestamp: [2022-12-03 12:09:20.601]
 Text: [No node is currently selected for a desired action, please select a node and try again]
 
+Event type: [ERROR]
+Timestamp: [2022-12-05 17:05:38.198]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-12-05 18:18:48.753]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-12-05 23:23:22.004]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-12-06 00:44:07.091]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+

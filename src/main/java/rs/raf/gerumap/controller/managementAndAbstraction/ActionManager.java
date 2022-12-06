@@ -17,6 +17,8 @@ public class ActionManager {
     private ActionNewTerm actionNewTerm;
     private ActionRename actionRename;
     private ActionSetAuthor actionSetAuthor;
+    private ActionZoomIn actionZoomIn;
+    private ActionZoomOut actionZoomOut;
 
     private ActionAddTermState actionAddTermState;
     private ActionDeleteState actionDeleteState;
@@ -33,6 +35,8 @@ public class ActionManager {
         actionNewTerm = new ActionNewTerm();
         actionRename = new ActionRename();
         actionSetAuthor = new ActionSetAuthor();
+        actionZoomIn = new ActionZoomIn();
+        actionZoomOut = new ActionZoomOut();
 
         actionAddTermState = new ActionAddTermState();
         actionDeleteState = new ActionDeleteState();

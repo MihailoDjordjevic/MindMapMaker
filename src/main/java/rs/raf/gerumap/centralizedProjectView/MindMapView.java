@@ -16,6 +16,7 @@ import rs.raf.gerumap.observer.NotificationType;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
 import java.util.LinkedList;
 
@@ -26,6 +27,7 @@ public class MindMapView extends JPanel implements ISubscriber {
     private MindMap mindMap;
     private LinkedList<ElementPainter> elementPainters;
     private SelectionModel selectionModel;
+    private AffineTransform affineTransform;
     private Line2D temporaryLink;
 
     public MindMapView(MindMap mindMap) {
@@ -33,10 +35,12 @@ public class MindMapView extends JPanel implements ISubscriber {
         this.mindMap = mindMap;
         elementPainters = new LinkedList<>();
         selectionModel = new SelectionModel();
+        affineTransform = new AffineTransform();
         mindMap.addSubscriber(this);
 
         setBackground(mindMap.getBackgroundColor());
-        setPreferredSize(new Dimension(800, 700));
+        setPreferredSize(new Dimension(3000, 2000));
+        setSize(new Dimension(3000, 2000));
 
         addPaintersFromModel();
 
@@ -82,6 +86,8 @@ public class MindMapView extends JPanel implements ISubscriber {
         super.paintComponent(g);
 
         Graphics2D graphics2D = (Graphics2D) g;
+        AffineTransform tmp = graphics2D.getTransform();
+        graphics2D.transform(affineTransform);
 
         if (temporaryLink != null) {
             graphics2D.setColor(Color.BLACK);
@@ -91,6 +97,8 @@ public class MindMapView extends JPanel implements ISubscriber {
         for (ElementPainter elementPainter : elementPainters){
             elementPainter.paintElement(graphics2D);
         }
+
+        graphics2D.setTransform(tmp);
     }
 
     @Override
@@ -116,7 +124,9 @@ public class MindMapView extends JPanel implements ISubscriber {
                 TermPainter termPainter = new TermPainter(((Term) notification));
                 getElementPainters().add((termPainter));
             }
+
+            case ZOOM -> affineTransform.scale(getMindMap().getZoom(), getMindMap().getZoom());
         }
-        SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getWorkspacePanel());
+        SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getCurrentProjectView());
     }
 }

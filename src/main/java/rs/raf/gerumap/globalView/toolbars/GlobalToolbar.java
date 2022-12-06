@@ -27,6 +27,9 @@ public class GlobalToolbar extends JToolBar {
         add(MainFrame.getInstance().getActionManager().getActionDelete());
         add(MainFrame.getInstance().getActionManager().getActionRename());
         add(MainFrame.getInstance().getActionManager().getActionSetAuthor());
+        add(MainFrame.getInstance().getActionManager().getActionZoomIn());
+        add(MainFrame.getInstance().getActionManager().getActionZoomOut());
+
 
         initEditNameTextField();
     }

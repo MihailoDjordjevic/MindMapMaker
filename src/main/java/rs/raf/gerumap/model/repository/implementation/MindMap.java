@@ -21,9 +21,14 @@ public class MindMap extends MapNodeComposite {
     private boolean isTemplate;
     private Color backgroundColor;
 
+    private float zoom;
+    private int translateX;
+    private int translateY;
+
     public MindMap(String name, MapNode parent) {
         super(name, parent);
         backgroundColor = null;
+        zoom = 1;
     }
 
     @Override
