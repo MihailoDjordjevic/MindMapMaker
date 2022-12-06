@@ -59,6 +59,7 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
                 jScrollPane.setPreferredSize(new Dimension(800, 700));
                 jScrollPane.setSize(new Dimension(1000, 1000));
                 addTab(notification.toString(), jScrollPane);
+                setSelectedComponent(jScrollPane);
 
             }
             case DELETE -> removeTab(notification);
@@ -74,7 +75,7 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
 
     private void removeTab(Object o){
         for (Component tab : getComponents()){
-            if (((MindMapView) tab).getMindMap() == o) {
+            if (((MindMapView) ((JScrollPane) tab).getViewport().getView()).getMindMap() == o) {
                 remove(tab);
                 break;
             }

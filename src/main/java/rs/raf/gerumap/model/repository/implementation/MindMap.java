@@ -21,8 +21,8 @@ public class MindMap extends MapNodeComposite {
     private boolean isTemplate;
     private Color backgroundColor;
 
-    private float zoom;
-    private float savedZoom;
+    private double zoom;
+    private double savedZoom;
     private int translateX;
     private int translateY;
 
