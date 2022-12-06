@@ -22,6 +22,7 @@ public class MindMap extends MapNodeComposite {
     private Color backgroundColor;
 
     private float zoom;
+    private float savedZoom;
     private int translateX;
     private int translateY;
 
@@ -29,6 +30,7 @@ public class MindMap extends MapNodeComposite {
         super(name, parent);
         backgroundColor = null;
         zoom = 1;
+        savedZoom = 1;
     }
 
     @Override

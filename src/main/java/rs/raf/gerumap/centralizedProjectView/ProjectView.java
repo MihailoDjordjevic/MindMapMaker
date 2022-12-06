@@ -52,8 +52,13 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
             case ADD -> {
 
                 MindMapView mindMapView = new MindMapView((MindMap) notification);
-                addTab(((MindMap) notification).getName(), mindMapView);
-                setSelectedComponent(mindMapView);
+//                addTab(((MindMap) notification).getName(), mindMapView);
+//                setSelectedComponent(mindMapView);
+
+                JScrollPane jScrollPane = new JScrollPane(mindMapView, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+                jScrollPane.setPreferredSize(new Dimension(800, 700));
+                jScrollPane.setSize(new Dimension(1000, 1000));
+                addTab(notification.toString(), jScrollPane);
 
             }
             case DELETE -> removeTab(notification);

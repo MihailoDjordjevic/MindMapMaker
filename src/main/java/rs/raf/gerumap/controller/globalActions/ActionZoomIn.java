@@ -28,6 +28,7 @@ public class ActionZoomIn extends AbstractMapAction {
         MindMap mindMap = mindMapView.getMindMap();
 
         mindMap.setZoom(1.25F);
+        mindMap.setSavedZoom((float) (mindMap.getSavedZoom() * 1.25));
 
         mindMap.notifySubscribers(null, NotificationType.ZOOM);
     }

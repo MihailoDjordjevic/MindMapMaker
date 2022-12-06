@@ -36,6 +36,7 @@ public class MindMapView extends JPanel implements ISubscriber {
         elementPainters = new LinkedList<>();
         selectionModel = new SelectionModel();
         affineTransform = new AffineTransform();
+        affineTransform.scale(getMindMap().getSavedZoom(), getMindMap().getSavedZoom());
         mindMap.addSubscriber(this);
 
         setBackground(mindMap.getBackgroundColor());
