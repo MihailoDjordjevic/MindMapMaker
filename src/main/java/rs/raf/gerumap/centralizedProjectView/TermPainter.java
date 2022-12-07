@@ -11,6 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.GeneralPath;
+import java.awt.geom.Rectangle2D;
 
 public class TermPainter extends ElementPainter implements ISubscriber {
 
@@ -50,6 +51,16 @@ public class TermPainter extends ElementPainter implements ISubscriber {
         Ellipse2D ellipse2D = new Ellipse2D.Float(term.getLocation().x,term.getLocation().y,term.getEllipseDimension().width,term.getEllipseDimension().height);
 
         if (ellipse2D.contains(p)) return true;
+        return false;
+    }
+
+    @Override
+    public boolean isContainedLasso(Rectangle2D rectangle2D) {
+        Term term = ((Term) getModel());
+        Ellipse2D ellipse2D = new Ellipse2D.Float(term.getLocation().x,term.getLocation().y,term.getEllipseDimension().width,term.getEllipseDimension().height);
+
+        if (ellipse2D.intersects(rectangle2D)) return true;
+
         return false;
     }
 

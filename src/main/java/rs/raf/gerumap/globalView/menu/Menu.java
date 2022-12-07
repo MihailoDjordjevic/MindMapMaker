@@ -20,6 +20,9 @@ public class Menu extends JMenuBar {
     private JMenuItem delete;
     private JMenuItem rename;
     private JMenuItem setAuthor;
+    private JMenu zoom;
+    private JMenuItem zoomIn;
+    private JMenuItem zoomOut;
 
     private JMenu help;
     private JMenuItem info;
@@ -39,6 +42,11 @@ public class Menu extends JMenuBar {
         delete = new JMenuItem(MainFrame.getInstance().getActionManager().getActionDelete());
         rename = new JMenuItem(MainFrame.getInstance().getActionManager().getActionRename());
         setAuthor = new JMenuItem(MainFrame.getInstance().getActionManager().getActionSetAuthor());
+        zoom = new JMenu("Zoom");
+        zoom.setMnemonic('Z');
+        zoomIn = new JMenuItem(MainFrame.getInstance().getActionManager().getActionZoomIn());
+        zoomOut = new JMenuItem(MainFrame.getInstance().getActionManager().getActionZoomOut());
+
 
         help = new JMenu("Help");
         info = new JMenuItem(MainFrame.getInstance().getActionManager().getActionInfo());
@@ -54,6 +62,9 @@ public class Menu extends JMenuBar {
         edit.addSeparator();
         edit.add(rename);
         edit.add(setAuthor);
+        edit.add(zoom);
+        zoom.add(zoomIn);
+        zoom.add(zoomOut);
 
         help.add(info);
 

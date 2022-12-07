@@ -18,6 +18,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
 import java.util.LinkedList;
 
 @Getter
@@ -29,6 +30,7 @@ public class MindMapView extends JPanel implements ISubscriber {
     private SelectionModel selectionModel;
     private AffineTransform affineTransform;
     private Line2D temporaryLink;
+    private Rectangle2D lassoRectangle;
 
     public MindMapView(MindMap mindMap) {
 
@@ -82,6 +84,26 @@ public class MindMapView extends JPanel implements ISubscriber {
 
     }
 
+    public void selectElementsLasso(){
+
+        ElementPainter elementPainter;
+
+        for (int i = this.getElementPainters().size() - 1; i >= 0; i--){
+
+            if (this.getElementPainters().get(i).isContainedLasso(lassoRectangle)) {
+                elementPainter = this.getElementPainters().get(i);
+
+                if (!getSelectionModel().getMultipleSelectionElements().contains(elementPainter)) {
+                    getSelectionModel().getMultipleSelectionElements().add(elementPainter);
+                    elementPainter.setSelected(true);
+                }
+
+                System.out.println(getSelectionModel().getMultipleSelectionElements().size());
+            }
+        }
+
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -93,6 +115,13 @@ public class MindMapView extends JPanel implements ISubscriber {
         if (temporaryLink != null) {
             graphics2D.setColor(Color.BLACK);
             graphics2D.draw(temporaryLink);
+        }
+
+        if (lassoRectangle != null){
+            BasicStroke stroke = new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, new float[]{5,5}, 0);
+            graphics2D.setStroke(stroke);
+            graphics2D.setColor(Color.BLACK);
+            graphics2D.draw(lassoRectangle);
         }
 
         for (ElementPainter elementPainter : elementPainters){

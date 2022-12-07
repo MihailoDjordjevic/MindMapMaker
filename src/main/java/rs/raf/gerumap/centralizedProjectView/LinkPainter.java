@@ -11,6 +11,7 @@ import rs.raf.gerumap.observer.NotificationType;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.GeneralPath;
+import java.awt.geom.Rectangle2D;
 
 public class LinkPainter extends ElementPainter {
 
@@ -39,6 +40,13 @@ public class LinkPainter extends ElementPainter {
     @Override
     public boolean isContained(Point p) {
         if (createShape().contains(p))
+            return true;
+        return false;
+    }
+
+    @Override
+    public boolean isContainedLasso(Rectangle2D rectangle2D) {
+        if (createShape().intersects(rectangle2D))
             return true;
         return false;
     }

@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Getter
@@ -17,7 +17,7 @@ public class SelectionModel {
 
     public SelectionModel() {
 
-        multipleSelectionElements = new ArrayList<>();
+        multipleSelectionElements = new LinkedList<>();
         singleSelectionElement = null;
 
     }
@@ -41,5 +41,13 @@ public class SelectionModel {
 
         if (this.secondarySelectionElement != null)
             this.secondarySelectionElement.setSelected(true);
+    }
+
+    public void unselectCurrentSelection(){
+        for (ElementPainter elementPainter : multipleSelectionElements){
+            elementPainter.setSelected(false);
+        }
+        multipleSelectionElements.clear();
+        setSingleSelectionElement(null);
     }
 }
