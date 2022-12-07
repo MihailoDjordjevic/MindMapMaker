@@ -29,7 +29,7 @@ public class MoveState implements IState{
         MouseEvent mouseEvent = ((MouseEvent) event);
         MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
 
-        endMovePoint = mouseEvent.getPoint();
+        endMovePoint = IState.getScaledPoint(mouseEvent.getPoint(), mindMapView.getMindMap().getSavedZoom());
         newX = endMovePoint.x - startMovePoint.x;
         newY = endMovePoint.y - startMovePoint.y;
 
@@ -38,8 +38,8 @@ public class MoveState implements IState{
             Term term = ((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel());
 
             term.setLocation(new Point(
-                    mouseEvent.getPoint().x - term.getEllipseDimension().width/2,
-                    mouseEvent.getPoint().y - term.getEllipseDimension().height/2
+                    endMovePoint.x - term.getEllipseDimension().width/2,
+                    endMovePoint.y - term.getEllipseDimension().height/2
                     ));
         }
         if (!mindMapView.getSelectionModel().getMultipleSelectionElements().isEmpty()){
@@ -59,9 +59,9 @@ public class MoveState implements IState{
         MouseEvent mouseEvent = ((MouseEvent) event);
         MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
 
-        startMovePoint = mouseEvent.getPoint();
+        startMovePoint = IState.getScaledPoint(mouseEvent.getPoint(), mindMapView.getMindMap().getSavedZoom());
 
-        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(mouseEvent.getPoint());
+        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(startMovePoint);
         mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
     }
 

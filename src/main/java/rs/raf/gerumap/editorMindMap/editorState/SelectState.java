@@ -24,7 +24,7 @@ public class SelectState implements IState{
         MouseEvent mouseEvent = ((MouseEvent) event);
         MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
 
-        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(mouseEvent.getPoint());
+        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(IState.getScaledPoint(mouseEvent.getPoint(), mindMapView.getMindMap().getSavedZoom()));
 
         /*if(mouseEvent.getClickCount() == 2 && !mindMapView.getSelectionModel().getMultipleSelectionElements().isEmpty()){
             List<MapNode> modelList = new LinkedList<>();
@@ -44,8 +44,6 @@ public class SelectState implements IState{
         mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
 
         SwingUtilities.updateComponentTreeUI(mindMapView);
-
-        startSelectionPoint = mouseEvent.getPoint();
     }
 
     @Override
@@ -53,7 +51,7 @@ public class SelectState implements IState{
         MouseEvent mouseEvent = ((MouseEvent) event);
         MindMapView mindMapView = ((MindMapView) mouseEvent.getSource());
 
-        endSelectionPoint = mouseEvent.getPoint();
+        endSelectionPoint = IState.getScaledPoint(mouseEvent.getPoint(), mindMapView.getMindMap().getSavedZoom());
 
         mindMapView.getSelectionModel().unselectCurrentSelection();
 
@@ -75,8 +73,7 @@ public class SelectState implements IState{
         MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
 
         mindMapView.getSelectionModel().unselectCurrentSelection();
-
-        startSelectionPoint = ((MouseEvent) event).getPoint();
+        startSelectionPoint = IState.getScaledPoint(mouseEvent.getPoint(), mindMapView.getMindMap().getSavedZoom());
     }
 
     @Override

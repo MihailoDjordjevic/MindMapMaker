@@ -56,4 +56,5 @@ public class StateManager {
         currentState = selectState;
         System.out.println("Editor state set to: select");
     }
+
 }

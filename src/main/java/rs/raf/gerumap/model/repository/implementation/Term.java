@@ -9,15 +9,15 @@ import rs.raf.gerumap.observer.NotificationType;
 
 import java.awt.*;
 import java.util.Random;
-
 @Getter
 @Setter
 public class Term extends MapNodeComposite {
-
     private Point location;
     private Dimension dimension;
     private Dimension ellipseDimension;
+
     private int fontSize;
+
     private int thickness;
 
     private Color borderColor;
@@ -73,4 +73,13 @@ public class Term extends MapNodeComposite {
     public void setName(String name) {
         super.setName(name);
     }
+    /*public Point getLocation(){
+        return new Point((int) (this.location.x * ((MindMap)getParent()).getSavedZoom()), (int) (this.location.y * ((MindMap)getParent()).getSavedZoom()));
+    }
+    public Dimension getDimension(){
+        return new Dimension((int) (this.dimension.width * ((MindMap)getParent()).getSavedZoom()), (int) (this.dimension.height * ((MindMap)getParent()).getSavedZoom()));
+    }
+    public Dimension getEllipseDimension(){
+        return new Dimension((int) (this.ellipseDimension.width * ((MindMap)getParent()).getSavedZoom()), (int) (this.ellipseDimension.height * ((MindMap)getParent()).getSavedZoom()));
+    }*/
 }
