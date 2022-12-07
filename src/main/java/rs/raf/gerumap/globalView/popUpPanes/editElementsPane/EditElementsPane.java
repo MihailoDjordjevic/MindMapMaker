@@ -13,6 +13,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.List;
+import java.util.LinkedList;
 
 @Getter
 @Setter
@@ -45,11 +47,26 @@ public class EditElementsPane extends JDialog {
 
     private JDialog jDialog;
 
-    private MapNode model;
+    private List<MapNode> model;
 
-    public EditElementsPane(Frame parent, MapNode mapNode, String title, boolean modal, int sizeX, int sizeY) {
+    /*public EditElementsPane(Frame parent, MapNode mapNode, String title, boolean modal, int sizeX, int sizeY) {
 
         this.model = mapNode;
+
+        setSize(sizeX, sizeY);
+        setLocation(Toolkit.getDefaultToolkit().getScreenSize().width/2 - sizeX, Toolkit.getDefaultToolkit().getScreenSize().height/2 - sizeY);
+        setTitle(title);
+
+        initComponents();
+        setComponentAttributes();
+
+        this.add(mainPanel);
+        setResizable(false);
+        setVisible(true);
+    }*/
+    public EditElementsPane(Frame parent, List<MapNode> selectedElements, String title, boolean modal, int sizeX, int sizeY) {
+
+        this.model = selectedElements;
 
         setSize(sizeX, sizeY);
         setLocation(Toolkit.getDefaultToolkit().getScreenSize().width/2 - sizeX, Toolkit.getDefaultToolkit().getScreenSize().height/2 - sizeY);
@@ -92,95 +109,108 @@ public class EditElementsPane extends JDialog {
         jDialog = new JDialog();
 
     }
-
     private void setComponentAttributes(){
-
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setBorder(new EmptyBorder(10,10,10,10));
 
-        if (model instanceof Term){
+        colorPanel.setLayout(new FlowLayout());
+        colorPanel.setPreferredSize(new Dimension(170, 139));
 
-            Term term = ((Term) model);
+        borderColor.setPreferredSize(new Dimension(100, 40));
+        backgroundColor.setPreferredSize(new Dimension(100, 40));
+        textColor.setPreferredSize(new Dimension(100, 40));
 
-            colorPanel.setLayout(new FlowLayout());
-            colorPanel.setPreferredSize(new Dimension(170, 139));
+        borderButton.setBackground(Color.BLACK);
+        borderButton.setPreferredSize(new Dimension(40, 40));
+        borderButton.addMouseListener(new ButtonMouseListener(this, 1));
 
-            borderColor.setPreferredSize(new Dimension(100, 40));
-            backgroundColor.setPreferredSize(new Dimension(100, 40));
-            textColor.setPreferredSize(new Dimension(100, 40));
+        textButton.setBackground(Color.BLACK);
+        textButton.setPreferredSize(new Dimension(40, 40));
+        textButton.addMouseListener(new ButtonMouseListener(this, 3));
 
-            borderButton.setBackground(term.getBorderColor());
-            borderButton.setPreferredSize(new Dimension(40, 40));
-            borderButton.addMouseListener(new ButtonMouseListener(this, 1));
+        backgroundButton.setBackground(Color.WHITE);
+        backgroundButton.setPreferredSize(new Dimension(40, 40));
+        backgroundButton.addMouseListener(new ButtonMouseListener(this, 2));
 
-            textButton.setBackground(term.getTextColor());
-            textButton.setPreferredSize(new Dimension(40, 40));
-            textButton.addMouseListener(new ButtonMouseListener(this, 3));
+        setColorChooserUpdateLogic();
 
-            backgroundButton.setBackground(term.getBackgroundColor());
-            backgroundButton.setPreferredSize(new Dimension(40, 40));
-            backgroundButton.addMouseListener(new ButtonMouseListener(this, 2));
+        colorPanel.add(borderColor); colorPanel.add(borderButton);
+        colorPanel.add(backgroundColor); colorPanel.add(backgroundButton);
+        colorPanel.add(textColor); colorPanel.add(textButton);
 
-            setColorChooserUpdateLogic();
+        thicknessLabel.setMaximumSize(new Dimension(150, 20));
+        thicknessLabel.setHorizontalAlignment(JLabel.LEFT); thicknessLabel.setBackground(Color.red);
 
-            colorPanel.add(borderColor); colorPanel.add(borderButton);
-            colorPanel.add(backgroundColor); colorPanel.add(backgroundButton);
-            colorPanel.add(textColor); colorPanel.add(textButton);
+        thicknessSlider.setPreferredSize(new Dimension(150, 30));
+        thicknessSlider.addChangeListener(e ->{
 
-            thicknessLabel.setMaximumSize(new Dimension(150, 20));
-            thicknessLabel.setHorizontalAlignment(JLabel.LEFT); thicknessLabel.setBackground(Color.red);
-
-            thicknessSlider.setPreferredSize(new Dimension(150, 30));
-            thicknessSlider.addChangeListener(e ->{
-                term.setThickness(thicknessSlider.getValue());
-                term.notifySubscribers(null, NotificationType.REPAINT);
-            });
-
-            renameField.setText(model.toString());
-            renameField.setMaximumSize(new Dimension(150, 15));
-            renameField.addKeyListener(new KeyListener() {
-                @Override
-                public void keyTyped(KeyEvent e) {
-
+            for (MapNode element : model){
+                if(element instanceof Term){
+                    ((Term) element).setThickness(thicknessSlider.getValue());
+                    element.notifySubscribers(null, NotificationType.REPAINT);
                 }
-
-                @Override
-                public void keyPressed(KeyEvent e) {
-
-                }
-
-                @Override
-                public void keyReleased(KeyEvent e) {
-                    updateNodeName(renameField.getText());
-                }
-            });
-
-            mainPanel.add(colorPanel);
-            //mainPanel.add(thicknessLabel);
-            mainPanel.add(thicknessSlider);
-            mainPanel.add(renameField);
+            }
+        });
+        if(model.size() == 1){
+            renameField.setText(model.get(0).toString());
         }
+        else{
+            renameField.setText(model.toString());
+            renameField.setEditable(false);
+        }
+        renameField.setMaximumSize(new Dimension(150, 15));
+        renameField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
 
+            }
 
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                updateNodeName(renameField.getText());
+            }
+        });
+
+        mainPanel.add(colorPanel);
+        //mainPanel.add(thicknessLabel);
+        mainPanel.add(thicknessSlider);
+        mainPanel.add(renameField);
     }
 
     private void setColorChooserUpdateLogic(){
+
         jColorChooserBorder.getSelectionModel().addChangeListener(e -> {
             borderButton.setBackground(jColorChooserBorder.getColor());
-            ((Term) model).setBorderColor(jColorChooserBorder.getColor());
-            model.notifySubscribers(null, NotificationType.REPAINT);
+            for (MapNode element : model){
+                if(element instanceof Term){
+                    ((Term) element).setBorderColor(jColorChooserBorder.getColor());
+                    element.notifySubscribers(null, NotificationType.REPAINT);
+                }
+            }
         });
-
         jColorChooserText.getSelectionModel().addChangeListener(e -> {
             textButton.setBackground(jColorChooserText.getColor());
-            ((Term) model).setTextColor(jColorChooserText.getColor());
-            model.notifySubscribers(null, NotificationType.REPAINT);
+            for (MapNode element : model){
+                if(element instanceof Term){
+                    ((Term) element).setTextColor(jColorChooserText.getColor());
+                    element.notifySubscribers(null, NotificationType.REPAINT);
+                }
+            }
         });
 
         jColorChooserBackground.getSelectionModel().addChangeListener(e -> {
             backgroundButton.setBackground(jColorChooserBackground.getColor());
-            ((Term) model).setBackgroundColor(jColorChooserBackground.getColor());
-            model.notifySubscribers(null, NotificationType.REPAINT);
+            for (MapNode element : model){
+                if(element instanceof Term){
+                    ((Term) element).setBackgroundColor(jColorChooserBackground.getColor());
+                    element.notifySubscribers(null, NotificationType.REPAINT);
+                }
+            }
         });
     }
 
@@ -206,9 +236,9 @@ public class EditElementsPane extends JDialog {
     }
 
     private void updateNodeName(String name){
-
-        model.setName(name);
-
+        if(model.size() == 1){
+            model.get(0).setName(name);
+        }
     }
 }
 

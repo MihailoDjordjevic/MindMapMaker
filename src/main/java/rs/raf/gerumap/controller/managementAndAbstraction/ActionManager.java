@@ -25,6 +25,7 @@ public class ActionManager {
     private ActionLinkElementsState actionLinkElementsState;
     private ActionMoveState actionMoveState;
     private ActionSelectState actionSelectState;
+    private ActionEditElementProperties actionEditElementProperties;
 
     public ActionManager(){
         actionNew = new ActionNew();
@@ -43,5 +44,6 @@ public class ActionManager {
         actionLinkElementsState = new ActionLinkElementsState();
         actionMoveState = new ActionMoveState();
         actionSelectState = new ActionSelectState();
+        actionEditElementProperties = new ActionEditElementProperties();
     }
 }

@@ -4,11 +4,15 @@ import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.popUpPanes.editElementsPane.EditElementsPane;
+import rs.raf.gerumap.model.repository.composite.MapNode;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
+import java.util.LinkedList;
+import java.util.List;
+
 
 public class SelectState implements IState{
 
@@ -20,13 +24,23 @@ public class SelectState implements IState{
         MouseEvent mouseEvent = ((MouseEvent) event);
         MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
 
-        mindMapView.getSelectionModel().unselectCurrentSelection();
-
         ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(mouseEvent.getPoint());
 
-        if (mouseEvent.getClickCount() == 2 && elementPainter != null){
-            new EditElementsPane(MainFrame.getInstance(), elementPainter.getModel(), "Modify element", true, 190, 270);
+        /*if(mouseEvent.getClickCount() == 2 && !mindMapView.getSelectionModel().getMultipleSelectionElements().isEmpty()){
+            List<MapNode> modelList = new LinkedList<>();
+            for(ElementPainter element : mindMapView.getSelectionModel().getMultipleSelectionElements()) {
+                modelList.add(element.getModel());
+            }
+            new EditElementsPane(MainFrame.getInstance(), modelList, "Modify element", true, 190, 270);
+            return;
         }
+        else if (mouseEvent.getClickCount() == 2 && elementPainter != null){
+            List<MapNode> modelList = new LinkedList<>();
+            modelList.add(elementPainter.getModel());
+            new EditElementsPane(MainFrame.getInstance(), modelList, "Modify element", true, 190, 270);
+            return;
+        }*/
+        mindMapView.getSelectionModel().unselectCurrentSelection();
         mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
 
         SwingUtilities.updateComponentTreeUI(mindMapView);
