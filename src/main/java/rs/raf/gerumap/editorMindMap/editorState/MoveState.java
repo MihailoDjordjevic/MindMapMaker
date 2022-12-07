@@ -61,8 +61,10 @@ public class MoveState implements IState{
 
         startMovePoint = IState.getScaledPoint(mouseEvent.getPoint(), mindMapView.getMindMap().getSavedZoom());
 
-        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(startMovePoint);
-        mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
+        if (mindMapView.getSelectionModel().getMultipleSelectionElements().isEmpty()) {
+            ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(startMovePoint);
+            mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
+        }
     }
 
     @Override

@@ -27,11 +27,11 @@ public class EditorToolbar extends JToolBar {
     private void initComponents(){
 
         add(Box.createVerticalStrut(3));
-        add(MainFrame.getInstance().getActionManager().getActionAddTermState()); getComponent(1).getLocation().translate(4, 0);
-        add(MainFrame.getInstance().getActionManager().getActionLinkElementsState()); getComponent(2).getLocation().translate(4, 0);
-        add(MainFrame.getInstance().getActionManager().getActionDeleteState()); getComponent(3).getLocation().translate(4, 0);
-        add(MainFrame.getInstance().getActionManager().getActionSelectState()); getComponent(4).getLocation().translate(4, 0);
-        add(MainFrame.getInstance().getActionManager().getActionMoveState()); getComponent(5).getLocation().translate(4, 0);
+        add(MainFrame.getInstance().getActionManager().getActionAddTermState()); //getComponent(1).getLocation().translate(4, 0);
+        add(MainFrame.getInstance().getActionManager().getActionLinkElementsState()); //getComponent(2).getLocation().translate(4, 0);
+        add(MainFrame.getInstance().getActionManager().getActionDeleteState());// getComponent(3).getLocation().translate(4, 0);
+        add(MainFrame.getInstance().getActionManager().getActionSelectState()); //getComponent(4).getLocation().translate(4, 0);
+        add(MainFrame.getInstance().getActionManager().getActionMoveState()); //getComponent(5).getLocation().translate(4, 0);
         add(MainFrame.getInstance().getActionManager().getActionEditElementProperties()); getComponent(6).getLocation().translate(4, 0);
         add(Box.createHorizontalStrut(5));
     }
