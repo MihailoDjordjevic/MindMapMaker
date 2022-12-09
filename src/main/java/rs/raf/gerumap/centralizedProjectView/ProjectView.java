@@ -2,6 +2,7 @@ package rs.raf.gerumap.centralizedProjectView;
 
 import lombok.Getter;
 import lombok.Setter;
+import rs.raf.gerumap.centralizedProjectView.mindMapCursorFactory.MindMapCursorFactory;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.editorMindMap.StateManager;
 import rs.raf.gerumap.model.repository.composite.MapNode;
@@ -26,7 +27,7 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
         this.project = project;
         setPreferredSize(new Dimension(800, 700));
         setBorder(BorderFactory.createTitledBorder(project.getAuthor() + " - " + project.getName()));
-        stateManager = new StateManager();
+        stateManager = new StateManager(this);
 
         initAllTabs();
 
@@ -79,6 +80,13 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
                 remove(tab);
                 break;
             }
+        }
+    }
+
+    public void setCursorForProject(Cursor cursor){
+        System.out.println(getTabCount());
+        for (int i = 0; i < getTabCount(); i++){
+            ((JScrollPane) getComponentAt(i)).getViewport().getView().setCursor(cursor);
         }
     }
 

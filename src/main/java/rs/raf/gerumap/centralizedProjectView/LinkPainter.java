@@ -17,6 +17,7 @@ public class LinkPainter extends ElementPainter {
 
     public LinkPainter(MapNode model) {
         super(model);
+        model.addSubscriber(this);
     }
 
     @Override

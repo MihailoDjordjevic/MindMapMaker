@@ -25,16 +25,9 @@ public class ActionEditElementProperties extends AbstractMapAction {
         putValue(NAME, "editElementProperties");
         putValue(SHORT_DESCRIPTION, "Edit element properties");
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
-        putValue(MNEMONIC_KEY, (int) 'E');
+        putValue(MNEMONIC_KEY, (int) 'T');
 
-        BufferedImage editPropertiesImage = null;
-        try{
-            editPropertiesImage = ImageIO.read(Objects.requireNonNull(this.getClass().getResource("editProperties.png")));
-        }
-        catch(IOException e){
-
-        }
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon(editPropertiesImage).getImage().getScaledInstance(22, 22, Image.SCALE_SMOOTH));
+        ImageIcon imageIcon = getImage("editProperties.png");
 
         putValue(SMALL_ICON, imageIcon);
     }
@@ -56,5 +49,18 @@ public class ActionEditElementProperties extends AbstractMapAction {
             modelList.add(element.getModel());
             new EditElementsPane(MainFrame.getInstance(), modelList, "Modify element", true, 190, 270);
         }
+    }
+
+    private ImageIcon getImage(String path){
+
+        BufferedImage editPropertiesImage = null;
+        try{
+            editPropertiesImage = ImageIO.read(Objects.requireNonNull(this.getClass().getResource(path)));
+        }
+        catch(IOException e){
+
+        }
+        return new ImageIcon(new ImageIcon(editPropertiesImage).getImage().getScaledInstance(22, 22, Image.SCALE_SMOOTH));
+
     }
 }
