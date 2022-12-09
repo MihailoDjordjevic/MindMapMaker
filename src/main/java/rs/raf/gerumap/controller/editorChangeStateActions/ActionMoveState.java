@@ -1,5 +1,8 @@
 package rs.raf.gerumap.controller.editorChangeStateActions;
 
+import rs.raf.gerumap.centralizedProjectView.MindMapView;
+import rs.raf.gerumap.centralizedProjectView.mindMapCursorFactory.CursorFactoryEnums;
+import rs.raf.gerumap.centralizedProjectView.mindMapCursorFactory.MindMapCursorFactory;
 import rs.raf.gerumap.controller.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 
@@ -21,5 +24,8 @@ public class ActionMoveState extends AbstractMapAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         MainFrame.getInstance().getCurrentProjectView().getStateManager().setMoveState();
+
+        MindMapView mindMapView = (MindMapView) ((JScrollPane) MainFrame.getInstance().getCurrentProjectView().getSelectedComponent()).getViewport().getView();
+        mindMapView.setCursor(MindMapCursorFactory.getCursor(CursorFactoryEnums.MOVE));
     }
 }

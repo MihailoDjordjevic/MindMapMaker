@@ -1,6 +1,8 @@
 package rs.raf.gerumap.controller.editorChangeStateActions;
 
 import rs.raf.gerumap.centralizedProjectView.MindMapView;
+import rs.raf.gerumap.centralizedProjectView.mindMapCursorFactory.CursorFactoryEnums;
+import rs.raf.gerumap.centralizedProjectView.mindMapCursorFactory.MindMapCursorFactory;
 import rs.raf.gerumap.controller.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 
@@ -22,7 +24,11 @@ public class ActionLinkElementsState extends AbstractMapAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         MainFrame.getInstance().getCurrentProjectView().getStateManager().setLinkElementsState();
-        ((MindMapView) ((JScrollPane) MainFrame.getInstance().getCurrentProjectView().getSelectedComponent()).getViewport().getView()).getSelectionModel().unselectCurrentSelection();
+
+        MindMapView mindMapView = (MindMapView) ((JScrollPane) MainFrame.getInstance().getCurrentProjectView().getSelectedComponent()).getViewport().getView();
+        mindMapView.setCursor(MindMapCursorFactory.getCursor(CursorFactoryEnums.LINK));
+
+        mindMapView.getSelectionModel().unselectCurrentSelection();
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getCurrentProjectView());
     }
 }
