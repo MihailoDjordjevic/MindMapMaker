@@ -6,6 +6,7 @@ import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Term;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class AddTermState implements IState{
@@ -18,8 +19,10 @@ public class AddTermState implements IState{
         Term term = new Term("Term " + (mindMap.getChildren().size() + 1), mindMap);
         mindMap.addChild(term);
 
-        int x = e.getX() - term.getEllipseDimension().width/2;
-        int y = e.getY() - term.getEllipseDimension().height/2;
+        Point point = IState.getScaledPoint(e.getPoint(), mindMap.getSavedZoom());
+
+        int x = point.x - term.getEllipseDimension().width/2;
+        int y = point.y - term.getEllipseDimension().height/2;
 
         term.getLocation().setLocation(x, y);
 

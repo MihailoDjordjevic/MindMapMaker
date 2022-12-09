@@ -26,7 +26,7 @@ public class LinkElementsState implements IState{
         MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
         MindMap mindMap = mindMapView.getMindMap();
 
-        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(mouseEvent.getPoint());
+        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(IState.getScaledPoint(mouseEvent.getPoint(), mindMap.getSavedZoom()));
 
         if(mindMapView.getSelectionModel().getSingleSelectionElement() != null &&
                 mindMapView.getSelectionModel().getSingleSelectionElement() != elementPainter &&
@@ -56,7 +56,7 @@ public class LinkElementsState implements IState{
         MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
         MindMap mindMap = mindMapView.getMindMap();
 
-        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(mouseEvent.getPoint());
+        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(IState.getScaledPoint(mouseEvent.getPoint(), mindMap.getSavedZoom()));
 
         if (!(elementPainter instanceof LinkPainter))
             mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
