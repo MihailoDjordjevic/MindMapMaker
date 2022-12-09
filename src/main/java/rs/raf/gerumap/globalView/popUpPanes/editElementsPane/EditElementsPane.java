@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
+import rs.raf.gerumap.model.repository.implementation.Link;
 import rs.raf.gerumap.model.repository.implementation.Project;
 import rs.raf.gerumap.model.repository.implementation.Term;
 import rs.raf.gerumap.observer.NotificationType;
@@ -148,6 +149,9 @@ public class EditElementsPane extends JDialog {
                 if(element instanceof Term){
                     ((Term) element).setThickness(thicknessSlider.getValue());
                     element.notifySubscribers(null, NotificationType.REPAINT);
+                } else if(element instanceof Link){
+                    ((Link) element).setThickness(thicknessSlider.getValue());
+                    element.notifySubscribers(null, NotificationType.REPAINT);
                 }
             }
         });
@@ -155,7 +159,7 @@ public class EditElementsPane extends JDialog {
             renameField.setText(model.get(0).toString());
         }
         else{
-            renameField.setText(model.toString());
+            renameField.setText("");
             renameField.setEditable(false);
         }
         renameField.setMaximumSize(new Dimension(150, 15));
@@ -189,6 +193,9 @@ public class EditElementsPane extends JDialog {
             for (MapNode element : model){
                 if(element instanceof Term){
                     ((Term) element).setBorderColor(jColorChooserBorder.getColor());
+                    element.notifySubscribers(null, NotificationType.REPAINT);
+                } else if (element instanceof Link){
+                    ((Link) element).setBorderColor(jColorChooserBorder.getColor());
                     element.notifySubscribers(null, NotificationType.REPAINT);
                 }
             }

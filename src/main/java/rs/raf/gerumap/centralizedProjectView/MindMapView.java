@@ -98,7 +98,6 @@ public class MindMapView extends JPanel implements ISubscriber {
                     elementPainter.setSelected(true);
                 }
 
-                System.out.println(getSelectionModel().getMultipleSelectionElements().size());
             }
         }
 

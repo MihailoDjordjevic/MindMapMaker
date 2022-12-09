@@ -20,7 +20,11 @@ public class MoveState implements IState{
     private int newY;
     @Override
     public void mouseClickAction(Object event) {
+        MouseEvent mouseEvent = ((MouseEvent) event);
+        MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
+        mindMapView.getSelectionModel().unselectCurrentSelection();
 
+        SwingUtilities.updateComponentTreeUI(mindMapView);
     }
 
     @Override

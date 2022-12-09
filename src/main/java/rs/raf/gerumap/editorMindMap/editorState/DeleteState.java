@@ -5,6 +5,7 @@ import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 
 public class DeleteState implements IState{
@@ -14,7 +15,7 @@ public class DeleteState implements IState{
         MouseEvent e = ((MouseEvent) event);
         MindMapView mindMapView = (MindMapView) ((MouseEvent) event).getSource();
 
-        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(e.getPoint());
+        ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(IState.getScaledPoint(e.getPoint(), mindMapView.getMindMap().getSavedZoom()));
 
         if (elementPainter != null){
             ((MapNodeComposite) elementPainter.getModel().getParent()).deleteChild(elementPainter.getModel());
@@ -49,5 +50,11 @@ public class DeleteState implements IState{
     @Override
     public void mouseMovedAction(Object event) {
 
+        MouseEvent mouseEvent = ((MouseEvent) event);
+        MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
+
+        mindMapView.getSelectionModel().setSingleSelectionElement(mindMapView.getGraphicsAtLocation(IState.getScaledPoint(mouseEvent.getPoint(), mindMapView.getMindMap().getSavedZoom())));
+
+        SwingUtilities.updateComponentTreeUI(mindMapView);
     }
 }

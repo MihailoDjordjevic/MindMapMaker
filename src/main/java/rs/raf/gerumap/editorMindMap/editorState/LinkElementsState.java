@@ -43,7 +43,7 @@ public class LinkElementsState implements IState{
                             ((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel()).getEllipseDimension().height / 2)
             );
 
-            mindMapView.setTemporaryLink(new Line2D.Double(point, mouseEvent.getPoint()));
+            mindMapView.setTemporaryLink(new Line2D.Double(point, IState.getScaledPoint(mouseEvent.getPoint(), mindMapView.getMindMap().getSavedZoom())));
         }
 
         SwingUtilities.updateComponentTreeUI(mindMapView);
