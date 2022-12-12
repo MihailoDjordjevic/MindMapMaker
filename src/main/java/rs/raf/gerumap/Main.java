@@ -1,6 +1,7 @@
 package rs.raf.gerumap;
 
 import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.gui.IGui;
 import rs.raf.gerumap.core.IMapRepository;
 import rs.raf.gerumap.globalView.gui.SwingGui;
@@ -15,5 +16,6 @@ public class Main {
 		IMapRepository iMapRepository = new MapRepositoryImplementation();
 		applicationFramework.initialise(IGui, iMapRepository);
 		applicationFramework.run();
+
 	}
 }

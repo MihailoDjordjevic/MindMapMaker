@@ -2,6 +2,8 @@ package rs.raf.gerumap.editorMindMap.editorState;
 
 import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.TermPainter;
+import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Term;
 
@@ -17,6 +19,21 @@ public class AddTermState implements IState{
         MindMap mindMap = mindMapView.getMindMap();
 
         Term term = new Term("Term " + (mindMap.getChildren().size() + 1), mindMap);
+
+        String name = "";
+
+        while (name.equals("")) {
+
+            name = JOptionPane.showInputDialog("Please enter the name of the term");
+
+            if (name == null) return;
+
+            if (name.equals(""))
+                ApplicationFramework.getInstance().getMessageGeneratorImplementation().generateMessage(MessageDescription.NAME_CANNOT_BE_EMPTY, term);
+        }
+
+        term.setName(name);
+
         mindMap.addChild(term);
 
         Point point = IState.getScaledPoint(e.getPoint(), mindMap.getSavedZoom());

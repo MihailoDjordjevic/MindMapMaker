@@ -836,3 +836,75 @@ Event type: [NOTIFICATION]
 Timestamp: [2022-12-12 04:41:48.39]
 Text: [Maximum zoom in count is 7]
 
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-12 04:59:53.463]
+Text: [Maximum zoom in count is 7]
+
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-12 05:01:18.496]
+Text: [Maximum zoom in count is 7]
+
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-12 15:40:52.089]
+Text: [Maximum zoom in count is 7]
+
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-12 17:21:48.349]
+Text: [Maximum zoom in count is 7]
+
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-12 17:22:02.087]
+Text: [Maximum zoom in count is 7]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 17:35:53.314]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-12 17:36:36.797]
+Text: [Maximum zoom in count is 7]
+
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-12 17:36:40.406]
+Text: [Maximum zoom in count is 7]
+
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-12 17:36:41.254]
+Text: [Maximum zoom in count is 7]
+
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-12 17:36:41.711]
+Text: [Maximum zoom in count is 7]
+
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-12 17:36:41.878]
+Text: [Maximum zoom in count is 7]
+
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-12 17:36:42.336]
+Text: [Maximum zoom in count is 7]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 17:40:36.875]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 17:46:55.781]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 17:47:17.287]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 17:48:05.997]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 17:48:08.273]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 17:48:26.16]
+Text: [Name cannot be empty, please type at least one character]
+

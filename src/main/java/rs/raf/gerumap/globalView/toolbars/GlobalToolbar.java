@@ -10,6 +10,9 @@ public class GlobalToolbar extends JToolBar {
 
     private JTextField editNameTextField;
 
+    private JButton zoomIn;
+    private JButton zoomOut;
+
     public GlobalToolbar() {
         initToolbar();
         initComponents();
@@ -27,8 +30,8 @@ public class GlobalToolbar extends JToolBar {
         add(MainFrame.getInstance().getActionManager().getActionDelete());
         add(MainFrame.getInstance().getActionManager().getActionRename());
         add(MainFrame.getInstance().getActionManager().getActionSetAuthor());
-        add(MainFrame.getInstance().getActionManager().getActionZoomIn());
-        add(MainFrame.getInstance().getActionManager().getActionZoomOut());
+        zoomIn = add(MainFrame.getInstance().getActionManager().getActionZoomIn());
+        zoomOut = add(MainFrame.getInstance().getActionManager().getActionZoomOut());
 
 
         initEditNameTextField();
