@@ -14,6 +14,8 @@ import rs.raf.gerumap.observer.NotificationType;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 
 @Getter
 @Setter
@@ -38,9 +40,14 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
     private void initAllTabs(){
 
         for (MapNode mindMap : project.getChildren()){
-            JScrollPane jScrollPane = new JScrollPane(new MindMapView(((MindMap) mindMap)), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+            MindMapView mindMapView = new MindMapView((MindMap) mindMap);
+
+            JScrollPane jScrollPane = new JScrollPane(mindMapView, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
             jScrollPane.setPreferredSize(new Dimension(800, 700));
             jScrollPane.setSize(new Dimension(1000, 1000));
+
+            mindMapView.setParentPane(jScrollPane);
+
             addTab(mindMap.toString(), jScrollPane);
         }
     }
@@ -59,6 +66,9 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
                 JScrollPane jScrollPane = new JScrollPane(mindMapView, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
                 jScrollPane.setPreferredSize(new Dimension(800, 700));
                 jScrollPane.setSize(new Dimension(1000, 1000));
+
+                mindMapView.setParentPane(jScrollPane);
+
                 addTab(notification.toString(), jScrollPane);
                 setSelectedComponent(jScrollPane);
 
@@ -84,7 +94,6 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
     }
 
     public void setCursorForProject(Cursor cursor){
-        System.out.println(getTabCount());
         for (int i = 0; i < getTabCount(); i++){
             ((JScrollPane) getComponentAt(i)).getViewport().getView().setCursor(cursor);
         }

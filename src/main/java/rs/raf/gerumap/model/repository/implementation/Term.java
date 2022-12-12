@@ -82,4 +82,24 @@ public class Term extends MapNodeComposite {
     public Dimension getEllipseDimension(){
         return new Dimension((int) (this.ellipseDimension.width * ((MindMap)getParent()).getSavedZoom()), (int) (this.ellipseDimension.height * ((MindMap)getParent()).getSavedZoom()));
     }*/
+
+    public void setLocation(Point location){
+
+        System.out.println(location.getLocation().x);
+
+        if (location.getLocation().x < 2){
+            location.setLocation(2, location.getLocation().y);
+        }
+        if (location.getLocation().x > 3000 - getEllipseDimension().width){
+            location.setLocation(3000 - getEllipseDimension().width, location.getLocation().y);
+        }
+        if (location.getLocation().y < 2){
+            location.setLocation(location.getLocation().x, 2);
+        }
+        if (location.getLocation().y > 2000 - getEllipseDimension().height){
+            location.setLocation( location.getLocation().x, 2000 - getEllipseDimension().height);
+        }
+
+        this.location = location;
+    }
 }

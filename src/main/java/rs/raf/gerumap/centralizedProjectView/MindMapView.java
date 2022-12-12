@@ -16,6 +16,8 @@ import rs.raf.gerumap.observer.NotificationType;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
@@ -23,9 +25,10 @@ import java.util.LinkedList;
 
 @Getter
 @Setter
-public class MindMapView extends JPanel implements ISubscriber {
+public class MindMapView extends JPanel implements ISubscriber, AdjustmentListener {
 
     private MindMap mindMap;
+    private JScrollPane parentPane;
     private LinkedList<ElementPainter> elementPainters;
     private SelectionModel selectionModel;
     private AffineTransform affineTransform;
@@ -43,6 +46,7 @@ public class MindMapView extends JPanel implements ISubscriber {
 
         setBackground(mindMap.getBackgroundColor());
         setPreferredSize(new Dimension(3000, 2000));
+        setMaximumSize(new Dimension(3000, 2000));
         setSize(new Dimension(3000, 2000));
 
         addPaintersFromModel();
@@ -157,5 +161,10 @@ public class MindMapView extends JPanel implements ISubscriber {
             case ZOOM -> affineTransform.scale(getMindMap().getZoom(), getMindMap().getZoom());
         }
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getCurrentProjectView());
+    }
+
+    @Override
+    public void adjustmentValueChanged(AdjustmentEvent e) {
+
     }
 }
