@@ -23,8 +23,7 @@ public class MindMap extends MapNodeComposite {
 
     private double zoom;
     private double savedZoom;
-    private int translateX;
-    private int translateY;
+    private int zoomInCount = 0;
 
     public MindMap(String name, MapNode parent) {
         super(name, parent);

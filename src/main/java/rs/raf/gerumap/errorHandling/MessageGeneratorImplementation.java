@@ -36,6 +36,7 @@ public class MessageGeneratorImplementation implements IMessageGenerator, IPubli
             case CANNOT_CHANGE_AUTHOR -> notifySubscribers(new CannotChangeAuthor(source), NotificationType.MESSAGE);
             case NAME_CANNOT_BE_EMPTY -> notifySubscribers(new NameCannotBeEmpty(source), NotificationType.MESSAGE);
             case CONTAINING_SAME_NAME -> notifySubscribers(new ContainingSameNameMessage(source), NotificationType.MESSAGE);
+            case CANNOT_ZOOM_ANYMORE -> notifySubscribers(new CannotZoomAnymoreMessage(source), NotificationType.MESSAGE);
         }
     }
 }

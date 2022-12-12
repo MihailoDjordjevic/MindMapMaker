@@ -29,6 +29,10 @@ public class ActionZoomOut extends AbstractMapAction {
 
         mindMap.setZoom(0.80);
         mindMap.setSavedZoom(mindMap.getSavedZoom() * 0.8);
+        mindMap.setZoomInCount(mindMap.getZoomInCount()-1);
+
+        mindMapView.getParentPane().getVerticalScrollBar().setMaximum((int) (2000 * mindMap.getSavedZoom()));
+        mindMapView.getParentPane().getHorizontalScrollBar().setMaximum((int) (3000 * mindMap.getSavedZoom()));
 
         System.out.println(mindMap.getSavedZoom());
 

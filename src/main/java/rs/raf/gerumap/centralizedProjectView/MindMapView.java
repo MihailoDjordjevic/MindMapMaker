@@ -46,7 +46,7 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
 
         setBackground(mindMap.getBackgroundColor());
         setSize(new Dimension((int) (3000 * Math.pow(1.25, 7)), (int) (3000 * Math.pow(1.25, 7))));
-        setPreferredSize(new Dimension((int) (3000 * Math.pow(1.25, 7)), (int) (3000 * Math.pow(1.25, 7))));
+        setPreferredSize(new Dimension((int) (3000 * Math.pow(1.25, 7)), (int) (2000 * Math.pow(1.25, 7))));
 
         addPaintersFromModel();
 
@@ -130,6 +130,8 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
             elementPainter.paintElement(graphics2D);
         }
 
+        drawMindMapBounds(graphics2D);
+
         graphics2D.setTransform(tmp);
     }
 
@@ -159,6 +161,8 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
 
             case ZOOM -> {
                 affineTransform.scale(getMindMap().getZoom(), getMindMap().getZoom());
+                //adjustmentValueChanged(new AdjustmentEvent(getParentPane().getHorizontalScrollBar(), 1, 1, 1));
+               // adjustmentValueChanged(new AdjustmentEvent(getParentPane().getVerticalScrollBar(), 1, 1, 1));
             }
         }
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getCurrentProjectView());
@@ -172,6 +176,13 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
         else if (e.getAdjustable().getOrientation() == Adjustable.VERTICAL)
             e.getAdjustable().setMaximum((int) (2000 * getMindMap().getSavedZoom()));
 
-        System.out.println(System.currentTimeMillis());
+    }
+
+    private void drawMindMapBounds(Graphics2D graphics2D){
+
+        graphics2D.setColor(Color.BLACK);
+        graphics2D.drawLine(0, 2000, 3000, 2000);
+        graphics2D.drawLine(3000, 2000, 3000, 0);
+
     }
 }
