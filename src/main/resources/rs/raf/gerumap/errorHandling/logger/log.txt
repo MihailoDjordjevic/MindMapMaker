@@ -908,3 +908,52 @@ Event type: [ERROR]
 Timestamp: [2022-12-12 17:48:26.16]
 Text: [Name cannot be empty, please type at least one character]
 
+Event type: [WARNING]
+Timestamp: [2022-12-12 17:50:06.404]
+Text: [Mind Map 1 already contains Term named Term 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-12-12 17:50:18.519]
+Text: [Project Explorer already contains Project named Project 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-12-12 17:50:26.6]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 17:50:29.506]
+Text: [To change author please select a project or create a new one]
+
+Event type: [WARNING]
+Timestamp: [2022-12-12 17:50:32.424]
+Text: [Project 1 already contains MindMap named Mind Map 1.
+ Do you want to continue?]
+
+Event type: [WARNING]
+Timestamp: [2022-12-12 17:50:44.472]
+Text: [Mind Map 1 already contains Term named Term 12.
+ Do you want to continue?]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 22:06:34.486]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 22:29:22.847]
+Text: [Name cannot be empty, please type at least one character]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 22:30:49.205]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-12 22:31:17.38]
+Text: [Maximum zoom in count is 7]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 22:44:09.669]
+Text: [Cannot remove: Project Explorer]
+

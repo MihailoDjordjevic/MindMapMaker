@@ -24,6 +24,8 @@ public class ActionZoomOut extends AbstractMapAction {
     public void actionPerformed(ActionEvent e) {
         ProjectView projectView = MainFrame.getInstance().getCurrentProjectView();
 
+        if (projectView == null || projectView.getSelectedComponent() == null) return;
+
         MindMapView mindMapView = (MindMapView) ((JScrollPane) projectView.getSelectedComponent()).getViewport().getView();
         MindMap mindMap = mindMapView.getMindMap();
 

@@ -50,8 +50,7 @@ public class TermPainter extends ElementPainter implements ISubscriber {
         Term term = ((Term) getModel());
         Ellipse2D ellipse2D = new Ellipse2D.Float(term.getLocation().x,term.getLocation().y,term.getEllipseDimension().width,term.getEllipseDimension().height);
 
-        if (ellipse2D.contains(p)) return true;
-        return false;
+        return ellipse2D.contains(p);
     }
 
     @Override
@@ -59,9 +58,7 @@ public class TermPainter extends ElementPainter implements ISubscriber {
         Term term = ((Term) getModel());
         Ellipse2D ellipse2D = new Ellipse2D.Float(term.getLocation().x,term.getLocation().y,term.getEllipseDimension().width,term.getEllipseDimension().height);
 
-        if (ellipse2D.intersects(rectangle2D)) return true;
-
-        return false;
+        return ellipse2D.intersects(rectangle2D);
     }
 
     @Override
@@ -78,10 +75,10 @@ public class TermPainter extends ElementPainter implements ISubscriber {
         Term term = ((Term) getModel());
 
         GeneralPath generalPath = new GeneralPath();
-        generalPath.moveTo(term.getLocation().x, term.getLocation().y);
-        generalPath.lineTo(term.getLocation().x + term.getEllipseDimension().width, term.getLocation().y);
-        generalPath.lineTo(term.getLocation().x + term.getEllipseDimension().width, term.getLocation().y + term.getEllipseDimension().height);
-        generalPath.lineTo(term.getLocation().x, term.getLocation().y + term.getEllipseDimension().height);
+        generalPath.moveTo(term.getLocation().x - term.getThickness()/2, term.getLocation().y - term.getThickness()/2);
+        generalPath.lineTo(term.getLocation().x + term.getEllipseDimension().width + term.getThickness()/2, term.getLocation().y - term.getThickness()/2);
+        generalPath.lineTo(term.getLocation().x + term.getEllipseDimension().width + term.getThickness()/2, term.getLocation().y + term.getEllipseDimension().height + term.getThickness()/2);
+        generalPath.lineTo(term.getLocation().x - term.getThickness()/2, term.getLocation().y + term.getEllipseDimension().height + term.getThickness()/2);
         generalPath.closePath();
 
         setShape(generalPath);
