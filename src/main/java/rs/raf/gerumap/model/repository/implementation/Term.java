@@ -85,8 +85,6 @@ public class Term extends MapNodeComposite {
 
     public void setLocation(Point location){
 
-        System.out.println(location.getLocation().x);
-
         if (location.getLocation().x < 2){
             location.setLocation(2, location.getLocation().y);
         }

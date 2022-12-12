@@ -24,7 +24,7 @@ public class AddTermState implements IState{
         int x = point.x - term.getEllipseDimension().width/2;
         int y = point.y - term.getEllipseDimension().height/2;
 
-        term.getLocation().setLocation(x, y);
+        term.setLocation(new Point(x, y));
 
         SwingUtilities.updateComponentTreeUI(mindMapView);
     }

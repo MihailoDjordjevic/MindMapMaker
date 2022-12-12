@@ -47,6 +47,8 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
             jScrollPane.setSize(new Dimension(1000, 1000));
 
             mindMapView.setParentPane(jScrollPane);
+            jScrollPane.getHorizontalScrollBar().addAdjustmentListener(mindMapView);
+            jScrollPane.getVerticalScrollBar().addAdjustmentListener(mindMapView);
 
             addTab(mindMap.toString(), jScrollPane);
         }
@@ -68,6 +70,8 @@ public class ProjectView extends JTabbedPane implements ISubscriber {
                 jScrollPane.setSize(new Dimension(1000, 1000));
 
                 mindMapView.setParentPane(jScrollPane);
+                jScrollPane.getHorizontalScrollBar().addAdjustmentListener(mindMapView);
+                jScrollPane.getVerticalScrollBar().addAdjustmentListener(mindMapView);
 
                 addTab(notification.toString(), jScrollPane);
                 setSelectedComponent(jScrollPane);

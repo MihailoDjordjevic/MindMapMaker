@@ -45,9 +45,8 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
         mindMap.addSubscriber(this);
 
         setBackground(mindMap.getBackgroundColor());
-        setPreferredSize(new Dimension(3000, 2000));
-        setMaximumSize(new Dimension(3000, 2000));
-        setSize(new Dimension(3000, 2000));
+        setSize(new Dimension((int) (3000 * Math.pow(1.25, 7)), (int) (3000 * Math.pow(1.25, 7))));
+        setPreferredSize(new Dimension((int) (3000 * Math.pow(1.25, 7)), (int) (3000 * Math.pow(1.25, 7))));
 
         addPaintersFromModel();
 
@@ -140,8 +139,8 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
         switch (notificationType){
 
             case NAME_CHANGE -> {
-                ProjectView projectView = ((ProjectView) this.getParent());
-                projectView.setTitleAt(projectView.indexOfComponent(this), mindMap.getName());
+                ProjectView projectView = ((ProjectView) this.getParentPane().getParent());
+                projectView.setTitleAt(projectView.indexOfComponent(this.getParentPane()), mindMap.getName());
             }
 
             case DELETE -> {
@@ -158,7 +157,9 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
                 getElementPainters().add((termPainter));
             }
 
-            case ZOOM -> affineTransform.scale(getMindMap().getZoom(), getMindMap().getZoom());
+            case ZOOM -> {
+                affineTransform.scale(getMindMap().getZoom(), getMindMap().getZoom());
+            }
         }
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getCurrentProjectView());
     }
@@ -166,5 +167,11 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
     @Override
     public void adjustmentValueChanged(AdjustmentEvent e) {
 
+        if (e.getAdjustable().getOrientation() == Adjustable.HORIZONTAL)
+            e.getAdjustable().setMaximum((int) (3000 * getMindMap().getSavedZoom()));
+        else if (e.getAdjustable().getOrientation() == Adjustable.VERTICAL)
+            e.getAdjustable().setMaximum((int) (2000 * getMindMap().getSavedZoom()));
+
+        System.out.println(System.currentTimeMillis());
     }
 }

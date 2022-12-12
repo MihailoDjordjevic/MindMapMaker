@@ -808,3 +808,11 @@ Event type: [ERROR]
 Timestamp: [2022-12-11 04:35:46.65]
 Text: [No node is currently selected for a desired action, please select a node and try again]
 
+Event type: [ERROR]
+Timestamp: [2022-12-12 03:42:49.659]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-12-12 03:46:50.673]
+Text: [Cannot remove: Project Explorer]
+

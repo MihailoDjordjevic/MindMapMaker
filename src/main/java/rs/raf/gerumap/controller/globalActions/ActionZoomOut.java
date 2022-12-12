@@ -32,10 +32,6 @@ public class ActionZoomOut extends AbstractMapAction {
 
         System.out.println(mindMap.getSavedZoom());
 
-//        ((JScrollPane) projectView.getSelectedComponent()).getHorizontalScrollBar().setMaximum(
-//                (int) (3000 * mindMap.getSavedZoom())
-//        );
-
         mindMap.notifySubscribers(null, NotificationType.ZOOM);
     }
 }
