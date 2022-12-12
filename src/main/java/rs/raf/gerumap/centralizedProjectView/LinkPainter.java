@@ -56,6 +56,7 @@ public class LinkPainter extends ElementPainter {
     public void setSelectionBorder(Graphics2D graphics2D) {
         BasicStroke stroke = new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, new float[]{5,5}, 0);
         graphics2D.setStroke(stroke);
+        graphics2D.setColor(Color.BLACK);
         graphics2D.draw(createShape());
     }
 
