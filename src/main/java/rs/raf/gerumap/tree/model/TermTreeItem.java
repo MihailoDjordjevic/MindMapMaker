@@ -8,6 +8,7 @@ import rs.raf.gerumap.tree.model.treeNodeFactory.SimpleTreeNodeFactory;
 import javax.swing.*;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreePath;
+import java.util.Arrays;
 
 public class TermTreeItem extends ElementTreeItem{
 
@@ -25,7 +26,7 @@ public class TermTreeItem extends ElementTreeItem{
                 deleteItem(notification);
             }
             case SET_PATH -> {
-
+                System.out.println(Arrays.toString(getPath()));
                 MainFrame.getInstance().getMapTreeView().setSelectionPath(new TreePath(getPath()));
             }
         }
