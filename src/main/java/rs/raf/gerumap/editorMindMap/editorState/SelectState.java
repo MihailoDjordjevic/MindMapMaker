@@ -2,9 +2,13 @@ package rs.raf.gerumap.editorMindMap.editorState;
 
 import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
+import rs.raf.gerumap.controller.globalActions.ActionRename;
 import rs.raf.gerumap.globalView.frame.MainFrame;
+import rs.raf.gerumap.globalView.menu.ContextMenu;
+import rs.raf.gerumap.globalView.popUpPanes.RenameUpdateOnInputPopUpPane;
 import rs.raf.gerumap.globalView.popUpPanes.editElementsPane.EditElementsPane;
 import rs.raf.gerumap.model.repository.composite.MapNode;
+import rs.raf.gerumap.observer.NotificationType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,6 +46,10 @@ public class SelectState implements IState{
         }*/
         mindMapView.getSelectionModel().unselectCurrentSelection();
         mindMapView.getSelectionModel().setSingleSelectionElement(elementPainter);
+
+        if(elementPainter != null){
+            elementPainter.getModel().notifySubscribers(null, NotificationType.SET_PATH);
+        }
 
         SwingUtilities.updateComponentTreeUI(mindMapView);
     }

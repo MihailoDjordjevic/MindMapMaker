@@ -11,6 +11,13 @@ import rs.raf.gerumap.model.repository.implementation.Term;
 
 public class Main {
 	public static void main(String[] args) {
+		if(args.length > 0){
+			if(args[0].equals("debug")){
+
+			}
+		}
+
+
 		ApplicationFramework applicationFramework = ApplicationFramework.getInstance();
 		IGui IGui = new SwingGui();
 		IMapRepository iMapRepository = new MapRepositoryImplementation();

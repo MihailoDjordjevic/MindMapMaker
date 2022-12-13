@@ -8,5 +8,6 @@ public enum NotificationType {
     AUTHOR_CHANGE,
     MESSAGE,
     REPAINT,
-    ZOOM
+    ZOOM,
+    SET_PATH
 }

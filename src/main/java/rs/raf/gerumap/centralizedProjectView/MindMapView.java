@@ -7,6 +7,7 @@ import rs.raf.gerumap.centralizedProjectView.mouseListeners.MindMapMouseListener
 import rs.raf.gerumap.centralizedProjectView.mouseListeners.MindMapMouseMotionLsnr;
 import rs.raf.gerumap.centralizedProjectView.selectionModel.SelectionModel;
 import rs.raf.gerumap.globalView.frame.MainFrame;
+import rs.raf.gerumap.globalView.menu.ContextMenu;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
@@ -36,7 +37,8 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
     private Rectangle2D lassoRectangle;
 
     public MindMapView(MindMap mindMap) {
-
+        setComponentPopupMenu(new ContextMenu());
+        System.out.println(getComponentPopupMenu().getParent());
         this.mindMap = mindMap;
         elementPainters = new LinkedList<>();
         selectionModel = new SelectionModel();
