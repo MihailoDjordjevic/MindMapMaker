@@ -17,7 +17,6 @@ public class Main {
 			}
 		}
 
-
 		ApplicationFramework applicationFramework = ApplicationFramework.getInstance();
 		IGui IGui = new SwingGui();
 		IMapRepository iMapRepository = new MapRepositoryImplementation();

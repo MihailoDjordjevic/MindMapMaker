@@ -11,6 +11,14 @@ public class FileLogger implements ILogger {
     private final File file;
     public FileLogger() {
         file = workingDirectory.resolve("src/main/resources/rs/raf/gerumap/errorHandling/logger/log.txt").toFile();
+        if(file.exists()){
+            try{
+                FileUtils.delete(file);
+            }
+            catch(IOException e){
+                System.err.println("File IO Error");
+            }
+        }
     }
     @Override
     public void log(final AbstractMessageEvent eventMessage) {
