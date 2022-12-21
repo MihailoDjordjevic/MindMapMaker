@@ -33,14 +33,16 @@ public class ActionEditElementProperties extends AbstractMapAction {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+
         SelectionModel selectionModel = ((MindMapView) ((JScrollPane) MainFrame.getInstance().getCurrentProjectView().getSelectedComponent()).getViewport().getView()).getSelectionModel();
+
         if(!selectionModel.getMultipleSelectionElements().isEmpty()){
             List<ElementPainter> elements = selectionModel.getMultipleSelectionElements();
             List<MapNode> modelList = new LinkedList<>();
             for(ElementPainter element : elements) {
                 modelList.add(element.getModel());
             }
-            new EditElementsPane(MainFrame.getInstance(), modelList, "Modify element", true, 190, 270);
+            new EditElementsPane(MainFrame.getInstance(), modelList, "Modify elements", true, 190, 270);
             return;
         }
         ElementPainter element = selectionModel.getSingleSelectionElement();

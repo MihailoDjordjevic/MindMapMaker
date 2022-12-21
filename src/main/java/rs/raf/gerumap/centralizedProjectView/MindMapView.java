@@ -38,7 +38,6 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
 
     public MindMapView(MindMap mindMap) {
         setComponentPopupMenu(new ContextMenu());
-        System.out.println(getComponentPopupMenu().getParent());
         this.mindMap = mindMap;
         elementPainters = new LinkedList<>();
         selectionModel = new SelectionModel();
@@ -151,6 +150,7 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
                 for (ElementPainter elementPainter : elementPainters){
                     if (elementPainter.getModel() == notification) {
                         elementPainters.remove(elementPainter);
+                        elementPainter.getModel().getSubscribers().remove(elementPainter);
                         break;
                     }
                 }
