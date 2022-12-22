@@ -3,6 +3,8 @@ package rs.raf.gerumap.core;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import rs.raf.gerumap.commandManagement.AddElementCommand;
+import rs.raf.gerumap.commandManagement.CommandManager;
 import rs.raf.gerumap.errorHandling.logger.ConsoleLogger;
 import rs.raf.gerumap.errorHandling.logger.FileLogger;
 import rs.raf.gerumap.errorHandling.MessageGeneratorImplementation;
@@ -24,10 +26,12 @@ public class ApplicationFramework {
     private static ApplicationFramework instance;
     protected IGui IGui;
     protected IMapRepository iMapRepository;
+    private CommandManager commandManager;
     public void run(){
         this.IGui.start();
     }
-    public void initialise(IGui IGui, IMapRepository mapRepository) {
+    public void initialise(IGui IGui, IMapRepository mapRepository, CommandManager commandManager) {
+        this.commandManager = commandManager;
         this.IGui = IGui;
         this.iMapRepository = mapRepository;
         initialiseLogger();

@@ -1,5 +1,7 @@
 package rs.raf.gerumap;
 
+import rs.raf.gerumap.commandManagement.AddElementCommand;
+import rs.raf.gerumap.commandManagement.CommandManager;
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.gui.IGui;
@@ -20,7 +22,8 @@ public class Main {
 		ApplicationFramework applicationFramework = ApplicationFramework.getInstance();
 		IGui IGui = new SwingGui();
 		IMapRepository iMapRepository = new MapRepositoryImplementation();
-		applicationFramework.initialise(IGui, iMapRepository);
+		CommandManager commandManager = new CommandManager();
+		applicationFramework.initialise(IGui, iMapRepository, commandManager);
 		applicationFramework.run();
 
 	}
