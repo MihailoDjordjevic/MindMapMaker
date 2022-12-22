@@ -1,9 +1,7 @@
 package rs.raf.gerumap.model.repository.implementation;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.*;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.observer.IPublisher;
@@ -24,7 +22,9 @@ public class Project extends MapNodeComposite {
         this.author = author;
         this.resourcesPath = resourcesPath;
     }
-
+    public Project() {
+        //setName("");
+    }
     @Override
     public void addChild(final MapNode child) {
         if (child instanceof MindMap) {

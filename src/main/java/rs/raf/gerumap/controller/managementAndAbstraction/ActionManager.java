@@ -29,6 +29,10 @@ public class ActionManager {
     private ActionSelectState actionSelectState;
     private ActionEditElementProperties actionEditElementProperties;
 
+    private ActionSave actionSave;
+    private ActionImport actionImport;
+
+
     public ActionManager(){
         actionNew = new ActionNew();
         actionInfo = new ActionInfo();
@@ -49,5 +53,8 @@ public class ActionManager {
         actionMoveState = new ActionMoveState();
         actionSelectState = new ActionSelectState();
         actionEditElementProperties = new ActionEditElementProperties();
+
+        actionSave = new ActionSave();
+        actionImport = new ActionImport();
     }
 }

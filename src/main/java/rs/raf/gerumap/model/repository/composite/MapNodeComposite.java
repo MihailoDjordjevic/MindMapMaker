@@ -1,6 +1,10 @@
 package rs.raf.gerumap.model.repository.composite;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
+import rs.raf.gerumap.model.repository.implementation.*;
 import rs.raf.gerumap.observer.IPublisher;
 
 import java.util.ArrayList;
@@ -9,7 +13,14 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
+@JsonTypeInfo( use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Link.class, name = "link"),
+        @JsonSubTypes.Type(value = MindMap.class, name = "mindMap"),
+        @JsonSubTypes.Type(value = Project.class, name = "project"),
+        @JsonSubTypes.Type(value = ProjectExplorer.class, name = "projectExplorer"),
+        @JsonSubTypes.Type(value = Term.class, name = "term")
+})
 public abstract class MapNodeComposite extends MapNode {
     private List<MapNode> children;
 
@@ -21,7 +32,25 @@ public abstract class MapNodeComposite extends MapNode {
         super(name, parent);
         this.children = new ArrayList<>();
     }
-
+    public MapNodeComposite() {
+        this.children = new ArrayList<>();
+    }
+    public void setChildrenParents(){
+        for(int i = 0; i < this.children.size(); i++){
+            this.children.get(i).setParent(this);
+            if(this.children.get(i) instanceof MapNodeComposite) {
+                ((MapNodeComposite) this.children.get(i)).setChildrenParents();
+            }
+        }
+    }
+    public void printAllChildren(){
+        for(int i = 0; i < this.children.size(); i++){
+            System.out.println(this.children.get(i).getName());
+            if(this.children.get(i) instanceof MapNodeComposite) {
+                ((MapNodeComposite) this.children.get(i)).printAllChildren();
+            }
+        }
+    }
     public abstract void addChild(final MapNode child);
     public abstract void deleteChild(final MapNode child);
 

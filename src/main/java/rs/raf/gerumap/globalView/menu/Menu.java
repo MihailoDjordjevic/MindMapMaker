@@ -26,6 +26,11 @@ public class Menu extends JMenuBar {
     private JMenuItem undo;
     private JMenuItem redo;
 
+
+    private JMenuItem saveProject;
+    private JMenuItem importProject;
+
+
     private JMenu help;
     private JMenuItem info;
 
@@ -51,6 +56,9 @@ public class Menu extends JMenuBar {
         undo = new JMenuItem(MainFrame.getInstance().getActionManager().getActionUndo());
         redo = new JMenuItem(MainFrame.getInstance().getActionManager().getActionRedo());
 
+        saveProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionSave());
+        importProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionImport());
+
 
         help = new JMenu("Help");
         info = new JMenuItem(MainFrame.getInstance().getActionManager().getActionInfo());
@@ -72,6 +80,9 @@ public class Menu extends JMenuBar {
         edit.add(zoom);
         zoom.add(zoomIn);
         zoom.add(zoomOut);
+
+        file.add(saveProject);
+        file.add(importProject);
 
         help.add(info);
 

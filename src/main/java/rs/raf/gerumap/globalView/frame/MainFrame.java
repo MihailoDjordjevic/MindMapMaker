@@ -126,7 +126,7 @@ public class MainFrame extends JFrame {
     }
 
     public void removeDisplayedProject(){
-        this.getCurrentProjectView().getProject().getSubscribers().remove(this.getCurrentProjectView());
+        //this.getCurrentProjectView().getProject().getSubscribers().remove(this.getCurrentProjectView());
         this.getWorkspacePanel().removeAll();
         this.getWorkspacePanel().setLayout(null);
         this.getWorkspacePanel().add(this.getNoProjectLabel());

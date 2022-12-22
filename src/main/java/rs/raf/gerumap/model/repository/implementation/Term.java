@@ -1,6 +1,8 @@
 package rs.raf.gerumap.model.repository.implementation;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
@@ -20,9 +22,9 @@ public class Term extends MapNodeComposite {
 
     private int thickness;
 
-    private Color borderColor;
-    private Color backgroundColor;
-    private Color textColor;
+    private transient Color borderColor;
+    private transient Color backgroundColor;
+    private transient Color textColor;
 
     public Term(String name, MapNode parent) {
         super(name, parent);
@@ -31,6 +33,16 @@ public class Term extends MapNodeComposite {
         fontSize = 20;
         dimension = new Dimension((int) (fontSize*getName().length()*0.5), (int) (fontSize *1.8));
 
+        ellipseDimension = new Dimension((int) (dimension.width*1.33), (int) (dimension.height*1.33));
+
+        backgroundColor = Color.LIGHT_GRAY;
+        textColor = Color.BLACK;
+        thickness = 3;
+        borderColor = Color.BLACK;
+    }
+    public Term() {
+        setName("");
+        dimension = new Dimension((int) (fontSize*getName().length()*0.5), (int) (fontSize *1.8));
         ellipseDimension = new Dimension((int) (dimension.width*1.33), (int) (dimension.height*1.33));
 
         backgroundColor = Color.LIGHT_GRAY;

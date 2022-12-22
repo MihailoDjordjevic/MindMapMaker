@@ -1,9 +1,10 @@
 package rs.raf.gerumap.model.repository.composite;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.*;
+import rs.raf.gerumap.model.repository.implementation.*;
 import rs.raf.gerumap.observer.IPublisher;
 import rs.raf.gerumap.observer.ISubscriber;
 import rs.raf.gerumap.observer.NotificationType;
@@ -14,15 +15,25 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
+@JsonTypeInfo( use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Link.class, name = "link"),
+        @JsonSubTypes.Type(value = MindMap.class, name = "mindMap"),
+        @JsonSubTypes.Type(value = Project.class, name = "project"),
+        @JsonSubTypes.Type(value = ProjectExplorer.class, name = "projectExplorer"),
+        @JsonSubTypes.Type(value = Term.class, name = "term")
+})
 public abstract class MapNode implements IPublisher {
     private String name;
-    private MapNode parent;
-    private List<ISubscriber> subscribers;
+    private transient MapNode parent;
+    private transient List<ISubscriber> subscribers;
 
     public MapNode(String name, MapNode parent) {
         this.name = name;
         this.parent = parent;
+        subscribers = new ArrayList<>(7);
+    }
+    public MapNode() {
         subscribers = new ArrayList<>(7);
     }
 

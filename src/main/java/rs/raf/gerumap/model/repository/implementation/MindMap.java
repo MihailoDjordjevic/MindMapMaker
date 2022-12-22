@@ -1,5 +1,6 @@
 package rs.raf.gerumap.model.repository.implementation;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,7 @@ import java.util.Random;
 public class MindMap extends MapNodeComposite {
 
     private boolean isTemplate;
-    private Color backgroundColor;
+    private transient Color backgroundColor;
 
     private double zoom;
     private double savedZoom;
@@ -31,7 +32,11 @@ public class MindMap extends MapNodeComposite {
         zoom = 1;
         savedZoom = 1;
     }
+    public MindMap(){
+        backgroundColor = Color.WHITE;
 
+        //setName("with");
+    }
     @Override
     public void addChild(final MapNode child) {
         if (child instanceof Term) {

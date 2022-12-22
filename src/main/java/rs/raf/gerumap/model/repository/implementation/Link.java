@@ -1,6 +1,8 @@
 package rs.raf.gerumap.model.repository.implementation;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 
@@ -11,7 +13,7 @@ import java.awt.*;
 public class Link extends MapNode{
 
     private int thickness;
-    private Color borderColor;
+    private transient Color borderColor;
 
     private Term sourceTerm;
     private Term destinationTerm;
@@ -23,6 +25,12 @@ public class Link extends MapNode{
         borderColor = Color.BLACK;
 
         setName("with");
+    }
+    public Link(){
+        thickness = 3;
+        borderColor = Color.BLACK;
+
+        //setName("with");
     }
 
     @Override

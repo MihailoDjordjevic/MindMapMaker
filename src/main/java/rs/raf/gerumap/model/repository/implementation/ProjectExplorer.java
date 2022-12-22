@@ -1,6 +1,8 @@
 package rs.raf.gerumap.model.repository.implementation;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.composite.MapNode;
@@ -20,7 +22,9 @@ public class ProjectExplorer extends MapNodeComposite {
             notifySubscribers(child, NotificationType.ADD);
         }
     }
+    public ProjectExplorer(){
 
+    }
     @Override
     public void deleteChild(MapNode child) {
         if (child instanceof Project) {
