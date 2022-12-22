@@ -33,4 +33,8 @@ public class ProjectExplorer extends MapNodeComposite {
             notifySubscribers(child, NotificationType.DELETE);
         }
     }
+
+    public void addProjectRecursively(MapNode root){
+
+    }
 }

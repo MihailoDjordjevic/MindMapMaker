@@ -45,11 +45,8 @@ public class JacksonSerializer implements ISerializer{
         objectMapper.configure(MapperFeature.PROPAGATE_TRANSIENT_MARKER, true);
         try {
             Project project = objectMapper.readValue(new File("export/project.json"), Project.class);
-            project.printAllChildren();
             project.setParent(ApplicationFramework.getInstance().getIMapRepository().getProjectExplorer());
             project.setChildrenParents();
-            System.out.println("-----------------");
-            project.printAllChildren();
             ApplicationFramework.getInstance().getIMapRepository().getProjectExplorer().addChild(project);
 
         } catch (IOException e) {

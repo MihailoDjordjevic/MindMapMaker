@@ -19,7 +19,7 @@ public class ProjectExplorerTreeItem extends MapTreeItem {
 
         switch (notificationType) {
             case ADD -> {
-                add(SimpleTreeNodeFactory.getNode((MapNode) notification));
+                addItem(SimpleTreeNodeFactory.getNode((MapNode) notification));
             }
             case DELETE -> deleteItem(notification);
         }

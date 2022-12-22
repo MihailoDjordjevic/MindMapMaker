@@ -5,7 +5,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
+import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.observer.ISubscriber;
+import rs.raf.gerumap.tree.model.treeNodeFactory.SimpleTreeNodeFactory;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -43,6 +45,18 @@ public abstract class MapTreeItem extends DefaultMutableTreeNode implements ISub
 
             }
         }
+    }
+
+    public void addItem(MutableTreeNode treeNode){
+
+        add(treeNode);
+
+        if (((MapTreeItem) treeNode).getModel() instanceof MapNodeComposite){
+            for (MapNode mapNode : ((MapNodeComposite) ((MapTreeItem) treeNode).getModel()).getChildren()){
+                ((MapTreeItem) treeNode).addItem(SimpleTreeNodeFactory.getNode(mapNode));
+            }
+        }
+
     }
 
     public void finalizeMapTreeItem(){
