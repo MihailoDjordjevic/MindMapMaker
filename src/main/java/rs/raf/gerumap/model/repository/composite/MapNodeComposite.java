@@ -37,10 +37,15 @@ public abstract class MapNodeComposite extends MapNode {
         this.children = new ArrayList<>();
     }
     public void setChildrenParents(){
+
         for(int i = 0; i < this.children.size(); i++){
+
             this.children.get(i).setParent(this);
+
             if(this.children.get(i) instanceof MapNodeComposite) {
+
                 ((MapNodeComposite) this.children.get(i)).setChildrenParents();
+
             }
         }
     }

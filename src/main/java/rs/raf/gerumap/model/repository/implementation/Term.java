@@ -15,6 +15,9 @@ import java.util.Random;
 @Getter
 @Setter
 public class Term extends MapNodeComposite {
+
+    private long hashValue;
+
     private Point location;
     private Dimension dimension;
     private Dimension ellipseDimension;
@@ -29,6 +32,8 @@ public class Term extends MapNodeComposite {
 
     public Term(String name, MapNode parent) {
         super(name, parent);
+
+        hashValue = System.nanoTime();
 
         location = randomPoint();   //default values
         fontSize = 20;
@@ -110,5 +115,40 @@ public class Term extends MapNodeComposite {
         }
 
         this.location = location;
+    }
+
+    @Override
+    public void setChildrenParents(){
+        for (MapNode mapNode : getChildren()){
+
+            Link link = ((Link) mapNode);
+
+            if (this.getHashValue() == link.getSourceTermHash()){
+
+                link.setParent(this);
+                link.setSourceTerm(this);
+
+                Term destinationTerm = findDestTerm(link.getDestinationTermHash());
+                link.setDestinationTerm(destinationTerm);
+                destinationTerm.addChild(link);
+
+            } else {
+                if (link.getSourceTerm() == null){
+                    this.getChildren().remove(link);
+                }
+            }
+        }
+    }
+
+    private Term findDestTerm(long hashValue){
+        MindMap mindMap = (MindMap) this.getParent();
+
+        for (MapNode mapNode : mindMap.getChildren()){
+            if(((Term) mapNode).getHashValue() == hashValue){
+                return (Term) mapNode;
+            }
+        }
+
+        return null;
     }
 }

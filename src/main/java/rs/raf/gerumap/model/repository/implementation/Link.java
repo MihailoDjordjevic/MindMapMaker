@@ -18,6 +18,9 @@ public class Link extends MapNode{
     private transient Term sourceTerm;
     private transient Term destinationTerm;
 
+    private long sourceTermHash;
+    private long destinationTermHash;
+
     public Link(String name, MapNode parent) {
         super(name, parent);
 
@@ -27,6 +30,16 @@ public class Link extends MapNode{
         setName("with");
     }
     public Link(){
+    }
+
+    public void setSourceTerm(Term sourceTerm) {
+        this.sourceTerm = sourceTerm;
+        this.sourceTermHash = sourceTerm.getHashValue();
+    }
+
+    public void setDestinationTerm(Term destinationTerm) {
+        this.destinationTerm = destinationTerm;
+        this.destinationTermHash = destinationTerm.getHashValue();
     }
 
     @Override
