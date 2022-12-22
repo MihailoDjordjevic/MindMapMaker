@@ -10,6 +10,8 @@ import rs.raf.gerumap.globalView.gui.SwingGui;
 import rs.raf.gerumap.globalView.popUpPanes.editElementsPane.EditElementsPane;
 import rs.raf.gerumap.model.repository.MapRepositoryImplementation;
 import rs.raf.gerumap.model.repository.implementation.Term;
+import rs.raf.gerumap.serializer.ISerializer;
+import rs.raf.gerumap.serializer.JacksonSerializer;
 
 public class Main {
 	public static void main(String[] args) {
@@ -23,7 +25,8 @@ public class Main {
 		IGui IGui = new SwingGui();
 		IMapRepository iMapRepository = new MapRepositoryImplementation();
 		CommandManager commandManager = new CommandManager();
-		applicationFramework.initialise(IGui, iMapRepository, commandManager);
+		ISerializer iSerializer = new JacksonSerializer();
+		applicationFramework.initialise(IGui, iMapRepository, commandManager, iSerializer);
 		applicationFramework.run();
 
 	}

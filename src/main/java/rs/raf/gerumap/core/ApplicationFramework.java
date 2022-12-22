@@ -10,6 +10,7 @@ import rs.raf.gerumap.errorHandling.logger.FileLogger;
 import rs.raf.gerumap.errorHandling.MessageGeneratorImplementation;
 import rs.raf.gerumap.globalView.gui.IGui;
 import rs.raf.gerumap.editorMindMap.StateManager;
+import rs.raf.gerumap.serializer.ISerializer;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -27,13 +28,15 @@ public class ApplicationFramework {
     protected IGui IGui;
     protected IMapRepository iMapRepository;
     private CommandManager commandManager;
+    private ISerializer iSerializer;
     public void run(){
         this.IGui.start();
     }
-    public void initialise(IGui IGui, IMapRepository mapRepository, CommandManager commandManager) {
+    public void initialise(IGui IGui, IMapRepository mapRepository, CommandManager commandManager, ISerializer iSerializer) {
         this.commandManager = commandManager;
         this.IGui = IGui;
         this.iMapRepository = mapRepository;
+        this.iSerializer = iSerializer;
         initialiseLogger();
         manageSubscriptions();
     }
