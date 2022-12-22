@@ -28,15 +28,15 @@ public class TermPainter extends ElementPainter implements ISubscriber {
         g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
         g.setFont(new Font("Basic font", Font.PLAIN, term.getFontSize()));
 
-        g.setColor(term.getBorderColor());
+        g.setColor(new Color(term.getBorderColor()));
         g.setStroke(new BasicStroke(term.getThickness()));
         getWidthFromText(g, term);
         g.drawOval(term.getLocation().x, term.getLocation().y, term.getEllipseDimension().width, term.getEllipseDimension().height);
 
-        g.setColor(term.getBackgroundColor());
+        g.setColor(new Color(term.getBackgroundColor()));
         g.fillOval(term.getLocation().x, term.getLocation().y, term.getEllipseDimension().width, term.getEllipseDimension().height);
 
-        g.setColor(term.getTextColor());
+        g.setColor(new Color(term.getTextColor()));
         int offsetX = (term.getEllipseDimension().width - term.getDimension().width)/2;
         g.drawString(term.getName(), term.getLocation().x + offsetX, term.getLocation().y + 31);
 

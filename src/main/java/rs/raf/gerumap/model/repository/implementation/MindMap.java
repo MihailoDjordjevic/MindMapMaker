@@ -20,7 +20,7 @@ import java.util.Random;
 public class MindMap extends MapNodeComposite {
 
     private boolean isTemplate;
-    private transient Color backgroundColor;
+    private int backgroundColor;
 
     private double zoom;
     private double savedZoom;
@@ -28,12 +28,12 @@ public class MindMap extends MapNodeComposite {
 
     public MindMap(String name, MapNode parent) {
         super(name, parent);
-        backgroundColor = null;
+        backgroundColor = 0;
         zoom = 1;
         savedZoom = 1;
     }
     public MindMap(){
-        backgroundColor = Color.WHITE;
+        backgroundColor = Color.WHITE.getRGB();
 
         //setName("with");
     }
@@ -61,10 +61,10 @@ public class MindMap extends MapNodeComposite {
         }
     }
 
-    public Color getBackgroundColor() {
+    public int getBackgroundColor() {
         Random r = new Random();
-        if (backgroundColor == null)
-            setBackgroundColor(new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
+        if (backgroundColor == 0)
+            setBackgroundColor(new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256)).getRGB());
         return backgroundColor;
     }
 }

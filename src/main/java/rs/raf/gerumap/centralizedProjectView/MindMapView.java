@@ -45,7 +45,7 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
         affineTransform.scale(getMindMap().getSavedZoom(), getMindMap().getSavedZoom());
         mindMap.addSubscriber(this);
 
-        setBackground(mindMap.getBackgroundColor());
+        setBackground(new Color(mindMap.getBackgroundColor()));
         setSize(new Dimension((int) (3000 * Math.pow(1.25, 7)), (int) (3000 * Math.pow(1.25, 7))));
         setPreferredSize(new Dimension((int) (3000 * Math.pow(1.25, 7)), (int) (2000 * Math.pow(1.25, 7))));
 

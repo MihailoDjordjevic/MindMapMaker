@@ -13,24 +13,20 @@ import java.awt.*;
 public class Link extends MapNode{
 
     private int thickness;
-    private transient Color borderColor;
+    private int borderColor;
 
-    private Term sourceTerm;
-    private Term destinationTerm;
+    private transient Term sourceTerm;
+    private transient Term destinationTerm;
 
     public Link(String name, MapNode parent) {
         super(name, parent);
 
         thickness = 3;
-        borderColor = Color.BLACK;
+        borderColor = Color.BLACK.getRGB();
 
         setName("with");
     }
     public Link(){
-        thickness = 3;
-        borderColor = Color.BLACK;
-
-        //setName("with");
     }
 
     @Override

@@ -10,6 +10,7 @@ import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.implementation.Project;
+import rs.raf.gerumap.model.repository.implementation.Term;
 import rs.raf.gerumap.tree.view.MapTreeView;
 
 import javax.swing.*;
@@ -45,6 +46,7 @@ public class JacksonSerializer implements ISerializer{
         try {
             Project project = objectMapper.readValue(new File("export/project.json"), Project.class);
             project.printAllChildren();
+            project.setParent(ApplicationFramework.getInstance().getIMapRepository().getProjectExplorer());
             project.setChildrenParents();
             System.out.println("-----------------");
             project.printAllChildren();

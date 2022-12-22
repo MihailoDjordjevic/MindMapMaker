@@ -24,7 +24,7 @@ public class LinkPainter extends ElementPainter {
     public void paintElement(Graphics2D g) {
         Link link = ((Link) getModel());
 
-        g.setColor(link.getBorderColor());
+        g.setColor(new Color(link.getBorderColor()));
         g.setStroke(new BasicStroke(link.getThickness()));
 
         g.drawLine(

@@ -9,6 +9,7 @@ import rs.raf.gerumap.observer.IPublisher;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -70,4 +71,5 @@ public abstract class MapNodeComposite extends MapNode {
         }
         return false;
     }
+
 }

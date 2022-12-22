@@ -192,10 +192,10 @@ public class EditElementsPane extends JDialog {
             borderButton.setBackground(jColorChooserBorder.getColor());
             for (MapNode element : model){
                 if(element instanceof Term){
-                    ((Term) element).setBorderColor(jColorChooserBorder.getColor());
+                    ((Term) element).setBorderColor(jColorChooserBorder.getColor().getRGB());
                     element.notifySubscribers(null, NotificationType.REPAINT);
                 } else if (element instanceof Link){
-                    ((Link) element).setBorderColor(jColorChooserBorder.getColor());
+                    ((Link) element).setBorderColor(jColorChooserBorder.getColor().getRGB());
                     element.notifySubscribers(null, NotificationType.REPAINT);
                 }
             }
@@ -204,7 +204,7 @@ public class EditElementsPane extends JDialog {
             textButton.setBackground(jColorChooserText.getColor());
             for (MapNode element : model){
                 if(element instanceof Term){
-                    ((Term) element).setTextColor(jColorChooserText.getColor());
+                    ((Term) element).setTextColor(jColorChooserText.getColor().getRGB());
                     element.notifySubscribers(null, NotificationType.REPAINT);
                 }
             }
@@ -214,7 +214,7 @@ public class EditElementsPane extends JDialog {
             backgroundButton.setBackground(jColorChooserBackground.getColor());
             for (MapNode element : model){
                 if(element instanceof Term){
-                    ((Term) element).setBackgroundColor(jColorChooserBackground.getColor());
+                    ((Term) element).setBackgroundColor(jColorChooserBackground.getColor().getRGB());
                     element.notifySubscribers(null, NotificationType.REPAINT);
                 }
             }
