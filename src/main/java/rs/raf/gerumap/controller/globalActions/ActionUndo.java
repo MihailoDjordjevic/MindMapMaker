@@ -1,7 +1,9 @@
 package rs.raf.gerumap.controller.globalActions;
 
+import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.controller.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.core.ApplicationFramework;
+import rs.raf.gerumap.globalView.frame.MainFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -18,7 +20,8 @@ public class ActionUndo extends AbstractMapAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ApplicationFramework.getInstance().getCommandManager().undoCommand();
+        MindMapView mindMapView = (MindMapView) ((JScrollPane) MainFrame.getInstance().getCurrentProjectView().getSelectedComponent()).getViewport().getView();
+        mindMapView.getMindMap().getCommandManager().undoCommand();
     }
 
 }

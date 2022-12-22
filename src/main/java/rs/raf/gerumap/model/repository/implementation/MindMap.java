@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import rs.raf.gerumap.commandManagement.CommandManager;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.observer.IPublisher;
@@ -26,11 +27,14 @@ public class MindMap extends MapNodeComposite {
     private double savedZoom;
     private int zoomInCount = 0;
 
+    private transient CommandManager commandManager;
+
     public MindMap(String name, MapNode parent) {
         super(name, parent);
         backgroundColor = 0;
         zoom = 1;
         savedZoom = 1;
+        commandManager = new CommandManager();
     }
     public MindMap(){
         backgroundColor = Color.WHITE.getRGB();
