@@ -32,6 +32,8 @@ public class ActionManager {
     private ActionSave actionSave;
     private ActionImport actionImport;
 
+    private ActionExportMindMap actionExportMindMap;
+
 
     public ActionManager(){
         actionNew = new ActionNew();
@@ -56,5 +58,7 @@ public class ActionManager {
 
         actionSave = new ActionSave();
         actionImport = new ActionImport();
+
+        actionExportMindMap = new ActionExportMindMap();
     }
 }

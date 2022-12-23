@@ -30,7 +30,7 @@ public class Menu extends JMenuBar {
     private JMenuItem saveProject;
     private JMenuItem importProject;
 
-
+    private JMenuItem exportMindMap;
     private JMenu help;
     private JMenuItem info;
 
@@ -59,6 +59,8 @@ public class Menu extends JMenuBar {
         saveProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionSave());
         importProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionImport());
 
+        exportMindMap = new JMenuItem(MainFrame.getInstance().getActionManager().getActionExportMindMap());
+
 
         help = new JMenu("Help");
         info = new JMenuItem(MainFrame.getInstance().getActionManager().getActionInfo());
@@ -83,6 +85,7 @@ public class Menu extends JMenuBar {
 
         file.add(saveProject);
         file.add(importProject);
+        file.add(exportMindMap);
 
         help.add(info);
 
