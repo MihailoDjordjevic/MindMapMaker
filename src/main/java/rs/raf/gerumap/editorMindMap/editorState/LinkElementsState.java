@@ -106,18 +106,9 @@ public class LinkElementsState implements IState{
         Term term1 = ((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel());
         Term term2 = ((Term) mindMapView.getSelectionModel().getSecondarySelectionElement().getModel());
 
-        Link link = new Link(term1 + " with " + term2, term1);
+        Link link = new Link(term1 + " with " + term2, term1, term2);
 
         mindMapView.getMindMap().getCommandManager().addCommand(new AddLinkCommand(term1, term2, link, mindMapView));
-//        link.setSourceTerm(term1);
-//        link.setDestinationTerm(term2);
-//
-//        term1.addChild(link);
-//        term2.addChild(link);
-//
-//        LinkPainter linkPainter = new LinkPainter(link);
-//        mindMapView.getElementPainters().add(0, linkPainter);
-
     }
 }
 

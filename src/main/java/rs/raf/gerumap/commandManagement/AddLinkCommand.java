@@ -24,22 +24,11 @@ public class AddLinkCommand extends AbstractCommand {
 
     @Override
     public void doCommand() {
-        link.setSourceTerm(source);
-        link.setDestinationTerm(destination);
-
-        LinkPainter linkPainter = new LinkPainter(link);
-        mindMapView.getElementPainters().add(0, linkPainter);
-
         source.addChild(link);
-        destination.addChild(link);
-
-        SwingUtilities.updateComponentTreeUI(mindMapView);
     }
 
     @Override
     public void undoCommand() {
-
         source.deleteChild(link);
-
     }
 }

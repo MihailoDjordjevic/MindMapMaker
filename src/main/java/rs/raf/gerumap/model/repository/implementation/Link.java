@@ -21,11 +21,14 @@ public class Link extends MapNode{
     private long sourceTermHash;
     private long destinationTermHash;
 
-    public Link(String name, MapNode parent) {
+    public Link(String name, MapNode parent, MapNode destination) {
         super(name, parent);
 
         thickness = 3;
         borderColor = Color.BLACK.getRGB();
+
+        setSourceTerm((Term) parent);
+        setDestinationTerm((Term) destination);
 
         setName("with");
     }

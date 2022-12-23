@@ -3,7 +3,6 @@ package rs.raf.gerumap.core;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import rs.raf.gerumap.commandManagement.AddElementCommand;
 import rs.raf.gerumap.commandManagement.CommandManager;
 import rs.raf.gerumap.errorHandling.logger.ConsoleLogger;
 import rs.raf.gerumap.errorHandling.logger.FileLogger;

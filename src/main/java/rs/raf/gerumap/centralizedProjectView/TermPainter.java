@@ -68,7 +68,13 @@ public class TermPainter extends ElementPainter implements ISubscriber {
 
             case DELETE -> getModel().getParent().notifySubscribers(notification, NotificationType.DELETE);
 
+            case ADD -> {
+                MindMapView mindMapView = ((MindMapView) ((JScrollPane) MainFrame.getInstance().getCurrentProjectView().getSelectedComponent()).getViewport().getView());
+                mindMapView.getElementPainters().add(0, new LinkPainter((MapNode) notification));
+            }
         }
+
+        SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getCurrentProjectView().getSelectedComponent());
     }
 
     public Shape createShape(){

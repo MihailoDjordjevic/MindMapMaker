@@ -1,15 +1,11 @@
 package rs.raf.gerumap;
 
-import rs.raf.gerumap.commandManagement.AddElementCommand;
 import rs.raf.gerumap.commandManagement.CommandManager;
 import rs.raf.gerumap.core.ApplicationFramework;
-import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.gui.IGui;
 import rs.raf.gerumap.core.IMapRepository;
 import rs.raf.gerumap.globalView.gui.SwingGui;
-import rs.raf.gerumap.globalView.popUpPanes.editElementsPane.EditElementsPane;
 import rs.raf.gerumap.model.repository.MapRepositoryImplementation;
-import rs.raf.gerumap.model.repository.implementation.Term;
 import rs.raf.gerumap.serializer.ISerializer;
 import rs.raf.gerumap.serializer.JacksonSerializer;
 
