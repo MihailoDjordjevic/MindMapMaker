@@ -60,7 +60,6 @@ public abstract class MapTreeItem extends DefaultMutableTreeNode implements ISub
     }
 
     public void finalizeMapTreeItem(){
-        System.out.println(model + " removed " + this);
         model.getSubscribers().remove(this);
         model = null;
     }
