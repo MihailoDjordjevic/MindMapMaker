@@ -13,6 +13,8 @@ import javax.swing.*;
 import javax.swing.text.Element;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class MoveState implements IState{
     private Point startMovePoint;
@@ -85,6 +87,12 @@ public class MoveState implements IState{
             mindMapView.getMindMap().getCommandManager().addCommand(new MoveCommand(startPointOldPosition, endMovePoint,
                     ((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel())
                     ));
+        }
+
+        if (!mindMapView.getSelectionModel().getMultipleSelectionElements().isEmpty()){
+            mindMapView.getMindMap().getCommandManager().addCommand(new MoveCommand(startPointOldPosition, endMovePoint,
+                    (LinkedList<ElementPainter>) mindMapView.getSelectionModel().getMultipleSelectionElements()
+            ));
         }
     }
 
