@@ -10,6 +10,7 @@ import rs.raf.gerumap.observer.IPublisher;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -63,6 +64,14 @@ public abstract class MapNodeComposite extends MapNode {
     public MapNode getChildByName(final String name) {
         for (MapNode child: this.getChildren()) {
             if (name.equals(child.getName())) {
+                return child;
+            }
+        }
+        return null;
+    }
+    public MapNode getChildByGUID(final UUID guid) {
+        for (MapNode child: this.getChildren()) {
+            if (child.getGuid().equals(guid)) {
                 return child;
             }
         }

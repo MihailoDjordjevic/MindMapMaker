@@ -18,7 +18,7 @@ public class ActionSetAuthor extends AbstractMapAction {
         super("setAuthorIcon.png");
         putValue(NAME, "Set author");
         putValue(SHORT_DESCRIPTION, "Set author fot selected node");
-        putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
+        putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK));
     }
 
     public void actionPerformed(ActionEvent e) {

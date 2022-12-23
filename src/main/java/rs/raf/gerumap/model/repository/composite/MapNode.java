@@ -11,6 +11,7 @@ import rs.raf.gerumap.observer.NotificationType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -24,11 +25,13 @@ import java.util.List;
         @JsonSubTypes.Type(value = Term.class, name = "term")
 })
 public abstract class MapNode implements IPublisher {
+    private UUID guid;
     private String name;
     private transient MapNode parent;
     private transient List<ISubscriber> subscribers;
 
     public MapNode(String name, MapNode parent) {
+        this.guid = UUID.randomUUID();
         this.name = name;
         this.parent = parent;
         subscribers = new ArrayList<>(7);

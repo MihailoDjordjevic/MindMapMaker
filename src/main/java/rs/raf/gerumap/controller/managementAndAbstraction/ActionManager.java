@@ -29,12 +29,13 @@ public class ActionManager {
     private ActionSelectState actionSelectState;
     private ActionEditElementProperties actionEditElementProperties;
 
-    private ActionSave actionSave;
-    private ActionImport actionImport;
+    private ActionSaveProject actionSaveProject;
+    private ActionLoadProject actionLoadProject;
 
     private ActionExportMindMap actionExportMindMap;
 
-
+    private ActionSaveMindMapTemplate actionSaveMindMapTemplate;
+    private ActionLoadMindMapTemplate actionLoadMindMapTemplate;
     public ActionManager(){
         actionNew = new ActionNew();
         actionInfo = new ActionInfo();
@@ -56,9 +57,12 @@ public class ActionManager {
         actionSelectState = new ActionSelectState();
         actionEditElementProperties = new ActionEditElementProperties();
 
-        actionSave = new ActionSave();
-        actionImport = new ActionImport();
+        actionSaveProject = new ActionSaveProject();
+        actionLoadProject = new ActionLoadProject();
 
         actionExportMindMap = new ActionExportMindMap();
+
+        actionSaveMindMapTemplate = new ActionSaveMindMapTemplate();
+        actionLoadMindMapTemplate = new ActionLoadMindMapTemplate();
     }
 }

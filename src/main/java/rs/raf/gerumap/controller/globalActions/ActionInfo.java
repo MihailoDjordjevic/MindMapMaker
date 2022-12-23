@@ -19,7 +19,7 @@ public class ActionInfo extends AbstractMapAction {
         super("infoIcon.png");
         putValue(NAME, "Info");
         putValue(SHORT_DESCRIPTION, "Find info about developers");
-        putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_I, ActionEvent.CTRL_MASK));
+        putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));
     }
 
     @Override

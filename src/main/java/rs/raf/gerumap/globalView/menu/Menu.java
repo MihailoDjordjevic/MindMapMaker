@@ -28,9 +28,11 @@ public class Menu extends JMenuBar {
 
 
     private JMenuItem saveProject;
-    private JMenuItem importProject;
+    private JMenuItem loadProject;
 
     private JMenuItem exportMindMap;
+    private JMenuItem saveMindMapTemplate;
+    private JMenuItem loadMindMapTemplate;
     private JMenu help;
     private JMenuItem info;
 
@@ -56,10 +58,12 @@ public class Menu extends JMenuBar {
         undo = new JMenuItem(MainFrame.getInstance().getActionManager().getActionUndo());
         redo = new JMenuItem(MainFrame.getInstance().getActionManager().getActionRedo());
 
-        saveProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionSave());
-        importProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionImport());
+        saveProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionSaveProject());
+        loadProject = new JMenuItem(MainFrame.getInstance().getActionManager().getActionLoadProject());
 
         exportMindMap = new JMenuItem(MainFrame.getInstance().getActionManager().getActionExportMindMap());
+        saveMindMapTemplate = new JMenuItem(MainFrame.getInstance().getActionManager().getActionSaveMindMapTemplate());
+        loadMindMapTemplate = new JMenuItem(MainFrame.getInstance().getActionManager().getActionLoadMindMapTemplate());
 
 
         help = new JMenu("Help");
@@ -84,8 +88,11 @@ public class Menu extends JMenuBar {
         zoom.add(zoomOut);
 
         file.add(saveProject);
-        file.add(importProject);
+        file.add(loadProject);
         file.add(exportMindMap);
+
+        file.add(saveMindMapTemplate);
+        file.add(loadMindMapTemplate);
 
         help.add(info);
 
