@@ -4,6 +4,8 @@ package rs.raf.gerumap.editorMindMap.editorState;
 import rs.raf.gerumap.centralizedProjectView.LinkPainter;
 import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
+import rs.raf.gerumap.commandManagement.AddLinkCommand;
+import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.implementation.Link;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Term;
@@ -105,14 +107,16 @@ public class LinkElementsState implements IState{
         Term term2 = ((Term) mindMapView.getSelectionModel().getSecondarySelectionElement().getModel());
 
         Link link = new Link(term1 + " with " + term2, term1);
-        link.setSourceTerm(term1);
-        link.setDestinationTerm(term2);
 
-        term1.addChild(link);
-        term2.addChild(link);
-
-        LinkPainter linkPainter = new LinkPainter(link);
-        mindMapView.getElementPainters().add(0, linkPainter);
+        mindMapView.getMindMap().getCommandManager().addCommand(new AddLinkCommand(term1, term2, link, mindMapView));
+//        link.setSourceTerm(term1);
+//        link.setDestinationTerm(term2);
+//
+//        term1.addChild(link);
+//        term2.addChild(link);
+//
+//        LinkPainter linkPainter = new LinkPainter(link);
+//        mindMapView.getElementPainters().add(0, linkPainter);
 
     }
 }

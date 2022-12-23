@@ -37,9 +37,7 @@ public class MindMap extends MapNodeComposite {
         commandManager = new CommandManager();
     }
     public MindMap(){
-        backgroundColor = Color.WHITE.getRGB();
-
-        //setName("with");
+        commandManager = new CommandManager();
     }
     @Override
     public void addChild(final MapNode child) {
