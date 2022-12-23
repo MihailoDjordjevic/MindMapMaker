@@ -2,6 +2,7 @@ package rs.raf.gerumap.editorMindMap.editorState;
 
 import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
+import rs.raf.gerumap.commandManagement.DeleteElementCommand;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 
@@ -18,7 +19,7 @@ public class DeleteState implements IState{
         ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(IState.getScaledPoint(e.getPoint(), mindMapView.getMindMap().getSavedZoom()));
 
         if (elementPainter != null){
-            ((MapNodeComposite) elementPainter.getModel().getParent()).deleteChild(elementPainter.getModel());
+            mindMapView.getMindMap().getCommandManager().addCommand(new DeleteElementCommand((MapNodeComposite) elementPainter.getModel().getParent(), elementPainter.getModel()));
         }
     }
 

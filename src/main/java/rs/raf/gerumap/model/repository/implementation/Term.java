@@ -1,9 +1,6 @@
 package rs.raf.gerumap.model.repository.implementation;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
@@ -66,10 +63,17 @@ public class Term extends MapNodeComposite {
     public void addChild(MapNode child) {
         if (child instanceof Link) {
             getChildren().add(child);
+
             ((Link) child).getDestinationTerm().getChildren().add(child);
             ((Link) child).getDestinationTerm().notifySubscribers(child, NotificationType.ADD);
+
             notifySubscribers(child, NotificationType.ADD);
         }
+    }
+
+    public void addToThisAsDestinationTerm(Link link){
+        getChildren().add(link);
+        notifySubscribers(link, NotificationType.ADD);
     }
 
     @Override
@@ -130,9 +134,9 @@ public class Term extends MapNodeComposite {
                 link.setParent(this);
                 link.setSourceTerm(this);
 
-                Term destinationTerm = findDestTerm(link.getDestinationTermHash());
+                Term destinationTerm = findDestinationTerm(link.getDestinationTermHash());
                 link.setDestinationTerm(destinationTerm);
-                destinationTerm.addChild(link);
+                destinationTerm.addToThisAsDestinationTerm(link);
 
             }
         }
@@ -145,7 +149,7 @@ public class Term extends MapNodeComposite {
         }
     }
 
-    private Term findDestTerm(long hashValue){
+    private Term findDestinationTerm(long hashValue){
         MindMap mindMap = (MindMap) this.getParent();
 
         for (MapNode mapNode : mindMap.getChildren()){

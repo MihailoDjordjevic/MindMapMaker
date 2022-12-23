@@ -1,7 +1,7 @@
 package rs.raf.gerumap.editorMindMap.editorState;
 
 import rs.raf.gerumap.centralizedProjectView.MindMapView;
-import rs.raf.gerumap.commandManagement.AddTermCommand;
+import rs.raf.gerumap.commandManagement.AddElementCommand;
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.errorHandling.message.abstractionAndEnums.MessageDescription;
 import rs.raf.gerumap.model.repository.factory.MapNodeFactoryManager;
@@ -35,15 +35,14 @@ public class AddTermState implements IState{
 
         term.setName(name);
 
-       // mindMap.addChild(term);
-        mindMap.getCommandManager().addCommand(new AddTermCommand(mindMap, term));
-
         Point point = IState.getScaledPoint(e.getPoint(), mindMap.getSavedZoom());
 
         int x = point.x - term.getEllipseDimension().width/2;
         int y = point.y - term.getEllipseDimension().height/2;
 
         term.setLocation(new Point(x, y));
+
+        mindMap.getCommandManager().addCommand(new AddElementCommand(mindMap, term));
 
         SwingUtilities.updateComponentTreeUI(mindMapView);
     }
