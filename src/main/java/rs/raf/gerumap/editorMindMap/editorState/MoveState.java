@@ -5,6 +5,7 @@ import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.TermPainter;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 import rs.raf.gerumap.centralizedProjectView.selectionModel.SelectionModel;
+import rs.raf.gerumap.commandManagement.MoveCommand;
 import rs.raf.gerumap.model.repository.implementation.Link;
 import rs.raf.gerumap.model.repository.implementation.Term;
 
@@ -16,6 +17,7 @@ import java.awt.event.MouseEvent;
 public class MoveState implements IState{
     private Point startMovePoint;
     private Point endMovePoint;
+    private Point startPointOldPosition;
     private int newX;
     private int newY;
     @Override
@@ -64,6 +66,7 @@ public class MoveState implements IState{
         MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
 
         startMovePoint = IState.getScaledPoint(mouseEvent.getPoint(), mindMapView.getMindMap().getSavedZoom());
+        startPointOldPosition = startMovePoint;
 
         if (mindMapView.getSelectionModel().getMultipleSelectionElements().isEmpty()) {
             ElementPainter elementPainter = mindMapView.getGraphicsAtLocation(startMovePoint);
@@ -73,7 +76,16 @@ public class MoveState implements IState{
 
     @Override
     public void mouseReleasedAction(Object event) {
+        MouseEvent mouseEvent = ((MouseEvent) event);
+        MindMapView mindMapView = (MindMapView) mouseEvent.getSource();
 
+        endMovePoint = IState.getScaledPoint(mouseEvent.getPoint(), mindMapView.getMindMap().getSavedZoom());
+
+        if (mindMapView.getSelectionModel().getSingleSelectionElement() != null && !(mindMapView.getSelectionModel().getSingleSelectionElement() instanceof LinkPainter)) {
+            mindMapView.getMindMap().getCommandManager().addCommand(new MoveCommand(startPointOldPosition, endMovePoint,
+                    ((Term) mindMapView.getSelectionModel().getSingleSelectionElement().getModel())
+                    ));
+        }
     }
 
     @Override
