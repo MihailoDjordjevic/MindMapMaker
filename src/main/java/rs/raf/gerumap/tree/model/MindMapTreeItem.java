@@ -22,7 +22,7 @@ public class MindMapTreeItem extends MapTreeItem {
     public void update(Object notification, NotificationType notificationType) {
 
         switch (notificationType) {
-            case ADD -> add(SimpleTreeNodeFactory.getNode((MapNode) notification));
+            case ADD -> addItem(SimpleTreeNodeFactory.getNode((MapNode) notification));
             case DELETE -> deleteItem(notification);
           //  case NAME_CHANGE -> setName((String) notification);
         }

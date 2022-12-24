@@ -142,7 +142,9 @@ public class Term extends MapNodeComposite {
         }
 
         int i = 0;
+
         while (i < getChildren().size()){
+
             if (((Link) getChildren().get(i)).getSourceTerm() == null){
                 getChildren().remove(getChildren().get(i));
             } else i++;

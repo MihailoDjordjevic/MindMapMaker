@@ -1,4 +1,0 @@
-Event type: [ERROR]
-Timestamp: [2022-12-23 22:05:35.018]
-Text: [Name cannot be empty, please type at least one character]
-
