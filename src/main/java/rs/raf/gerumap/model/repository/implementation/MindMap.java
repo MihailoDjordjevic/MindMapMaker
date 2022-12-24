@@ -13,9 +13,8 @@ import rs.raf.gerumap.observer.ISubscriber;
 import rs.raf.gerumap.observer.NotificationType;
 
 import java.awt.*;
+import java.util.*;
 import java.util.List;
-import java.util.Random;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -50,11 +49,14 @@ public class MindMap extends MapNodeComposite {
     }
 
     public void mergeMindMaps(MindMap other){
-        for(int i = 0; i < other.getChildren().size(); i++){
-            this.addChild(other.getChildren().get(i));
-            other.getChildren().get(i).setParent(this);
-            ((MapNodeComposite)other.getChildren().get(i)).setChildrenParents();
-        }
+
+       other.setChildrenParents();
+
+       for (MapNode mapNode : other.getChildren()){
+           addChild(mapNode);
+           mapNode.setParent(this);
+       }
+
     }
 
     @Override

@@ -16,7 +16,7 @@ public class ActionExportMindMap extends AbstractMapAction {
 
     public ActionExportMindMap() {
         super("exportMindMap.png");
-        putValue(NAME, "Export Mind Map");
+        putValue(NAME, "Export Mind Map Image");
         putValue(SHORT_DESCRIPTION, "Export Mind Map as Image");
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_J, ActionEvent.CTRL_MASK));
     }

@@ -76,13 +76,15 @@ public class JacksonSerializer implements ISerializer{
 
     @Override
     public void loadMindMapTemplate(File mindMapTemplate) {
+
         MindMapView mindMapView = (MindMapView) ((JScrollPane) MainFrame.getInstance().getCurrentProjectView().getSelectedComponent()).getViewport().getView();
         MindMap currentMindMap = mindMapView.getMindMap();
+
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(MapperFeature.PROPAGATE_TRANSIENT_MARKER, true);
+
         try {
             MindMap mindMap = objectMapper.readValue(mindMapTemplate, MindMap.class);
-            mindMap.setChildrenParents();
 
             currentMindMap.mergeMindMaps(mindMap);
 
