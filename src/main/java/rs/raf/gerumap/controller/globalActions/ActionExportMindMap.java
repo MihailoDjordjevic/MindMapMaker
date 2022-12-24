@@ -1,5 +1,6 @@
 package rs.raf.gerumap.controller.globalActions;
 
+import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.controller.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 
@@ -23,11 +24,15 @@ public class ActionExportMindMap extends AbstractMapAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        int width = MainFrame.getInstance().getWorkspacePanel().getWidth();
-        int height = MainFrame.getInstance().getWorkspacePanel().getHeight();
+
+        double savedZoom = ((MindMapView) ((JScrollPane) MainFrame.getInstance().getCurrentProjectView().getSelectedComponent()).getViewport().getView()).getMindMap().getSavedZoom();
+
+        int width = (int) (3000 * savedZoom);
+        int height = (int) (2000 * savedZoom);
+
         BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics2D = bufferedImage.createGraphics();
-        MainFrame.getInstance().getWorkspacePanel().paint(graphics2D);
+        ((JScrollPane) MainFrame.getInstance().getCurrentProjectView().getSelectedComponent()).getViewport().getView().paint(graphics2D);
         graphics2D.dispose();
         try {
             ImageIO.write(bufferedImage, "png", new File("export/mindMap.png"));
