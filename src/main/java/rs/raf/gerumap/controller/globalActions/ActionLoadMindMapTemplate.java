@@ -26,18 +26,25 @@ public class ActionLoadMindMapTemplate extends AbstractMapAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         JFileChooser jFileChooser = new JFileChooser();
+
         File selectedFile = null;
         jFileChooser.setSelectedFile(workingDirectory.resolve("src/main/resources/savedTemplates/defaultMindMapTemplate.json").toFile());
+
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JSON files", "json");
+
         jFileChooser.addChoosableFileFilter(filter);
         jFileChooser.setFileFilter(filter);
-        if(jFileChooser.showSaveDialog(MainFrame.getInstance()) == JFileChooser.APPROVE_OPTION){
+
+        if(jFileChooser.showOpenDialog(MainFrame.getInstance()) == JFileChooser.APPROVE_OPTION){
+
             selectedFile = jFileChooser.getSelectedFile();
-            if(!selectedFile.getName().contains(".")){
+
+            if(!selectedFile.getName().contains("."))
                 selectedFile = new File(selectedFile + ".json");
-            }
+
+            ApplicationFramework.getInstance().getISerializer().loadMindMapTemplate(selectedFile);
         }
-        ApplicationFramework.getInstance().getISerializer().loadMindMapTemplate(selectedFile);
     }
 }

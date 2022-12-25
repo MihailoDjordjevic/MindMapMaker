@@ -25,20 +25,23 @@ public class ActionLoadProject extends AbstractMapAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         JFileChooser jFileChooser = new JFileChooser();
         File selectedFile = null;
-        URL defaultProjectURL = getClass().getResource("defaultProjectURL.json");
+
         jFileChooser.setSelectedFile(workingDirectory.resolve("src/main/resources/savedProjects/defaultProject.json").toFile());
 
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JSON files", "json");
+
         jFileChooser.addChoosableFileFilter(filter);
         jFileChooser.setFileFilter(filter);
-        if(jFileChooser.showSaveDialog(MainFrame.getInstance()) == JFileChooser.APPROVE_OPTION){
+
+        if(jFileChooser.showOpenDialog(MainFrame.getInstance()) == JFileChooser.APPROVE_OPTION){
+
             selectedFile = jFileChooser.getSelectedFile();
-            if(!selectedFile.getName().contains(".")){
-                selectedFile = new File(selectedFile + ".json");
-            }
+
+            ApplicationFramework.getInstance().getISerializer().loadProject(selectedFile);
         }
-        ApplicationFramework.getInstance().getISerializer().loadProject(selectedFile);
+
     }
 }

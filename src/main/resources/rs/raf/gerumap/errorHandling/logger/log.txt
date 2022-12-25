@@ -1,0 +1,8 @@
+Event type: [ERROR]
+Timestamp: [2022-12-25 05:02:20.847]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+
+Event type: [ERROR]
+Timestamp: [2022-12-25 05:02:26.175]
+Text: [No node is currently selected for a desired action, please select a node and try again]
+

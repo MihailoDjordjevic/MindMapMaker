@@ -32,7 +32,7 @@ public class ActionManager {
     private ActionSaveProject actionSaveProject;
     private ActionLoadProject actionLoadProject;
 
-    private ActionExportMindMap actionExportMindMap;
+    private ActionExportMindMapAsImage actionExportMindMap;
 
     private ActionSaveMindMapTemplate actionSaveMindMapTemplate;
     private ActionLoadMindMapTemplate actionLoadMindMapTemplate;
@@ -60,7 +60,7 @@ public class ActionManager {
         actionSaveProject = new ActionSaveProject();
         actionLoadProject = new ActionLoadProject();
 
-        actionExportMindMap = new ActionExportMindMap();
+        actionExportMindMap = new ActionExportMindMapAsImage();
 
         actionSaveMindMapTemplate = new ActionSaveMindMapTemplate();
         actionLoadMindMapTemplate = new ActionLoadMindMapTemplate();

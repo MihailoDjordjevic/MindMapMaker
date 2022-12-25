@@ -7,8 +7,8 @@ import java.nio.file.Path;
 import java.util.UUID;
 
 public interface ISerializer {
-    void saveProject(File mindMapTemplate);
-    void loadProject(File mindMapTemplate);
-    void saveMindMapTemplate(File sourceMindMapTemplate);
-    void loadMindMapTemplate(File destinationMindMapTemplate);
+    void saveProject(File sourceSaveProject);
+    void loadProject(File sourceLoadProject);
+    void saveMindMapTemplate(File sourceSaveMindMapTemplate);
+    void loadMindMapTemplate(File sourceLoadMindMapTemplate);
 }

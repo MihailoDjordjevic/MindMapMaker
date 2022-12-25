@@ -37,6 +37,8 @@ public class MessageGeneratorImplementation implements IMessageGenerator, IPubli
             case NAME_CANNOT_BE_EMPTY -> notifySubscribers(new NameCannotBeEmpty(source), NotificationType.MESSAGE);
             case CONTAINING_SAME_NAME -> notifySubscribers(new ContainingSameNameMessage(source), NotificationType.MESSAGE);
             case CANNOT_ZOOM_ANYMORE -> notifySubscribers(new CannotZoomAnymoreMessage(source), NotificationType.MESSAGE);
+            case SUCCESSFULLY_SAVED -> notifySubscribers(new SuccessfullySavedMessage(source), NotificationType.MESSAGE);
+            case UNABLE_TO_LOAD_FILE -> notifySubscribers(new UnableToLoadFileMessage(source), NotificationType.MESSAGE);
         }
     }
 }

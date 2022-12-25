@@ -165,11 +165,7 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
                 }
             }
 
-            case ZOOM -> {
-                affineTransform.scale(getMindMap().getZoom(), getMindMap().getZoom());
-                //adjustmentValueChanged(new AdjustmentEvent(getParentPane().getHorizontalScrollBar(), 1, 1, 1));
-               // adjustmentValueChanged(new AdjustmentEvent(getParentPane().getVerticalScrollBar(), 1, 1, 1));
-            }
+            case ZOOM -> affineTransform.scale(getMindMap().getZoom(), getMindMap().getZoom());
         }
         SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getCurrentProjectView());
     }
