@@ -159,6 +159,10 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
             case ADD -> {
                 TermPainter termPainter = new TermPainter(((Term) notification));
                 getElementPainters().add((termPainter));
+
+                for (MapNode mapNode : ((Term) notification).getChildren()){
+                    this.getElementPainters().add(0, new LinkPainter(mapNode));
+                }
             }
 
             case ZOOM -> {
