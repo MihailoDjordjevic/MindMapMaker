@@ -32,7 +32,7 @@ public class ActionSaveMindMapTemplate extends AbstractMapAction {
     public void actionPerformed(ActionEvent e) {
         JFileChooser jFileChooser = new JFileChooser();
         File selectedFile = null;
-        jFileChooser.setSelectedFile(workingDirectory.resolve("src/main/resources/rs/raf/gerumap/controller/globalActions/defaultMindMapTemplate.json").toFile());
+        jFileChooser.setSelectedFile(workingDirectory.resolve("src/main/resources/savedTemplates/defaultMindMapTemplate.json").toFile());
 
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JSON files", "json");
         jFileChooser.addChoosableFileFilter(filter);

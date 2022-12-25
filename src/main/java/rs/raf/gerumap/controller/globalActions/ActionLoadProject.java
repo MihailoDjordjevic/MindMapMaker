@@ -28,7 +28,7 @@ public class ActionLoadProject extends AbstractMapAction {
         JFileChooser jFileChooser = new JFileChooser();
         File selectedFile = null;
         URL defaultProjectURL = getClass().getResource("defaultProjectURL.json");
-        jFileChooser.setSelectedFile(workingDirectory.resolve("src/main/resources/rs/raf/gerumap/controller/globalActions/defaultProject.json").toFile());
+        jFileChooser.setSelectedFile(workingDirectory.resolve("src/main/resources/savedProjects/defaultProject.json").toFile());
 
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JSON files", "json");
         jFileChooser.addChoosableFileFilter(filter);
