@@ -93,6 +93,8 @@ public class SelectState implements IState{
         MindMapView mindMapView = ((MindMapView) mouseEvent.getSource());
         mindMapView.setLassoRectangle(null);
 
+        System.out.println(mindMapView.getSelectionModel().getMultipleSelectionElements());
+
         SwingUtilities.updateComponentTreeUI(mindMapView);
     }
 

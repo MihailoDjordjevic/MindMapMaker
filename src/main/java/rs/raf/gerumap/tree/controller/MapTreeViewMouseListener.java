@@ -20,33 +20,32 @@ public class MapTreeViewMouseListener implements MouseListener {
 
             MapNode mapNode = getModelOfCurrentlyOpeningTreeItem(e);
 
+            ProjectView projectView = null;
+            int nodeOrdinal = 0;
+
             if (mapNode instanceof Project){
 
-                ProjectView projectView = new ProjectView((Project) mapNode);
-                MainFrame.getInstance().displayProject(projectView, -1);
+                projectView = new ProjectView((Project) mapNode);
+                nodeOrdinal = -1;
 
             } else if (mapNode instanceof MindMap){
 
-                ProjectView projectView = new ProjectView((Project) mapNode.getParent());
-                int nodeOrdinal = ((Project) mapNode.getParent()).getChildren().indexOf(mapNode);
-
-                MainFrame.getInstance().displayProject(projectView, nodeOrdinal);
+                projectView = new ProjectView((Project) mapNode.getParent());
+                nodeOrdinal = ((Project) mapNode.getParent()).getChildren().indexOf(mapNode);
 
             } else if (mapNode instanceof Term){
 
-                ProjectView projectView = new ProjectView((Project) mapNode.getParent().getParent());
-                int nodeOrdinal = ((Project) mapNode.getParent().getParent()).getChildren().indexOf(mapNode.getParent());
-
-                MainFrame.getInstance().displayProject(projectView, nodeOrdinal);
+                projectView = new ProjectView((Project) mapNode.getParent().getParent());
+                nodeOrdinal = ((Project) mapNode.getParent().getParent()).getChildren().indexOf(mapNode.getParent());
 
             } else if (mapNode instanceof Link){
 
-                ProjectView projectView = new ProjectView((Project) mapNode.getParent().getParent().getParent());
-                int nodeOrdinal = ((Project) mapNode.getParent().getParent().getParent()).getChildren().indexOf(mapNode.getParent().getParent());
-
-                MainFrame.getInstance().displayProject(projectView, nodeOrdinal);
+                projectView = new ProjectView((Project) mapNode.getParent().getParent().getParent());
+                nodeOrdinal = ((Project) mapNode.getParent().getParent().getParent()).getChildren().indexOf(mapNode.getParent().getParent());
 
             }
+
+            MainFrame.getInstance().displayProject(projectView, nodeOrdinal);
 
         }
 

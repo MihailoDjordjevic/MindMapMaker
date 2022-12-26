@@ -4,6 +4,7 @@ import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 import rs.raf.gerumap.centralizedProjectView.mindMapCursorFactory.CursorFactoryEnums;
 import rs.raf.gerumap.centralizedProjectView.mindMapCursorFactory.MindMapCursorFactory;
+import rs.raf.gerumap.commandManagement.DeleteElementCommand;
 import rs.raf.gerumap.controller.managementAndAbstraction.AbstractMapAction;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
@@ -16,7 +17,6 @@ import java.awt.event.MouseEvent;
 public class ActionDeleteState extends AbstractMapAction {
 
     public ActionDeleteState() {
-//        super("/rs/raf/gerumap/controller/globalActions/deleteIcon.png");
         super("deleteIcon.png");
         putValue(NAME, "Delete elements");
         putValue(SHORT_DESCRIPTION, "Delete elements from mind map");
@@ -35,9 +35,11 @@ public class ActionDeleteState extends AbstractMapAction {
 
         if (!mindMapView.getSelectionModel().getMultipleSelectionElements().isEmpty()){
 
-            for (ElementPainter elementPainter1 : mindMapView.getSelectionModel().getMultipleSelectionElements()){
-                ((MapNodeComposite) elementPainter1.getModel().getParent()).deleteChild(elementPainter1.getModel());
-            }
+//            for (ElementPainter elementPainter1 : mindMapView.getSelectionModel().getMultipleSelectionElements()){
+//                ((MapNodeComposite) elementPainter1.getModel().getParent()).deleteChild(elementPainter1.getModel());
+//            }
+
+            mindMapView.getMindMap().getCommandManager().addCommand(new DeleteElementCommand(mindMapView));
 
             mindMapView.getSelectionModel().unselectCurrentSelection();
             MainFrame.getInstance().getCurrentProjectView().getStateManager().setSelectState();

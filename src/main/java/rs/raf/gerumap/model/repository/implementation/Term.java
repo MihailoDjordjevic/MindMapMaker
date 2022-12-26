@@ -62,11 +62,10 @@ public class Term extends MapNodeComposite {
     @Override
     public void addChild(MapNode child) {
         if (child instanceof Link) {
+
             getChildren().add(child);
 
-            ((Link) child).getDestinationTerm().getChildren().add(child);
-            ((Link) child).getDestinationTerm().notifySubscribers(child, NotificationType.ADD);
-
+            ((Link) child).getDestinationTerm().addToThisAsDestinationTerm((Link) child);
             notifySubscribers(child, NotificationType.ADD);
         }
     }

@@ -3,13 +3,17 @@ package rs.raf.gerumap.globalView.frame;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import rs.raf.gerumap.centralizedProjectView.MindMapView;
 import rs.raf.gerumap.centralizedProjectView.ProjectView;
+import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 import rs.raf.gerumap.controller.managementAndAbstraction.ActionManager;
 import rs.raf.gerumap.core.ApplicationFramework;
 import rs.raf.gerumap.globalView.menu.Menu;
 import rs.raf.gerumap.globalView.toolbars.EditorToolbar;
 import rs.raf.gerumap.globalView.toolbars.GlobalToolbar;
 import rs.raf.gerumap.model.repository.MapRepositoryImplementation;
+import rs.raf.gerumap.observer.ISubscriber;
+import rs.raf.gerumap.observer.NotificationType;
 import rs.raf.gerumap.tree.view.MapTreeView;
 
 import javax.swing.*;
@@ -18,7 +22,7 @@ import java.awt.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements ISubscriber {
 
     private static MainFrame instance = null;
     private Menu menu;
@@ -45,6 +49,8 @@ public class MainFrame extends JFrame {
         initialiseComponentsProperties();
 
         addComponentsToMainFrame();
+
+        ApplicationFramework.getInstance().getIMapRepository().getProjectExplorer().addSubscriber(this);
 
     }
     public static MainFrame getInstance() {
@@ -112,10 +118,14 @@ public class MainFrame extends JFrame {
 
     public void displayProject(JTabbedPane project, int nodeOrdinal){
 
+        if (project == null) return;
+
         workspacePanel.removeAll();
         workspacePanel.setLayout(new BorderLayout());
         workspacePanel.add(project, BorderLayout.CENTER);
         workspacePanel.add(editorToolbar, BorderLayout.EAST);
+
+        removeDisplayedProjectFromSubscribers(getCurrentProjectView());
 
         currentProjectView = (ProjectView) project;
 
@@ -127,9 +137,40 @@ public class MainFrame extends JFrame {
 
     public void removeDisplayedProject(){
         //this.getCurrentProjectView().getProject().getSubscribers().remove(this.getCurrentProjectView());
+        removeDisplayedProjectFromSubscribers(getCurrentProjectView());
         this.getWorkspacePanel().removeAll();
         this.getWorkspacePanel().setLayout(null);
         this.getWorkspacePanel().add(this.getNoProjectLabel());
         this.setCurrentProjectView(null);
+    }
+
+    private void removeDisplayedProjectFromSubscribers(ProjectView projectView){
+
+        if (projectView == null) return;
+
+        projectView.getProject().removeSubscriber(projectView);
+
+        while (projectView.getTabCount() > 0){
+
+            MindMapView mindMapView = (MindMapView) ((JScrollPane) projectView.getComponentAt(0)).getViewport().getView();
+
+            for (ElementPainter elementPainter : mindMapView.getElementPainters()){
+                elementPainter.getModel().removeSubscriber(elementPainter);
+            }
+
+            mindMapView.getMindMap().removeSubscriber(mindMapView);
+
+            projectView.remove(0);
+
+        }
+
+    }
+
+    @Override
+    public void update(Object notification, NotificationType notificationType) {
+
+        switch (notificationType){
+            case DELETE -> removeDisplayedProject();
+        }
     }
 }

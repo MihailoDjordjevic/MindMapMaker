@@ -1,8 +1,15 @@
-Event type: [ERROR]
-Timestamp: [2022-12-25 05:02:20.847]
-Text: [No node is currently selected for a desired action, please select a node and try again]
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-26 20:45:23.401]
+Text: [Unable to load C:\Users\Micko\Desktop\Projects\gerumap-tim_lazarbojanic_mihailodordevic\src\main\resources\savedTemplates\defaultProject.json,
+please try with another file or check if file format is correct]
 
-Event type: [ERROR]
-Timestamp: [2022-12-25 05:02:26.175]
-Text: [No node is currently selected for a desired action, please select a node and try again]
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-26 20:46:11.527]
+Text: [Successfully saved Mind Map 2
+to C:\Users\Micko\Desktop\Projects\gerumap-tim_lazarbojanic_mihailodordevic\src\main\resources\savedTemplates\defaultMindMapTemplate.json]
+
+Event type: [NOTIFICATION]
+Timestamp: [2022-12-26 20:46:31.505]
+Text: [Successfully saved Project 1
+to C:\Users\Micko\Desktop\Projects\gerumap-tim_lazarbojanic_mihailodordevic\src\main\resources\savedProjects\defaultProject.json]
 

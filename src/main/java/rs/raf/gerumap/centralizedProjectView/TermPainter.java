@@ -3,6 +3,7 @@ package rs.raf.gerumap.centralizedProjectView;
 import rs.raf.gerumap.centralizedProjectView.elementViewing.ElementPainter;
 import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.model.repository.composite.MapNode;
+import rs.raf.gerumap.model.repository.implementation.Link;
 import rs.raf.gerumap.model.repository.implementation.Term;
 import rs.raf.gerumap.observer.ISubscriber;
 import rs.raf.gerumap.observer.NotificationType;
@@ -17,7 +18,7 @@ public class TermPainter extends ElementPainter implements ISubscriber {
 
     public TermPainter(MapNode model) {
         super(model);
-        model.getSubscribers().add(this);
+        model.addSubscriber(this);
     }
 
     @Override
@@ -63,14 +64,17 @@ public class TermPainter extends ElementPainter implements ISubscriber {
 
     @Override
     public void update(Object notification, NotificationType notificationType) {
+
         switch (notificationType){
             case NAME_CHANGE, REPAINT -> SwingUtilities.updateComponentTreeUI(MainFrame.getInstance().getCurrentProjectView().getSelectedComponent());
 
             case DELETE -> getModel().getParent().notifySubscribers(notification, NotificationType.DELETE);
 
             case ADD -> {
-                MindMapView mindMapView = ((MindMapView) ((JScrollPane) MainFrame.getInstance().getCurrentProjectView().getSelectedComponent()).getViewport().getView());
-                mindMapView.getElementPainters().add(0, new LinkPainter((MapNode) notification));
+                if (this.getModel() == ((Link) notification).getSourceTerm()) {   //add this link to painter only if it has the same source term as this term painter
+                    MindMapView mindMapView = ((MindMapView) ((JScrollPane) MainFrame.getInstance().getCurrentProjectView().getSelectedComponent()).getViewport().getView());
+                    mindMapView.getElementPainters().add(0, new LinkPainter((MapNode) notification));
+                }
             }
         }
 

@@ -16,6 +16,7 @@ public class Project extends MapNodeComposite {
 
     private String author = "Author not specified";
     private Path resourcesPath;
+    private transient boolean hasBeenDisplayed = false;
 
     public Project(String name, MapNode parent, String author, Path resourcesPath) {
         super(name, parent);

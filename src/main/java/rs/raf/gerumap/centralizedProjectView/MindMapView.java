@@ -10,6 +10,7 @@ import rs.raf.gerumap.globalView.frame.MainFrame;
 import rs.raf.gerumap.globalView.menu.ContextMenu;
 import rs.raf.gerumap.model.repository.composite.MapNode;
 import rs.raf.gerumap.model.repository.composite.MapNodeComposite;
+import rs.raf.gerumap.model.repository.implementation.Link;
 import rs.raf.gerumap.model.repository.implementation.MindMap;
 import rs.raf.gerumap.model.repository.implementation.Term;
 import rs.raf.gerumap.observer.ISubscriber;
@@ -37,12 +38,16 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
     private Rectangle2D lassoRectangle;
 
     public MindMapView(MindMap mindMap) {
+
         setComponentPopupMenu(new ContextMenu());
+
         this.mindMap = mindMap;
+
         elementPainters = new LinkedList<>();
         selectionModel = new SelectionModel();
         affineTransform = new AffineTransform();
         affineTransform.scale(getMindMap().getSavedZoom(), getMindMap().getSavedZoom());
+
         mindMap.addSubscriber(this);
 
         setBackground(new Color(mindMap.getBackgroundColor()));
@@ -58,13 +63,18 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
     private void addPaintersFromModel(){
 
         for (MapNode mapNode : getMindMap().getChildren()){
-            if (mapNode instanceof Term){
-                TermPainter termPainter = new TermPainter(mapNode);
-                getElementPainters().add(termPainter);
-            }
-            for (MapNode mapNode1 : ((MapNodeComposite) mapNode).getChildren()){
-                LinkPainter linkPainter = new LinkPainter(mapNode1);
-                getElementPainters().add(0, linkPainter);
+
+            TermPainter termPainter = new TermPainter(mapNode);
+            getElementPainters().add(termPainter);
+
+            for (MapNode link : ((MapNodeComposite) mapNode).getChildren()){
+
+                if (((Link) link).getSourceTerm() == mapNode) {
+
+                    LinkPainter linkPainter = new LinkPainter(link);
+                    getElementPainters().add(0, linkPainter);
+
+                }
             }
         }
 
@@ -150,7 +160,7 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
                 for (ElementPainter elementPainter : elementPainters){
                     if (elementPainter.getModel() == notification) {
                         elementPainters.remove(elementPainter);
-                        elementPainter.getModel().getSubscribers().remove(elementPainter);
+                        elementPainter.getModel().removeSubscriber(elementPainter);
                         break;
                     }
                 }
@@ -161,7 +171,10 @@ public class MindMapView extends JPanel implements ISubscriber, AdjustmentListen
                 getElementPainters().add((termPainter));
 
                 for (MapNode mapNode : ((Term) notification).getChildren()){
-                    this.getElementPainters().add(0, new LinkPainter(mapNode));
+
+                    if (notification == ((Link) mapNode).getSourceTerm()) {
+                        this.getElementPainters().add(0, new LinkPainter(mapNode));
+                    }
                 }
             }
 
